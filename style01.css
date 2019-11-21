@@ -1,34 +1,70 @@
-:root{
-	
+	:root {
 	--text-color: #FFFFFF;
 	--main-bg-color: #440000;
 	--border-color: #440000;
 	--border-type: inset;
-	--border-size: 10px;
-}
+	--border-size: 1vw;
+	}
 
 
-a  {
-	color: #8080FF;
+	a: {
+	color: #AAAAFF;
 	text-decoration: none;
-  }
+	}
 
 
-
-
-body  {
+	body {
 	background-color: var(--main-bg-color);
 	color:#FFFFFF;  font-family:courier;
 	text-align: center;
-	border: var(--border-size) var(--border-type) var(--border-color);		
-  }
-
-
-<!--
-pre  {
 	border: var(--border-size) var(--border-type) var(--border-color);
-  }
--->
+	padding: 0px;
+	margin: 1vw;	
+	}
+
+
+	button.edit {
+	background-color: var(--background-color);
+	border: 1px double var(--background-color);
+	color: #808080;
+	float: right;
+	}
+
+
+	div.bg {
+	background-color: #FFFFFF;
+	color: #000000;
+	margin: 0px;
+	padding: 1vw;
+	
+		pre {
+		border: 1px double #DDDDDD;
+		}
+	}
+
+
+	div.edit {
+	background-color: #444444;
+	float: left;
+	width: 3%;
+	border: 5px outset #444444;
+	padding: 0px;
+	margin: 1vw ;
+	}
+
+
+	nav {
+	text-align: center;
+	border: 0.5vw solid #000000;
+	padding: 1vw;
+	margin: 3vw 10vw;
+	}
+
+
+	pre {
+	border: var(--border-size) var(--border-type) var(--border-color);
+	}
+
 
 <!--
 -->
