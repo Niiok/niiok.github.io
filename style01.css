@@ -66,5 +66,8 @@
 	}
 
 
+	table{
+	border: 0.5vw var(--border-type) var(--border-color);
+	}
 <!--
 -->
