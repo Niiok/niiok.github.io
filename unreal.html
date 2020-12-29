@@ -8,6 +8,7 @@
 		code	{font-size: 150%; }
 		p code	{font-size: 100%; }
 		table	{border: 0; border-collapse: initial}
+		ol		{margin-left: 0; padding-left: 1.7em ; padding-right:1em; background-color: rgba(0,0,0,0.05);}
 		</style>
 	</head>
 
@@ -22,39 +23,54 @@
 		<hr><!---------->
 		
 		<nav>
-			<ol><a href="#unreal">Unreal</a></ol>
-			<ol><a href="#actor">Actor</a></ol>
+			<ol>
+			<li><a href="#unreal">Unreal</a></li>
+			<li><a href="#actor">Actor</a></li>
+			</ol>
 		</nav>
 
-		<hr><!---------->
+		<ol>
+			<hr><!---------->
+			<li><h1 id="unreal">Unreal</h1> </li>
+			<!--
+			Build system, Module system, Runtime, Object declare and manage, Useful Cpp features
+			World, Actor, Level, Player, Gamemode, support feeatures
+			-->
+	
+			<hr><!---------->
 
-		<h1 id="unreal">Unreal</h1> 
-		<!--
-		Build system, Module system, Runtime, Object declare and manage, Useful Cpp features
-		World, Actor, Level, Player, Gamemode, support feeatures
-		-->
+			<ol>
+				<li><h2>Project structure</h2></li>
+				<table style="magin: auto; text-align: left; padding: 0">
+				<tr><td><code>Config</code></td><td> : project setting values. NEEDED-do not remove</td></tr>
+				<tr><td><code>Content</code></td><td> : asset storage. NEEDED-do not remove</td></tr>
+				<tr><td><code>Intermediate</code></td><td> : intermediate files. Recovered after remove</td></tr>
+				<tr><td><code>Saved</code></td><td> : save files, screenshots and etc. Not recovered after remove</td></tr>
+				<tr><td colspan="2" style="text-align:center; "><br><i style="color: #BB4444">in Cpp project,</i></td></tr>
+				<tr><td><code>Binaries</code></td><td> : binary files created after compile. Recovered after remove</td></tr>
+				<tr><td><code>Source</code></td><td> : source files. NEEDED-do not remove</td></tr>
+				</table>
 
-		<hr><!---------->
+				<hr><!---------->
 
-		<h2>Project structure</h2>
-		<table style="magin: auto; text-align: left; padding: 0">
-		<tr><td><code>Config</code></td><td> : project setting values. NEEDED-do not remove</td></tr>
-		<tr><td><code>Content</code></td><td> : asset storage. NEEDED-do not remove</td></tr>
-		<tr><td><code>Intermediate</code></td><td> : intermediate files. Recovered after remove</td></tr>
-		<tr><td><code>Saved</code></td><td> : save files, screenshots and etc. Not recovered after remove</td></tr>
-		</table>
+			</ol>
+			
+			<li><h1 id="actor">Actor</h1></li>
+			<p>Actors are objects in level that consist game.<br>every actors inherit AActor.</p>
 
-		<hr><!---------->
+			<hr><!---------->
 
-		<h1 id="actor">Actor</h1>
-		<h2>Component</h2>
-		<table>
-			<tr><th>yea</th></tr>
-			<tr><td>yea</td></tr>
-		</table>
+			<ol>
+				<li><h2>Component</h2></li>
+				<table>
+				<tr><th>yea</th></tr>
+				<tr><td>yea</td></tr>
+				</table>
+			</ol>
+		</ol>
 
 		</div>
-		<a href="https://github.com/Niiok/niiok.github.com/edit/master/index.html" target="_blank">
+		<a href="https://github.com/Niiok/niiok.github.com/edit/master/unreal.html" target="_blank">
 			<button class="edit">e</button>
 		</a>
 	</body>
