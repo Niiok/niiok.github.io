@@ -15,7 +15,7 @@
 
 	body {
 	background-color: var(--main-bg-color);
-	color:#FFFFFF;  font-family:courier;
+	color:#FFFFFF;  font-family:initial<!--courier-->;
 	text-align: center;
 	border: var(--border-size) var(--border-type) var(--border-color);
 	padding: 0px;
