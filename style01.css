@@ -3,8 +3,10 @@
 	--main-bg-color: #440000;
 	--border-color: #440000;
 	--border-type: inset;
-	--border-size: 1vw;
+	--border-size: 0.5vw;
 	}
+
+	html  {font-size: 62.5%;}
 
 
 	a: {
