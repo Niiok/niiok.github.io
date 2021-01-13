@@ -77,7 +77,7 @@
 	}
 
 	ol.div  {
-		padding: 1rem;  background-color: rgba(0,0,0,0.05); border-top: solid; border-bottom: solid;
+		padding: 0.5rem;  background-color: rgba(0,0,0,0.05); border-top: solid; border-bottom: solid; margin-top: 2rem;
 	}
 
 	ol.div > li  {
