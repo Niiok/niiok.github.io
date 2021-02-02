@@ -1,3 +1,5 @@
 
 url: "http://niiok.github.io"
 markdown: kramdown
+
+theme: jekyll-theme-minimal
