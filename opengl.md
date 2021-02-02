@@ -1,33 +1,20 @@
 # OpenGL
 
-check
+- [Function](#function)
+- [Shader](#shader)
+  - [Vertex shader](#vertex-shader)
+
+
+Function
 ======
+- **void** glClearBufferfv (**GLenum**, buffer, **GLint** drawBuffer, **const GLfloat**\* value)
+>clear *buffer* of *drawBuffer* with *value*
+<!-- >*drawBuffer*의 *buffer*를 *value*로 지운다.  -->
 
-1. List
-   1. list
-   2. list
-   3. list
 
-# 1
-## 2
-### 3
-#### 4
-##### 5
-###### 6
-
-# 1
-
-# 1 
-# 1  
-# 1   
-# 1    
-# 1		
-	# 1
-	# 1
- # 1
-# 1
-
-# 1
-	# 1
-
-# 1
+Shader
+=====
+Vertex Shader
+----------------
+- gl_Posiotion
+>represents transform of vertex
