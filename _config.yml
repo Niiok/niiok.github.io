@@ -2,7 +2,7 @@
 url: "http://niiok.github.io"
 markdown: kramdown
 
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
 
 plugins:
   - jekyll-relative-links
