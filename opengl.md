@@ -8,24 +8,24 @@
 Function
 ======
 
-- **void** glClearBufferfv (**GLenum**, buffer, **GLint** drawBuffer, **const GLfloat**\* value)
+- **void** glClearBufferfv (**GLenum**, buffer, **GLint** drawBuffer, **const GLfloat**\* value);
 >clear *buffer* of *drawBuffer* with *value*
 <!-- >*drawBuffer*의 *buffer*를 *value*로 지운다.  -->
 
-- **GLuint** glCreateShader(**GLenum** type)
+- **GLuint** glCreateShader (**GLenum** type);
 >create *type* of shader(structure that manage shader code compile and linking it) and return *GLuint* as identifier.
 
-- glShaderSource
+- **void** glShaderSource (**GLuint** shader, **GLsizei** count, **const GLchar\* const \***string, **const GLint \***length);
 
-- glCompileSouce
+- **void** glCompileShader (**GLuint** shader);
 
-- glCreateSource
+- **GLuint** glCreateSource (**void**);
 
-- glAttachShader
+- **void** glAttachShader (**GLuint** program, **GLuint** shader);
 
-- glLinkProgram
+- **void** glLinkProgram (**GLuint** program);
 
-- glDeleteShader
+- **void** glDeleteShader (**GLuint** shader);
 
 
 Shader
