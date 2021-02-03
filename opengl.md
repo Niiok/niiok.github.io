@@ -9,12 +9,12 @@ Function
 ======
 ### Buffer
 - **void** glClearBufferfv (**GLenum**, buffer, **GLint** drawBuffer, **const GLfloat**\* value);
->clear *buffer* of *drawBuffer* with *value*
+>clear ***buffer*** of ***drawBuffer*** with ***value***
 <!-- >*drawBuffer*의 *buffer*를 *value*로 지운다.  -->
 
 ### Shader & Program
 - **GLuint** glCreateShader (**GLenum** type);
->create *type* of shader(structure that manage shader code compile and linking it) and return *GLuint* as identifier.
+>create ***type*** of shader(structure that manage shader code compile and linking it) and return ***GLuint*** as identifier.
 
 - **void** glShaderSource (**GLuint** shader, **GLsizei** count, **const GLchar\* const \***string, **const GLint \***length);
 
@@ -39,11 +39,11 @@ Function
 - glUseProgram ();
 
 - **void** glDrawArrays (**GLenum** mode, **GLint** first, **GLsizei** count);
->send vertexes to pipeline. started from *first*, *count* of vertexes with premitive *mode*
+>send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***
 >mode list: GL_POINTS, GL_TRIANGLES, GL_STRIPES, GL_LINES ...
 
 - **void** glPointSize (**GLfloat** size);
->change point pixel size
+>change point pixel size into ***size***
 -->
 
 Shader
