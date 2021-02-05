@@ -9,7 +9,9 @@ Function
 ======
 
 ### Buffer
-- **void** glClearBufferfv (**GLenum**, buffer, **GLint** drawBuffer, **const GLfloat**\* value);
+~~~ C
+void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
+~~~
 >clear ***buffer*** of ***drawBuffer*** with ***value***
 <!-- >*drawBuffer*의 *buffer*를 *value*로 지운다.  -->
 
@@ -66,3 +68,11 @@ Shader
 
 - gl_Position
 >represents transform of vertex
+
+
+
+
+
+<!--
+- **void** glClearBufferfv (**GLenum** buffer, **GLint** drawBuffer, **const GLfloat**\* value);
+-->
