@@ -8,12 +8,16 @@
 Function
 ======
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 ### Buffer
 ~~~ C
 void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 ~~~
 >clear ***buffer*** of ***drawBuffer*** with ***value***
 <!-- >*drawBuffer*의 *buffer*를 *value*로 지운다.  -->
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Shader & Program
 - **GLuint** glCreateShader (**GLenum** type);
@@ -40,6 +44,8 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 - **void** glDeleteProgram (**GLuint** program);
 >as-is name
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 ### Vertex Array
 - **void** glGenVertexArrays (**GLsizei** n, **GLuint \***arrays);
 >Generate ***n*** number of VAO(Vertex Array Object)s in ***arrays***.    
@@ -52,6 +58,8 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 >send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***    
 >mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, ...
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 <!-- ### not done
 - glUseProgram ();
 
@@ -60,9 +68,13 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 >change point pixel size into ***size***
 -->
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 
 Shader Built-in variable
 =====
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Vertex Shader
 
