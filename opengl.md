@@ -40,15 +40,15 @@ Function
 
 ### Vertex Array
 - **void** glGenVertexArrays (**GLsizei** n, **GLuint \***arrays);
->Generate ***n*** number of VAO(Vertex Array Object)s in ***arrays***.
+>Generate ***n*** number of VAO(Vertex Array Object)s in ***arrays***.    
 >since this function access GLuint as array, it requires ***arrays***' address as parameter.
 
 - **void** glBindVertexArray (**GLuint** array);
 >bind ***array***(VAO) to current context.
 
 - **void** glDrawArrays (**GLenum** mode, **GLint** first, **GLsizei** count);
->send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***
->mode list: GL_POINTS, GL_TRIANGLES, GL_STRIPES, GL_LINES ...
+>send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***    
+>mode example: GL_POINTS, GL_TRIANGLES, GL_STRIPES, GL_LINES ...
 
 <!-- ### not done
 - glUseProgram ();
