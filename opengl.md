@@ -1,7 +1,7 @@
 # OpenGL
 
 - [Function](#function)
-- [Shader](#shader)
+- [Shader Built-in variable](#shader-built-in-variable)
   - [Vertex shader](#vertex-shader)
 
 
@@ -25,7 +25,7 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 - **void** glCompileShader (**GLuint** shader);
 >as-is name
 
-- **GLuint** glCreateSource (**void**);
+- **GLuint** glCreateProgram (**void**);
 >as-is name
 
 - **void** glAttachShader (**GLuint** program, **GLuint** shader);
@@ -50,7 +50,7 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 
 - **void** glDrawArrays (**GLenum** mode, **GLint** first, **GLsizei** count);
 >send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***    
->mode example: GL_POINTS, GL_TRIANGLES, GL_STRIPES, GL_LINES ...
+>mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, ...
 
 <!-- ### not done
 - glUseProgram ();
@@ -61,7 +61,7 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 -->
 
 
-Shader
+Shader Built-in variable
 =====
 
 ## Vertex Shader
@@ -69,6 +69,9 @@ Shader
 - gl_Position
 >represents transform of vertex
 
+- gl_VertexID
+>specify id used in vertex shader    
+>Ex: glDrawArrays) started from ***first*** , ***count*** number of vertex
 
 
 
