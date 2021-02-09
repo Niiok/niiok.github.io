@@ -82,6 +82,12 @@ void glPatchParameteri (GLenum pname, GLint value);
 > tname example: GL_PATCH_VETICES
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+### Geometry Shader manage
+
+
+
+
 
 <!-- ### not done
 - glUseProgram ();
@@ -90,8 +96,16 @@ void glPatchParameteri (GLenum pname, GLint value);
 - **void** glPointSize (**GLfloat** size);
 >change point pixel size into ***size***
 
-~~~ c
+~~~ C
 void glPolygonMode (GLenum face, GLenum mode);
+~~~
+
+~~~ C
+void glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
+~~~
+
+~~~ C
+void glDepthRange (GLdouble nearVal, GLdouble farVal);
 ~~~
 
 -->
@@ -130,8 +144,22 @@ Shader Built-in variable
 
 
 
-gl_TessCoord
+- gl_TessCoord
+>barycentric coodinate of vertex
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+~~~ C
+EmitVertex()
+~~~
+>make vertex with gl_Position of geometry shader
+
+~~~ C
+EndPrimitive()
+~~~
+>automatically called when geometry shader end
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## ???
