@@ -108,6 +108,23 @@ void glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
 void glDepthRange (GLdouble nearVal, GLdouble farVal);
 ~~~
 
+~~~ C
+glFrontFace()
+~~~
+>Gets winding order and set ***dir*** order primitive as front face of culling process.    
+>dir : GL_CW(clockwise), GL_CCW(counterclockwise)    
+>default front face when glFrontFace was never called is GL_CCW.
+
+~~~ C
+glEnable
+~~~
+>cap :     GL_CULL_FACE : enable culling
+
+~~~ C
+glCullFace()
+~~~
+>choose which faces to cull.  ex) GL_FRONT, GL_BACK, GL_FRONT_AND_BACK
+
 -->
 
 
