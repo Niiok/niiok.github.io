@@ -10,72 +10,125 @@
 Function
 ================================================================
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-### Buffer
+## Buffer
 
 
+- glClearBuffer
 ~~~ C
 void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 ~~~
->clear ***buffer*** of ***drawBuffer*** with ***value***
-<!-- >*drawBuffer*의 *buffer*를 *value*로 지운다.  -->
+>clear _`buffer`_ of _`drawBuffer`_ with _`value`_
+<!-- >_drawBuffer_의 _buffer_를 _value_로 지운다.  -->
+
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-### Shader & Program
+## Shader & Program object manage
 
 
-- **GLuint** glCreateShader (**GLenum** type);
->create ***type*** of shader(structure that manage shader code compile and linking it) and return ***GLuint*** as identifier.
+- glCreateShader
+~~~ C
+GLuint glCreateShader (GLenum type);
+~~~
+>create _`type`_ of shader(structure that manage shader code compile and linking it) and return _`GLuint`_ as identifier.
 
-- **void** glShaderSource (**GLuint** shader, **GLsizei** count, **const GLchar\* const \***string, **const GLint \***length);
+
+- glShaderSource
+~~~ C
+void glShaderSource (GLuint shader, GLsizei count, const GLchar* const *string, const GLint *length);
+~~~
 >will add more explains
 
-- **void** glCompileShader (**GLuint** shader);
+
+- glCompileShader
+~~~ C
+void glCompileShader (GLuint shader);
+~~~
+> Compile _`shader`_ type sader.
+
+
+- glCreateProgram
+~~~ C
+GLuint glCreateProgram (void);
+~~~
+>create a program object and return it.
+
+
+- glAttachShader
+~~~ C
+void glAttachShader (GLuint program, GLuint shader);
+~~~
+>attach _`shader`_ to _`program`_
+
+
+- glLinkProgram
+~~~ C
+void glLinkProgram (GLuint program);
+~~~
 >as-is name
 
-- **GLuint** glCreateProgram (**void**);
+
+- glDeleteShader
+~~~ C
+void glDeleteShader (GLuint shader);
+~~~
 >as-is name
 
-- **void** glAttachShader (**GLuint** program, **GLuint** shader);
+
+- glDeleteProgram
+~~~ C
+void glDeleteProgram (GLuint program);
+~~~
 >as-is name
 
-- **void** glLinkProgram (**GLuint** program);
->as-is name
-
-- **void** glDeleteShader (**GLuint** shader);
->as-is name
-
-- **void** glDeleteProgram (**GLuint** program);
->as-is name
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-### Vertex Shader manage
+## Vertex Shader manage
 
 
 #### Vertex Array
-- **void** glGenVertexArrays (**GLsizei** n, **GLuint \***arrays);
->Generate ***n*** number of VAO(Vertex Array Object)s in ***arrays***.    
->since this function access GLuint as array, it requires ***arrays***' address as parameter.
 
-- **void** glBindVertexArray (**GLuint** array);
->bind ***array***(VAO) to current context.
+- glGenVertexArrays
+~~~ C
+void glGenVertexArrays (GLsizei n, GLuint *arrays);
+~~~
+>Generate _`n`_ number of VAO(Vertex Array Object)s in _`arrays`_.    
+>since this function access GLuint as array, it requires _`arrays`_' address as parameter.
+
+
+- glBindVertexArray
+~~~ C
+void glBindVertexArray (GLuint array);
+~~~
+>bind _`array`_(VAO) to current context.
+
 
 
 #### ood
-- **void** glDrawArrays (**GLenum** mode, **GLint** first, **GLsizei** count);
->send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***    
+
+- glDrawArrays
+~~~ C
+void glDrawArrays (GLenum mode, GLint first, GLsizei count);
+~~~
+>send vertexes to pipeline. started from _`first`_, _`count`_ of vertexes with premitive _`mode`_    
 >mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_PATCHES, ...
 
+
+- glVertexAttrib
 ~~~ C
 void glVertexAttrib4fv(GLuint index, const GLfloat *v);
 ~~~
->4fv means 4 float vector
+>set 4fv of vertex attribute to layout(loaction = _`index`_).    
+>4fv means 4 float vector(array)
+
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-### Tessellation Shader manage
+## Tessellation Shader manage
 
 
+- glPatchParameteri
 ~~~ C
 void glPatchParameteri (GLenum pname, GLint value);
 ~~~
@@ -83,18 +136,18 @@ void glPatchParameteri (GLenum pname, GLint value);
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-### Geometry Shader manage
+## Geometry Shader manage
 
 
 
 
 
-<!-- ### not done
+<!-- ## not done
 - glUseProgram ();
 
 
-- **void** glPointSize (**GLfloat** size);
->change point pixel size into ***size***
+- void glPointSize (GLfloat size);
+>change point pixel size into _`size`_
 
 ~~~ C
 void glPolygonMode (GLenum face, GLenum mode);
@@ -111,7 +164,7 @@ void glDepthRange (GLdouble nearVal, GLdouble farVal);
 ~~~ C
 glFrontFace()
 ~~~
->Gets winding order and set ***dir*** order primitive as front face of culling process.    
+>Gets winding order and set _`dir`_ order primitive as front face of culling process.    
 >dir : GL_CW(clockwise), GL_CCW(counterclockwise)    
 >default front face when glFrontFace was never called is GL_CCW.
 
@@ -142,7 +195,7 @@ Shader Built-in variable
 
 - gl_VertexID
 >specify id used in vertex shader    
->(in) Ex: glDrawArrays) started from ***first*** , ***count*** number of vertex
+>(in) Ex: glDrawArrays) started from _`first`_ , _`count`_ number of vertex
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 <!--## Tesselation Control Shader-->
@@ -162,7 +215,7 @@ Shader Built-in variable
 
 
 - gl_TessCoord
->barycentric coodinate of vertex
+>(in)barycentric coodinate of vertex
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -179,21 +232,17 @@ EndPrimitive()
 >automatically called when geometry shader end
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-## Fragment Shader
+<!--## Fragment Shader-->
 
 
 - gl_FragCoord
+>(in)coordinate of fragment to manipulate
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-## ???
+## General
 
 
 - gl_in
 - gl_out
 >not simple variable, but array
-
-
-<!--
-- **void** glClearBufferfv (**GLenum** buffer, **GLint** drawBuffer, **const GLfloat**\* value);
--->
