@@ -64,7 +64,7 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 #### ood
 - **void** glDrawArrays (**GLenum** mode, **GLint** first, **GLsizei** count);
 >send vertexes to pipeline. started from ***first***, ***count*** of vertexes with premitive ***mode***    
->mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, ...
+>mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_PATCHES, ...
 
 ~~~ C
 void glVertexAttrib4fv(GLuint index, const GLfloat *v);
@@ -177,6 +177,13 @@ EmitVertex()
 EndPrimitive()
 ~~~
 >automatically called when geometry shader end
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## Fragment Shader
+
+
+- gl_FragCoord
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## ???
