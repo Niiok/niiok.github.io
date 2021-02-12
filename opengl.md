@@ -7,6 +7,15 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
+
+
+
+
+
+
+
+
+
 Function
 ================================================================
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -180,8 +189,15 @@ glCullFace()
 
 -->
 
-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+
+
+
+
 
 
 Shader Built-in variable
@@ -204,7 +220,7 @@ Shader Built-in variable
 - gl_InvocationID
 >(in) used fo 0-based index of gl_in, gl_out
 
-- gl_TessLeevelInner
+- gl_TessLevelInner
 - gl_TessLevelOuter
 >(out) Tessellation factor variable array    
 >contain tessellation level
@@ -246,3 +262,38 @@ EndPrimitive()
 - gl_in
 - gl_out
 >not simple variable, but array
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## layout
+
+- Vertex
+	layout (location = 0) in vec4 variablename
+
+- Tesselation Control
+	layout (vertices = 3) out
+
+- Tesselation Evaluation
+	layout (triangles, equal_spacing, cw) in
+
+- Geometry
+	layout (triangles) in    
+	layout (points, max_vertices = 3) out
+
+- Fragment
+
+- Compute
+	layout (local_size_x = 32, local_size_y = 32) in
+
+
+
+
+
+
+
+Fixed Block
+================================================================
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## Pixel Operations
+	scissor test => stencil test => depth test => 
+
