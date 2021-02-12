@@ -268,23 +268,28 @@ EndPrimitive()
 ## layout
 
 - Vertex
-	layout (location = 0) in vec4 variablename
-
+	layout (location = 0) in vec4 variablename;    
+	//location used as attribute index 
+   
 - Tesselation Control
-	layout (vertices = 3) out
-
+	layout (vertices = 3) out;    
+	//output control point(vertices) per patch 
+   
 - Tesselation Evaluation
-	layout (triangles, equal_spacing, cw) in
-
+	layout (triangles, equal_spacing, cw) in;    
+	//setting for tessellation mode
+   
 - Geometry
-	layout (triangles) in    
-	layout (points, max_vertices = 3) out
-
+	layout (triangles) in;    
+	layout (points, max_vertices = 3) out;    
+	//get input as triangle and divide them into points
+   
 - Fragment
-
+   
 - Compute
-	layout (local_size_x = 32, local_size_y = 32) in
-
+	layout (local_size_x = 32, local_size_y = 32) in;    
+	//local workgroup szie is 32*32
+   
 
 
 
