@@ -291,6 +291,19 @@ EndPrimitive()
 	//local workgroup szie is 32*32
    
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## extension
+
+
+	#extension GL_extension_feature_en : enable  //enable feature both device support it or not    
+	#extension GL_extension_feature_re : required  //if this extensio is not replaceable, use required for assertive code    
+	    
+	#if GL_extension_feature_en    
+	//extension's name will be defined with macro so you can manage code    
+	#else    
+	//alternative codes if extension doesn't supported    
+	#endif
+
 
 
 
