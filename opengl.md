@@ -316,12 +316,25 @@ Fixed Block
 	scissor test => stencil test => depth test => 
 
 
+
 ## Coordinate space
 
-- Model (Object?)
-- World
-- View
-- Clip
-- Normalized device coordinate
-- Window
+- Model space (=object space)    
+local origin following coordinate space
+
+- World space    
+global origin following coordinate space
+
+- View space (=camera, =eye space)    
+relative coordinate space to viewer
+
+- Clip space    
+coordniate space after projection on homogeneous coordinate
+
+- Normalized device coordinate(NDC) space    
+coordinate space after dividing clip space with w component
+
+- Window space    
+window origin following coordinate space
+
 
