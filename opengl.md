@@ -264,6 +264,14 @@ EndPrimitive()
 >not simple variable, but array
 
 
+- mix
+~~~ C
+vec4 mix (vec4 A, vec4 B, float t);
+~~~
+linear interpolation.    
+has sevelar verstions take different dimensional vectors or scalars as _`A`_ and _`B`_,    
+_`t`_ has many cases just like _`A`_ and _`B`_.
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## layout
 
@@ -332,9 +340,14 @@ relative coordinate space to viewer
 coordniate space after projection on homogeneous coordinate
 
 - Normalized device coordinate(NDC) space    
-coordinate space after dividing clip space with w component
+coordinate space after dividing clip space by w component
 
 - Window space    
 window origin following coordinate space
-
+    
+    
+## Transform
+- View - Clip Transform     
+can be performed by projection matrix : orthographic, perspective, etc...    
+occurs after Model - View Transform.
 
