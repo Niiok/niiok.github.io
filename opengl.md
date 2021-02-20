@@ -270,7 +270,7 @@ vec4 mix (vec4 A, vec4 B, float t);
 ~~~
 linear interpolation.    
 has sevelar verstions take different dimensional vectors or scalars as _`A`_ and _`B`_,    
-_`t`_ has many cases just like _`A`_ and _`B`_.
+_`t`_ shows iterpolating parameter represented by scalar or matching vector.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## layout
