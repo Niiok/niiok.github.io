@@ -264,6 +264,25 @@ EndPrimitive()
 >not simple variable, but array
 
 
+
+
+- floor
+~~~ C
+float floor (float f);
+~~~
+floor function in glsl.    
+i.e. return integer part of _`f`_.    
+_`trunc`_ funtion is used in absolute value's case.
+
+
+- fract
+~~~ C
+float fract (float f);
+~~~
+return fractional part of _`f`_.
+
+
+
 - mix
 ~~~ C
 vec4 mix (vec4 A, vec4 B, float t);
@@ -271,6 +290,11 @@ vec4 mix (vec4 A, vec4 B, float t);
 linear interpolation.    
 has sevelar verstions take different dimensional vectors or scalars as _`A`_ and _`B`_,    
 _`t`_ shows iterpolating parameter represented by scalar or matching vector.
+
+
+
+
+
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## layout
