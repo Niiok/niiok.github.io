@@ -9,7 +9,8 @@ Data type
 - can _bind_ into context's _buffer binding point_ with buffer's name.
 - _binding point_ can be refered as _target_ in most cases. (but target may have multiple binging point)
     
-
+    
+- glBufferData()
 ~~~ C
 void glBufferData (GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage);
 ~~~
