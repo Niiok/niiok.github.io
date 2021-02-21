@@ -56,12 +56,7 @@ create 'data store'(memory) for current buffer object of _`target`_.
     - **GL_ELEMENT_ARRAY_BUFFER**
     - **GL_PIXEL_PACK_BUFFER**
     - **GL_PIXEL_UNPACK_BUFFER**
-    
-_`size`_ is size of data store.    
-    
-_`data`_ is pointer indicating where data storage copy initial data from.    
- can be setted as NULL and data store won't be initalized.    
-    
+
   - _`usage`_ enum list
     - **GL_STREAM_DRAW**  	: modified once by application, accessed rarely, used for drawing and imaging.
     - **GL_STREAM_READ** 	 	: modified once by GL reading, accessed rarely, used for returning data for queries of application.
@@ -72,6 +67,13 @@ _`data`_ is pointer indicating where data storage copy initial data from.
     - **GL_DYNAMIC_DRAW**  	: modified multiple time by GL application, accessed often, used for drawing and imaging.
     - **GL_DYNAMIC_READ**  	: modified multiple time by GL reading, accessed often, used for returning data for queries of application.
     - **GL_DYNAMIC_COPY**  	: modified multiple time by GL reading, accessed often, used for drawing and imaging.
+    
+_`size`_ is size of data store.    
+    
+_`data`_ is pointer indicating where data storage copy initial data from.    
+ can be setted as NULL and data store won't be initalized.    
+    
+
 
 
 <!---------------------------------------------------------------------------------------------------------------->
