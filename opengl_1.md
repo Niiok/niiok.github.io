@@ -96,6 +96,36 @@ _`data`_ is pointer for data to insert in buffer
 <!---------------------------------------------------------------------------------------------------------------->
 
 
+- glClearBufferSubData()
+~~~ C
+void glClearBufferSubData (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void * data);
+~~~
+  - _`format`_ enum list
+    - **GL_RED**	: 1 channel
+    - **GL_RG**	: 2 channel
+    - **GL_RGB**	: 3 channel
+    - **GL_RGBA**	: 4 channel
+
+  - _`type`_ basic types
+    - **GL_BYTE**			: GLchar
+    - **GL_UNSIGNED_BYTE**		: GLuchar
+    - **GL_SHORT**			: GLshort
+    - **GL_UNSIGNED_SHORT**	: GLushort
+    - **GL_INT**			: GLint
+    - **GL_UNSINGED_INT**		: GLuint
+    - **GL_FLOAT**			: GLfloat
+    - **GL_DOUBLE.**		: GLdouble
+
+_`target`_ is buffer to clear with constant value    
+_`internalformat`_ is specific format to convert    
+_`offset`_ is offset byte to start clear    
+_`size`_ is bytes to continue clear    
+_`format`_ and _`type`_ are method to adjust data in _`data`_
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+
 - glGenBuffers()
 ~~~ C
 void glGenBuffers (GLsizei n, GLuint * buffers);
@@ -114,16 +144,15 @@ _`buffers`_ is array of GLuint buffer names will be allocated
 ~~~ C
 void* glMapBuffer (GLenum target, GLenum access);
 ~~~
-
-map data store of _`target`_ buffer object into client's address space and return its void* pointer address.
-    
-_`target`_ enum list is same with glBindBuffer.
-    
   - _`access`_ enum list
     - **GL_READ_ONLY**	: returned pointer will be used for reading buffer object's data
     - **GL_WRITE_ONLY**	: returned pointer will be used for writing buffer object's data
     - **GL_READ_WRITE**	: returned pointer will be used for both reading and writing
 
+map data store of _`target`_ buffer object into client's address space and return its void* pointer address.
+    
+_`target`_ enum list is same with glBindBuffer.
+    
 using returned pointer address for GL function parameter is nonstandard. it may occur unexpected result.
     
 can unmap with `glUnmapBuffer (_target_);`.
