@@ -375,3 +375,20 @@ window origin following coordinate space
 can be performed by projection matrix : orthographic, perspective, etc...    
 occurs after Model - View Transform.
 
+
+
+
+
+
+
+
+
+
+
+
+
+================================================================
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
