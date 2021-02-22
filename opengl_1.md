@@ -126,6 +126,17 @@ _`format`_ and _`type`_ are method to adjust data in _`data`_
 <!---------------------------------------------------------------------------------------------------------------->
 
 
+- glCopyBufferSubData()
+~~~ C
+vod glCopyBufferSubData (GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size);
+~~~
+this function use buffer binding points_`readtarget, writetarget`_. and this way of copying has unwanted sideeffects sometime.     
+so **GL_COPY_READ_BUFFER** and **GL_COPY_WRITE_BUFFER** are provided for dedicated binding point.
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+
 - glGenBuffers()
 ~~~ C
 void glGenBuffers (GLsizei n, GLuint * buffers);
