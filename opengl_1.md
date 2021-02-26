@@ -207,8 +207,28 @@ void glEnableVertexAttribArray (GLuint index);
 void glDisableVertexAttribArray (GLuint index);
 ~~~
 
+> if vertex attrib array is disabled, vertex attributes will be modified with glVertexAttrib*() funcionts.    
+> if vertex attrib array is abled, vertex attributes will be binded with glVertexAttribPointer() funtion.
 
 
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+- glGetAttribLocation()
+~~~ C
+GLint glGetAttribLocation (GLuint program, const GLchar * name);
+~~~
+> if your put program that owning vertex shader in _`program`_ and    
+> name of vertex attribute's name(identifier) in _`name`_,    
+> it will return _`name`_'s location number.        
+> if there no attribute with name, _`name`_, it will return -1.
+
+
+
+## Uniform
+- Default block
+
+- Uniform block (buffer)
 
 
 ## Texture
