@@ -226,6 +226,10 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 
 
 ## Uniform
+While attributes contribute in per-vertex sahder values (like position of vertice),    
+ uniform contirbute in same values to several vertex shaders (like transform matrix).
+
+
 - Default block
 
 - Uniform block (buffer)
