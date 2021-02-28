@@ -224,15 +224,42 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 > if there no attribute with name, _`name`_, it will return -1.
 
 
+<!---------------------------------------------------------------------------------------------------------------->
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<!---------------------------------------------------------------------------------------------------------------->
+
 
 ## Uniform
-While attributes contribute in per-vertex sahder values (like position of vertice),    
+- While attributes contribute in per-vertex sahder values (like position of vertice),    
  uniform contirbute in same values to several vertex shaders (like transform matrix).
 
+- Uniform can exist in all kind of shaders.
 
-- Default block
+-Uniform in shaders are always constant and cannot be assigned by shader.
 
-- Uniform block (buffer)
+- uniform may disappear after compile if none of shader use that uniform.
+
+- variable names are case-sensitive.
+
+
+
+1. Default block
+
+2. Uniform block (buffer)- glGetAttribLocation()
+
+
+- - - - - - - - - - - - - - - - - - - - 
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+-glGetUniformLocation()
+~~~ C
+GLint glGetUniformLocation (GLuint program, const GLchar * name);
+~~~
+> if your put program that owning vertex shader in _`program`_ and    
+> name of uniform's name(identifier) in _`name`_,    
+> it will return _`name`_'s location number.        
+> if there no attribute with name, _`name`_, it will return -1.
 
 
 ## Texture
