@@ -262,4 +262,66 @@ GLint glGetUniformLocation (GLuint program, const GLchar * name);
 > if there no attribute with name, _`name`_, it will return -1.
 
 
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+- glUniform*
+~~~ C
+//functions below are sample glUniform*().
+
+void glUniform1f (GLint location, GLfloat v0);
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+void glUniform1f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
+
+void glUniform1i (GLint location, GLint v0);
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+void glUniform1i (GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
+
+void glUniform1ui (GLint location, GLuint v0);
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+void glUniform1ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
+
+
+// functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data.
+
+void glUniform1fv (GLint location, GLuint count, const GLfloat* value);
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+void glUniform4fv (GLint location, GLuint count, const GLfloat* value);
+
+void glUniform1iv (GLint location, GLuint count, const GLint* value);
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+void glUniform4iv (GLint location, GLuint count, const GLint* value);
+
+void glUniform1uiv (GLint location, GLuint count, const GLuint* value);
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+void glUniform4uiv (GLint location, GLuint count, const GLuint* value);
+~~~
+> put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).    
+> boolean can be sent by any type of funtion like how C works.    
+> _`count`_ is length of _`value`_, array that contain arrays(i.e. vectors).    
+> value is pointer (not pointer-pointer). and that means you dont need to put parameter _`value`_ into form of array[][], instead just put array's name (pointer).
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+- glUniformMatrix*
+~~~ C
+//matrix that store single-precision floating values
+glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
+glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
+glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
+
+//matrix that store double-precition floating values
+glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
+glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
+glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
+~~~
+> shader matrices only stores single and double precision floating-point variety.    
+> this function can store array of matrices by setting _`count`_ into larger than 1.    
+> OpenGL's matrix is column-major. if sending matrix is not column-major, set _`transpose`_ into **GL_TRUE**.    
+> so, use _`transpose`_ parameter in handy if you use another graphic library that uses row-major matrix.
+
+
+
 ## Texture
