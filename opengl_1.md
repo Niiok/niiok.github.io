@@ -244,8 +244,9 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 
 
 1. Default block
+     - Default block uniforms are just like sending vertex attributes but use glUniform*() instead glVertexAttrib*().
 
-2. Uniform block (buffer)- glGetAttribLocation()
+2. Uniform block (buffer)
 
 
 - - - - - - - - - - - - - - - - - - - - 
