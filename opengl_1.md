@@ -251,8 +251,9 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
     - UBO is manipulated with functions like **glBufferData()** or **glMapBuffer()**.
     - two way to store data in buffer
       - standard : store data with just same order as members of uniform block.     
-         extensive and safe but not efficient for memory space usage.
-      - shared : opengl make proper structure itself.    
+         extensive and safe but not efficient for memory space usage.    
+         since standard layout is not default, you need to put _`layout (std140)`_ before uniform block declaration.
+      - shared : opengl make proper structure itself.  shared layout is default layout if there's none specification.    
          most efficient for performance but need resource to let OpenGL manage them and application can be more complicated.    
          shaders and programs **share** layout of buffer once buffer layout is decided into shared layout.
 
