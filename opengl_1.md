@@ -247,8 +247,14 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
     - Default block uniforms are just like sending vertex attributes but use glUniform*() instead glVertexAttrib*().
 
 2. Uniform block (buffer)
-   - stored in buffer with interface form (UBO) just like vertex buffer
-
+    - stored in buffer with interface form (UBO) just like vertex buffer.
+    - UBO is manipulated with functions like **glBufferData()** or **glMapBuffer()**.
+    - two way to store data in buffer
+      - standard : store data with just same order as members of uniform block.     
+         extensive and safe but not efficient for memory space usage.
+      - shared : opengl make proper structure itself.    
+         most efficient for performance but need resource to let OpenGL manage them and application can be more complicated.    
+         shaders and programs **share** layout of buffer once buffer layout is decided into shared layout.
 
 - - - - - - - - - - - - - - - - - - - - 
 <!---------------------------------------------------------------------------------------------------------------->
