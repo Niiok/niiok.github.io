@@ -51,10 +51,10 @@
 			}
 
 			function change() {
-				i+=0.1;
+				i = (i + 0.5) % Math.PI;
 				document.getElementById("butt").innerHTML = "change " + i ;
-				var y = Math.sin(i);
-				var z = Math.cos(i);
+				var y = Math.sin(i)*0.5 + 0.5;
+				var z = Math.cos(i)*0.5 + 0.5;
 				gl.clearColor(0.5, y, z, 1.0);
 				gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
 				}
