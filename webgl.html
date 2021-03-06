@@ -11,6 +11,7 @@
 			<canvas id="glcanvas" width="640" height="480">
 				your brouser doesn't support <code>&lt;canvas&gt;</code>.
 			</canvas>
+			<p id="status"></p>
 			</br>
 			<button id="butt" onclick="change()">
 				change color
@@ -20,9 +21,13 @@
 		<script>
 			var gl;
 			var i = 0;
+			var canvas;
 
 			function start() {
-				var canvas = document.getElementById("glcanvas");
+				canvas = document.getElementById("glcanvas");
+
+				canvas.width = 60*window.innerWidth/100;
+				canvas.height = 40*window.innerWidth/100;
 
 				gl = initWebGL(canvas);
 
@@ -51,12 +56,19 @@
 			}
 
 			function change() {
+				
+				canvas.width = 60*window.innerWidth/100;
+				canvas.height = 40*window.innerWidth/100;
+
 				i = (i + 0.5) % Math.PI;
 				document.getElementById("butt").innerHTML = "change " + i ;
 				var y = Math.sin(i)*0.5 + 0.5;
 				var z = Math.cos(i)*0.5 + 0.5;
 				gl.clearColor(0.5, y, z, 1.0);
 				gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+
+				document.getElementById("status").innerHTML="Red = 128 </br>Green = " + y*256 + "</br>Blue = " + z*256;
+
 				}
 		</script>
 	</body>
