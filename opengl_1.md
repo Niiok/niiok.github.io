@@ -256,6 +256,11 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
       - shared : opengl make proper structure itself.  shared layout is default layout if there's none specification.    
          most efficient for performance but need resource to let OpenGL manage them and application can be more complicated.    
          shaders and programs **share** layout of buffer once buffer layout is decided into shared layout.
+    - _`std140`_ or any standard layouts have certain offset boundary and field packing rule.
+      - array or vector of GLSL types have boundary offset of _`N*sizeof(vector)`_. (e.g. vector of 2 floats has 4*2 byte boundary offset.)
+      - but array or vector with 3, 4 elements have boundary offset of _`N*4`_ bytes. (I think it's for keeping binaric integrity.)
+      - every arrays aligned( =packed) just like _`vec4`_ in size.  i.e. every arrays without vec4 and N*4 matricies - element arrays won't be packed tightly.
+      - so you need to keep in mind to bind application array with proper offsets.
 
 - - - - - - - - - - - - - - - - - - - - 
 <!---------------------------------------------------------------------------------------------------------------->
