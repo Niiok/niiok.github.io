@@ -266,7 +266,7 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 <!---------------------------------------------------------------------------------------------------------------->
 
 
--glGetUniformLocation()
+- glGetUniformLocation()
 ~~~ C
 GLint glGetUniformLocation (GLuint program, const GLchar * name);
 ~~~
