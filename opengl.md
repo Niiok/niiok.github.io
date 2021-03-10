@@ -23,9 +23,9 @@ Function
 
 
 - glClearBuffer
-~~~ C
+```C
 void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
-~~~
+```
 >clear _`buffer`_ of _`drawBuffer`_ with _`value`_
 <!-- >_drawBuffer_의 _buffer_를 _value_로 지운다.  -->
 
@@ -36,58 +36,58 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 
 
 - glCreateShader
-~~~ C
+```C
 GLuint glCreateShader (GLenum type);
-~~~
+```
 >create _`type`_ of shader(structure that manage shader code compile and linking it) and return _`GLuint`_ as identifier.
 
 
 - glShaderSource
-~~~ C
+```C
 void glShaderSource (GLuint shader, GLsizei count, const GLchar* const *string, const GLint *length);
-~~~
+```
 >will add more explains
 
 
 - glCompileShader
-~~~ C
+```C
 void glCompileShader (GLuint shader);
-~~~
+```
 > Compile _`shader`_ type sader.
 
 
 - glCreateProgram
-~~~ C
+```C
 GLuint glCreateProgram (void);
-~~~
+```
 >create a program object and return it.
 
 
 - glAttachShader
-~~~ C
+```C
 void glAttachShader (GLuint program, GLuint shader);
-~~~
+```
 >attach _`shader`_ to _`program`_
 
 
 - glLinkProgram
-~~~ C
+```C
 void glLinkProgram (GLuint program);
-~~~
+```
 >as-is name
 
 
 - glDeleteShader
-~~~ C
+```C
 void glDeleteShader (GLuint shader);
-~~~
+```
 >as-is name
 
 
 - glDeleteProgram
-~~~ C
+```C
 void glDeleteProgram (GLuint program);
-~~~
+```
 >as-is name
 
 
@@ -99,17 +99,17 @@ void glDeleteProgram (GLuint program);
 #### Vertex Array
 
 - glGenVertexArrays
-~~~ C
+```C
 void glGenVertexArrays (GLsizei n, GLuint *arrays);
-~~~
+```
 >Generate _`n`_ number of VAO(Vertex Array Object)s in _`arrays`_.    
 >since this function access GLuint as array, it requires _`arrays`_' address as parameter.
 
 
 - glBindVertexArray
-~~~ C
+```C
 void glBindVertexArray (GLuint array);
-~~~
+```
 >bind _`array`_(VAO) to current context.
 
 
@@ -117,17 +117,17 @@ void glBindVertexArray (GLuint array);
 #### ood
 
 - glDrawArrays
-~~~ C
+```C
 void glDrawArrays (GLenum mode, GLint first, GLsizei count);
-~~~
+```
 >send vertexes to pipeline. started from _`first`_, _`count`_ of vertexes with premitive _`mode`_    
 >mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_PATCHES, ...
 
 
 - glVertexAttrib
-~~~ C
+```C
 void glVertexAttrib4fv(GLuint index, const GLfloat *v);
-~~~
+```
 >set 4fv of vertex attribute to layout(loaction = _`index`_).    
 >4fv means 4 float vector(array)
 
@@ -138,9 +138,9 @@ void glVertexAttrib4fv(GLuint index, const GLfloat *v);
 
 
 - glPatchParameteri
-~~~ C
+```C
 void glPatchParameteri (GLenum pname, GLint value);
-~~~
+```
 > tname example: GL_PATCH_VETICES
 
 
@@ -158,33 +158,33 @@ void glPatchParameteri (GLenum pname, GLint value);
 - void glPointSize (GLfloat size);
 >change point pixel size into _`size`_
 
-~~~ C
+```C
 void glPolygonMode (GLenum face, GLenum mode);
-~~~
+```
 
-~~~ C
+```C
 void glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
-~~~
+```
 
-~~~ C
+```C
 void glDepthRange (GLdouble nearVal, GLdouble farVal);
-~~~
+```
 
-~~~ C
+```C
 glFrontFace()
-~~~
+```
 >Gets winding order and set _`dir`_ order primitive as front face of culling process.    
 >dir : GL_CW(clockwise), GL_CCW(counterclockwise)    
 >default front face when glFrontFace was never called is GL_CCW.
 
-~~~ C
+```C
 glEnable
-~~~
+```
 >cap :     GL_CULL_FACE : enable culling
 
-~~~ C
+```C
 glCullFace()
-~~~
+```
 >choose which faces to cull.  ex) GL_FRONT, GL_BACK, GL_FRONT_AND_BACK
 
 -->
@@ -237,14 +237,14 @@ Shader Built-in variable
 
 
 
-~~~ C
+```C
 EmitVertex()
-~~~
+```
 >make vertex with gl_Position of geometry shader
 
-~~~ C
+```C
 EndPrimitive()
-~~~
+```
 >automatically called when geometry shader end
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -267,26 +267,26 @@ EndPrimitive()
 
 
 - floor
-~~~ C
+```C
 float floor (float f);
-~~~
+```
 floor function in glsl.    
 i.e. return integer part of _`f`_.    
 _`trunc`_ funtion is used in absolute value's case.
 
 
 - fract
-~~~ C
+```C
 float fract (float f);
-~~~
+```
 return fractional part of _`f`_.
 
 
 
 - mix
-~~~ C
+```C
 vec4 mix (vec4 A, vec4 B, float t);
-~~~
+```
 linear interpolation.    
 has sevelar verstions take different dimensional vectors or scalars as _`A`_ and _`B`_,    
 _`t`_ shows iterpolating parameter represented by scalar or matching vector.

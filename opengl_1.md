@@ -23,9 +23,9 @@ Data type
 
 
 - glBindBuffer()
-~~~ C
+```C
 void glBindBuffer (GLenum target, GLuint buffer);
-~~~
+```
   - _`target`_ enum list
     - **GL_ARRAY_BUFFER**			: Vertex attributes
     - **GL_ATOMIC_COUNTER_BUFFER**	: Atomic counter storage
@@ -47,9 +47,9 @@ void glBindBuffer (GLenum target, GLuint buffer);
 
 
 - glBufferData()
-~~~ C
+```C
 void glBufferData (GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage);
-~~~
+```
 create 'data store'(memory) for current buffer object of _`target`_.
   - _`target`_ enum list
     - **GL_ARRAY_BUFFER**
@@ -79,9 +79,9 @@ create 'data store'(memory) for current buffer object of _`target`_.
 
 
 - glBufferSubData()
-~~~ C
+```C
 void glBufferSubData (GLenum target, GLintptr offset, GLsizeiptr size, const GLvoid * data);
-~~~
+```
 
 > _`target`_ enum list is same with glBindBuffer.    
 > _`offset`_ is position inside buffer to start inserting data    
@@ -93,9 +93,9 @@ void glBufferSubData (GLenum target, GLintptr offset, GLsizeiptr size, const GLv
 
 
 - glClearBufferSubData()
-~~~ C
+```C
 void glClearBufferSubData (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void * data);
-~~~
+```
   - _`format`_ enum list
     - **GL_RED**	: 1 channel
     - **GL_RG**	: 2 channel
@@ -123,9 +123,9 @@ void glClearBufferSubData (GLenum target, GLenum internalformat, GLintptr offset
 
 
 - glCopyBufferSubData()
-~~~ C
+```C
 vod glCopyBufferSubData (GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size);
-~~~
+```
 > this function use buffer binding points_`readtarget, writetarget`_. and this way of copying has unwanted sideeffects sometime.     
 > so **GL_COPY_READ_BUFFER** and **GL_COPY_WRITE_BUFFER** are provided for dedicated binding point.
 
@@ -134,9 +134,9 @@ vod glCopyBufferSubData (GLenum readtarget, GLenum writetarget, GLintptr readoff
 
 
 - glGenBuffers()
-~~~ C
+```C
 void glGenBuffers (GLsizei n, GLuint * buffers);
-~~~
+```
 > glGenBuffers generate _`n`_ of buffers and insert their buffer names into GLuint array _`buffers`_.
 <!--
 _`n`_ is number of buffer object names to be generated.    
@@ -148,9 +148,9 @@ _`buffers`_ is array of GLuint buffer names will be allocated
 
 
 - glMapBuffer ()
-~~~ C
+```C
 void* glMapBuffer (GLenum target, GLenum access);
-~~~
+```
   - _`access`_ enum list
     - **GL_READ_ONLY**	: returned pointer will be used for reading buffer object's data
     - **GL_WRITE_ONLY**	: returned pointer will be used for writing buffer object's data
@@ -166,9 +166,9 @@ void* glMapBuffer (GLenum target, GLenum access);
 
 
 <!--
-~~~ C
+```C
 void glCreateBuffers (GLsizei n, GLuint * buffers);
-~~~
+```
 -->
 
 
@@ -178,14 +178,14 @@ void glCreateBuffers (GLsizei n, GLuint * buffers);
 
 
 - glVertexAttribPointer()
-~~~ C
+```C
 void glVertexAttribPointer (GLuint index,
 		 GLint size = 0,
 		 GLenum type = GL_FLOAT,
 		 GLboolean normalized.
 		 GLsizei stride = 0,
 		 const GLvoid * pointer = 0 );
-~~~
+```
 >  _`index`_ is index of vertex attribute inside "layout (location = index)" to insert.    
 >  _`size`_ is number (1, 2, 3, 4) of components like '3 for vec3' or '4 for vec4'.    
 >  _`type`_ is data types like **GL_FLOAT**, **GL_INT**, **GL_BYTE**, etc.    
@@ -198,14 +198,14 @@ void glVertexAttribPointer (GLuint index,
 
 
 - glEnableVertexAttribArray()
-~~~ C
+```C
 void glEnableVertexAttribArray (GLuint index);
-~~~
+```
 
 - glDisableVertexAttribArray()
-~~~ C
+```C
 void glDisableVertexAttribArray (GLuint index);
-~~~
+```
 
 > if vertex attrib array is disabled, vertex attributes will be modified with glVertexAttrib*() funcionts.    
 > if vertex attrib array is abled, vertex attributes will be binded with glVertexAttribPointer() funtion.
@@ -215,9 +215,9 @@ void glDisableVertexAttribArray (GLuint index);
 
 
 - glGetAttribLocation()
-~~~ C
+```C
 GLint glGetAttribLocation (GLuint program, const GLchar * name);
-~~~
+```
 > if your put program that owning vertex shader in _`program`_ and    
 > name of vertex attribute's name(identifier) in _`name`_,    
 > it will return _`name`_'s location number.        
@@ -267,9 +267,9 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 
 
 - glGetUniformLocation()
-~~~ C
+```C
 GLint glGetUniformLocation (GLuint program, const GLchar * name);
-~~~
+```
 > if your put program that owning vertex shader in _`program`_ and    
 > name of uniform's name(identifier) in _`name`_,    
 > it will return _`name`_'s location number.        
@@ -279,24 +279,18 @@ GLint glGetUniformLocation (GLuint program, const GLchar * name);
 <!---------------------------------------------------------------------------------------------------------------->
 
 
-- glUniform*()    
-~~~ C    
+- glUniform*()
+```C
 //functions below are sample glUniform*().
-void glUniform1f (GLint location, GLfloat v0);
-void glUniform4f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);  //glUniform1~4f
-void glUniform1i (GLint location, GLint v0);
-void glUniform4i (GLint location, GLint v0, GLint v1, GLint v2, GLint v3);  //glUniform1~4i
-void glUniform1ui (GLint location, GLuint v0);
+void glUniform1f (GLint location, GLfloat v0); //glUniform1~4f
+void glUniform2i (GLint location, GLint v0, GLint v1); //glUniform1~4i
 void glUniform4ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);  //glUniform1~4ui
 
-// functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data.
-void glUniform1fv (GLint location, GLuint count, const GLfloat* value);
-void glUniform4fv (GLint location, GLuint count, const GLfloat* value);  //glUniform1~4fv
-void glUniform1iv (GLint location, GLuint count, const GLint* value);
-void glUniform4iv (GLint location, GLuint count, const GLint* value);  //glUniform1~4iv
-void glUniform1uiv (GLint location, GLuint count, const GLuint* value);
+//functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data.
+void glUniform1fv (GLint location, GLuint count, const GLfloat* value);  //glUniform1~4fv
+void glUniform2iv (GLint location, GLuint count, const GLint* value);  //glUniform1~4iv
 void glUniform4uiv (GLint location, GLuint count, const GLuint* value);  //glUniform1~4uiv
-~~~    
+```
 > put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).    
 > boolean can be sent by any type of funtion like how C works.    
 > _`count`_ is length of _`value`_, array that contain arrays(i.e. vectors).    
@@ -306,8 +300,8 @@ void glUniform4uiv (GLint location, GLuint count, const GLuint* value);  //glUni
 <!---------------------------------------------------------------------------------------------------------------->
 
 
-- glUniformMatrix*()    
-~~~ C    
+- glUniformMatrix*()
+```C
 //matrix that store single-precision floating values
 glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
 glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
@@ -317,12 +311,11 @@ glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLf
 glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
 glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
 glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
-~~~    
+```
 > shader matrices only stores single and double precision floating-point variety.    
 > this function can store array of matrices by setting _`count`_ into larger than 1.    
 > OpenGL's matrix is column-major. if sending matrix is not column-major, set _`transpose`_ into **GL_TRUE**.    
 > so, use _`transpose`_ parameter in handy if you use another graphic library that uses row-major matrix.
-
 
 
 ## Texture
