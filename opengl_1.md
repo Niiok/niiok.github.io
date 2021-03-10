@@ -283,23 +283,19 @@ GLint glGetUniformLocation (GLuint program, const GLchar * name);
 ~~~ C    
 //functions below are sample glUniform*().
 void glUniform1f (GLint location, GLfloat v0);
-void glUniform1f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
-
+void glUniform4f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);  //glUniform1~4f
 void glUniform1i (GLint location, GLint v0);
-void glUniform1i (GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
-
+void glUniform4i (GLint location, GLint v0, GLint v1, GLint v2, GLint v3);  //glUniform1~4i
 void glUniform1ui (GLint location, GLuint v0);
-void glUniform1ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
+void glUniform4ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);  //glUniform1~4ui
 
 // functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data.
 void glUniform1fv (GLint location, GLuint count, const GLfloat* value);
-void glUniform4fv (GLint location, GLuint count, const GLfloat* value);
-
+void glUniform4fv (GLint location, GLuint count, const GLfloat* value);  //glUniform1~4fv
 void glUniform1iv (GLint location, GLuint count, const GLint* value);
-void glUniform4iv (GLint location, GLuint count, const GLint* value);
-
+void glUniform4iv (GLint location, GLuint count, const GLint* value);  //glUniform1~4iv
 void glUniform1uiv (GLint location, GLuint count, const GLuint* value);
-void glUniform4uiv (GLint location, GLuint count, const GLuint* value);
+void glUniform4uiv (GLint location, GLuint count, const GLuint* value);  //glUniform1~4uiv
 ~~~    
 > put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).    
 > boolean can be sent by any type of funtion like how C works.    
