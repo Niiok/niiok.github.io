@@ -279,8 +279,8 @@ GLint glGetUniformLocation (GLuint program, const GLchar * name);
 <!---------------------------------------------------------------------------------------------------------------->
 
 
-- glUniform*()
-~~~ C
+- glUniform*()    
+~~~ C    
 //functions below are sample glUniform*().
 void glUniform1f (GLint location, GLfloat v0);
 void glUniform1f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
@@ -300,7 +300,7 @@ void glUniform4iv (GLint location, GLuint count, const GLint* value);
 
 void glUniform1uiv (GLint location, GLuint count, const GLuint* value);
 void glUniform4uiv (GLint location, GLuint count, const GLuint* value);
-~~~
+~~~    
 > put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).    
 > boolean can be sent by any type of funtion like how C works.    
 > _`count`_ is length of _`value`_, array that contain arrays(i.e. vectors).    
@@ -310,8 +310,8 @@ void glUniform4uiv (GLint location, GLuint count, const GLuint* value);
 <!---------------------------------------------------------------------------------------------------------------->
 
 
-- glUniformMatrix*()
-~~~ C
+- glUniformMatrix*()    
+~~~ C    
 //matrix that store single-precision floating values
 glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
 glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
@@ -321,7 +321,7 @@ glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLf
 glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
 glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
 glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
-~~~
+~~~    
 > shader matrices only stores single and double precision floating-point variety.    
 > this function can store array of matrices by setting _`count`_ into larger than 1.    
 > OpenGL's matrix is column-major. if sending matrix is not column-major, set _`transpose`_ into **GL_TRUE**.    
