@@ -256,11 +256,31 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
       - shared : opengl make proper structure itself.  shared layout is default layout if there's none specification.    
          most efficient for performance but need resource to let OpenGL manage them and application can be more complicated.    
          shaders and programs **share** layout of buffer once buffer layout is decided into shared layout.
+  - standard layout
     - _`std140`_ or any standard layouts have certain offset boundary and field packing rule.
       - array or vector of GLSL types have boundary offset of _`N*sizeof(vector)`_. (e.g. vector of 2 floats has 4*2 byte boundary offset.)
       - but array or vector with 3, 4 elements have boundary offset of _`N*4`_ bytes. (I think it's for keeping binaric integrity.)
       - every arrays aligned( =packed) just like _`vec4`_ in size.  i.e. every arrays without vec4 and N*4 matricies - element arrays won't be packed tightly.
       - so you need to keep in mind to bind application array with proper offsets.
+      - structure and structure array's boundary offsets defined by its largest member. (ceiled into size of vec4.)
+      - **all of these rules look complex, but this is the way how standard layout guarantee cross-platform layout.**
+      - **you can check more about this from _`ARB_uniform_buffer_obect`_ extention's specification.**
+  - shared layout
+    - shared layout **may** be more efficient than standard layout. but many people think it's not worth to invest that much effort on it.
+    - you need to search block members' size and location wih indices of them.
+    - you can get indices' by using _`glGetUniformIndices()`_.
+      ```C
+      void glGetUniformIndices (GLuint program, GLsizei uniformCount, const GLchar **uniformNames, GLuint *uniformIndices);
+      ```
+      > _`program`_ : program that you will get uniform index from.
+      > _`uniformCount`_ : number of uniform indices you want to get.
+      > _`uniformNames`_ : array of GLchar array( =string) that contains uniforms' name you want to get index of.
+      > _`uniformIndices`_ : this funtion will write indices of uniform you selected in this array.
+    - after getting array contain indices, you can get location of uniform block elements by _`glGetActiveUniformsiv()`_.
+      ```C
+      void glGetActiveUniformsiv (GLuint program, GLsizei uniformCount, const  GLuint *uniformIndices, GLenum pname, GLint *params);
+      ```
+
 
 - - - - - - - - - - - - - - - - - - - - 
 <!---------------------------------------------------------------------------------------------------------------->
@@ -270,7 +290,7 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 ```C
 GLint glGetUniformLocation (GLuint program, const GLchar * name);
 ```
-> if your put program that owning vertex shader in _`program`_ and    
+> if you put program that owning vertex shader in _`program`_ and    
 > name of uniform's name(identifier) in _`name`_,    
 > it will return _`name`_'s location number.        
 > if there no attribute with name, _`name`_, it will return -1.
