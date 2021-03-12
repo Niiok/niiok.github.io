@@ -280,6 +280,11 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
       ```C
       void glGetActiveUniformsiv (GLuint program, GLsizei uniformCount, const  GLuint *uniformIndices, GLenum pname, GLint *params);
       ```
+      > _`program`_ : program that you will get 
+      > _`uniformCount`_ : number of strides or offsets you want to get
+      > _`uniformIndices`_ : array of indices you want to use for getting stride or offset.
+      > _`pname`_ : e.g. **GL_UNIFORM_MATRIX_STRIDE**, **GL_UNIFORM_OFFSET**, **GL_UNIFORM_ARRAY_STRIDE**
+      > _`params`_ : result of this function will be stored at here.
 
 
 - - - - - - - - - - - - - - - - - - - - 
