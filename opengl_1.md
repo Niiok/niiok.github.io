@@ -285,6 +285,7 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
       > _`uniformIndices`_ : array of indices you want to use for getting stride or offset.
       > _`pname`_ : e.g. **GL_UNIFORM_MATRIX_STRIDE**, **GL_UNIFORM_OFFSET**, **GL_UNIFORM_ARRAY_STRIDE**
       > _`params`_ : result of this function will be stored at here.
+    - with offset and stride informations, application need to set data in proper location of buffer to send data for shared layout shader.
 
 
 - - - - - - - - - - - - - - - - - - - - 
