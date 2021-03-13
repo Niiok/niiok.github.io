@@ -285,7 +285,15 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
       > _`uniformIndices`_ : array of indices you want to use for getting stride or offset.
       > _`pname`_ : enum for data type that this function will get.
       > _`params`_ : result of this function will be stored at here.
-      > enum list for _`pname`_ : **GL_UNIFORM_TYPE**. **GL_UNIFORM_SIZE**, **GL_UNIFORM_NAME_LENGTH**, **GL_UNIFORM_BLOCK_INDEX**, **GL_UNIFORM_OFFSET**, **GL_UNIFORM_ARRAY_STRIDE**, **GL_UNIFORM_MATRIX_STRIDE**, **GL_UNIFORM_IS_ROW_MAJOR**
+      - _`pname`_ enum list 
+        - **GL_UNIFORM_TYPE** 		: data type of uniform block members
+        - **GL_UNIFORM_SIZE**		: array's size of member regardless of which GL_UNIFORM_TYPE gives. 1 will be stored if indexed member is not array.
+        - **GL_UNIFORM_NAME_LENGTH**	: length of uniform block member's name (character array's length)
+        - **GL_UNIFORM_BLOCK_INDEX**	: index of uniform block that member is located. (it's not index of uniform block member. it's useless since parameter include them!)
+        - **GL_UNIFORM_OFFSET**		: offset of uniform block member
+        - **GL_UNIFORM_ARRAY_STRIDE**	: byte stride of uniform block member array. if indexed member is not array, 0 will be stored.
+        - **GL_UNIFORM_MATRIX_STRIDE**	: byte stride between uniform block member matrix' column or row. if indexed member is not matrix, 0 will be stored.
+        - **GL_UNIFORM_IS_ROW_MAJOR**	: 1 will be stored if indexed matrix is row-major. 0 will be stored if index matrix is column-major or even not matrix at all.
     - with offset and stride informations, application need to set data in proper location of buffer to send data for shared layout shader.
 
 
