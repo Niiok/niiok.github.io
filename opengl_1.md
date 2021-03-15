@@ -12,7 +12,7 @@ Data type
 - buffer binding process
 > glGenBuffers -> glBindBuffer -> glBufferData
     
-- There's 3 way to manipulate buffer object's data
+- There's many way to manipulate buffer object's data
   - using _`data`_ parameter of _glBufferData()_
   - using _glBufferSubData()_
   - using _glMapBuffer()_
@@ -169,12 +169,14 @@ void* glMapBuffer (GLenum target, GLenum access);
 ```C
 void glCreateBuffers (GLsizei n, GLuint * buffers);
 ```
+> alternative of glGenBuffers for modern openGL.
 -->
 
 
 <!---------------------------------------------------------------------------------------------------------------->
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 <!---------------------------------------------------------------------------------------------------------------->
+## Vertex attribute
 
 
 - glVertexAttribPointer()
@@ -245,6 +247,38 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 
 1. Default block
     - Default block uniforms are just like sending vertex attributes but use glUniform*() instead glVertexAttrib*().
+    - glUniform*()
+      ```C
+      //functions below are sample glUniform*().
+      void glUniform1f (GLint location, GLfloat v0); //glUniform1~4f
+      void glUniform2i (GLint location, GLint v0, GLint v1); //glUniform1~4i
+      void glUniform4ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);  //glUniform1~4ui
+      
+      //functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data.
+      void glUniform1fv (GLint location, GLuint count, const GLfloat* value);  //glUniform1~4fv
+      void glUniform2iv (GLint location, GLuint count, const GLint* value);  //glUniform1~4iv
+      void glUniform4uiv (GLint location, GLuint count, const GLuint* value);  //glUniform1~4uiv
+      ```
+      > put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).    
+      > boolean can be sent by any type of funtion like how C works.    
+      > _`count`_ is length of _`value`_, array that contain arrays(i.e. vectors).    
+      > value is pointer (not pointer-pointer). and that means you dont need to put parameter _`value`_ into form of array[][], instead just put array's name (pointer).
+    - glUniformMatrix*()
+      ```C
+      //matrix that store single-precision floating values
+      glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
+      glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
+      glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m);
+      
+      //matrix that store double-precition floating values
+      glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
+      glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
+      glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);
+      ```
+      > shader matrices only stores single and double precision floating-point variety.    
+      > this function can store array of matrices by setting _`count`_ into larger than 1.    
+      > OpenGL's matrix is column-major. if sending matrix is not column-major, set _`transpose`_ into **GL_TRUE**.    
+      > so, use _`transpose`_ parameter in handy if you use another graphic library that uses row-major matrix.
 
 2. Uniform block (buffer)
     - stored in buffer with interface form (UBO) just like vertex buffer.
@@ -295,7 +329,8 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
         - **GL_UNIFORM_MATRIX_STRIDE**	: byte stride between uniform block member matrix' column or row. if indexed member is not matrix, 0 will be stored.
         - **GL_UNIFORM_IS_ROW_MAJOR**	: 1 will be stored if indexed matrix is row-major. 0 will be stored if index matrix is column-major or even not matrix at all.
     - with offset and stride informations, application need to set data in proper location of buffer to send data for shared layout shader.
-
+      - you can use stride and offset as parameter of buffer modification functions like _`glBufferSubData()`_.
+      - if you used _`glMapBuffer`_, application need to take care with inputting data inside buffer.
 
 - - - - - - - - - - - - - - - - - - - - 
 <!---------------------------------------------------------------------------------------------------------------->
@@ -305,6 +340,7 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
 ```C
 GLint glGetUniformLocation (GLuint program, const GLchar * name);
 ```
+> Used for finding location of uniform inside program.
 > if you put program that owning vertex shader in _`program`_ and    
 > name of uniform's name(identifier) in _`name`_,    
 > it will return _`name`_'s location number.        
@@ -312,7 +348,7 @@ GLint glGetUniformLocation (GLuint program, const GLchar * name);
 
 
 <!---------------------------------------------------------------------------------------------------------------->
-
+<!--
 
 - glUniform*()
 ```C
@@ -352,5 +388,6 @@ glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLd
 > OpenGL's matrix is column-major. if sending matrix is not column-major, set _`transpose`_ into **GL_TRUE**.    
 > so, use _`transpose`_ parameter in handy if you use another graphic library that uses row-major matrix.
 
+-->
 
 ## Texture
