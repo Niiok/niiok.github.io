@@ -236,13 +236,9 @@ GLint glGetAttribLocation (GLuint program, const GLchar * name);
  uniform contirbute in same values to several vertex shaders (like transform matrix).
 
 - Uniform can exist in all kind of shaders.
-
--Uniform in shaders are always constant and cannot be assigned by shader.
-
+- Uniform in shaders are always constant and cannot be assigned by shader.
 - uniform may disappear after compile if none of shader use that uniform.
-
 - variable names are case-sensitive.
-
 
 
 1. Default block
