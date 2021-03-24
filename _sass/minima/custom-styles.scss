@@ -1,2 +1,114 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+	:root {
+	--text-color: #FFFFFF;
+	--main-bg-color: #440000;
+	--border-color: #440000;
+	--border-type: inset;
+	--border-size: 0.5vw;
+	}
+
+	html  {font-size: 62.5%;}
+
+
+	a: {
+	color: #AAAAFF;
+	text-decoration: none;
+	}
+
+
+	body {
+	background-color: var(--main-bg-color);
+	color:#FFFFFF;  font-family:initial<!--courier-->;
+	text-align: center;
+	border: var(--border-size) var(--border-type) var(--border-color);
+	padding: 0px;
+	margin: 1vw;	
+	}
+
+
+	button.edit {
+	background-color: var(--background-color);
+	border: 1px double var(--background-color);
+	color: #808080;
+	float: right;
+	}
+
+
+	div.bg {
+	background-color: #FFFFFF;
+	color: #000000;
+	margin: 0px;
+	padding: 1vw;
+	
+		pre {
+		border: 1px double #DDDDDD;
+		}
+	}
+
+	div.contents {
+		background-color: #AAAAAA;
+		color: #000000;
+		
+		width: 50%;
+		margin: 1vw ;
+		padding: 1vw;
+	}
+		
+	div.edit {
+		background-color: #444444;
+		float: left;
+		width: 3%;
+		border: 5px outset #444444;
+		padding: 0px;
+		margin: 1vw ;
+	}
+
+
+	nav {
+		text-align: center;
+		border: 0.5vw solid #000000;
+		width: auto;
+		padding: 1vw;
+		margin: 3vw auto;
+		display: inline-block;
+	}
+
+	ol  {
+		margin-left: 0; padding-left: 1.7rem ; padding-right:1rem;
+	}
+
+	ol.div  {
+		padding: 0.5rem;  background-color: rgba(0,0,0,0.05); border-top: solid; border-bottom: solid; margin-top: 2rem;
+	}
+
+	ol.div > li  {
+			background-color: rgba(0,0,0,0.05);
+	}
+
+
+	pre {
+		border: var(--border-size) var(--border-type) var(--border-color);
+	}
+
+
+	table {
+		border: 0.5vw var(--border-type) var(--border-color);
+		margin: auto;
+		border-collapse: collapse;
+	}
+
+	tr {
+		border-bottom: 0.3vw var(--border-type)  var(--border-color);
+	}
+
+	td, th {
+		padding: 0.3vw;
+	}
+
+	ul  {
+		margin-left: 0; padding-left: 1.7rem ; padding-right:1rem;
+	}
+<!--
+-->
