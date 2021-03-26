@@ -12,3 +12,20 @@
   - SDK (Software Development Kit) : low level programming with winAPI
   - MFC (Microsoft Foundation Class) : useful library constructed by SDK
   - RAD (Rapid Application Development) : faster and easier than MFC
+
+
+- tbu
+  - WinMain()
+    ```C
+    int WINAPI WinMain ( HINSTANCE hinstance, ...
+    
+    ```
+    WNDCLASS WndClass;
+    hWnd = CreateWindow(IpsClass, )
+    ShowWindow(hWnd, nCmdShow);
+  
+    while(GetMessage(&Message, 0, 0 ,0))	//search for message and call callback functions
+  - WndProc()
+    ```C
+    LRESULT CALLBACK WndProc ( HWND UINT, WPARAM, LPARAM );
+    ```
