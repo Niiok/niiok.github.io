@@ -97,6 +97,8 @@
     ```C
     LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
     ```
+    > every window own window processor one by one
+    > WIndows will call with message to proper processor when event occurs
   
    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   
