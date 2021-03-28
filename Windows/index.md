@@ -121,7 +121,11 @@
          
     - GetMessage()
       ```C
-      BOOL GetMessage ( lpMsg, hWnd, wFilterMin, wFilterMax );
+      BOOL GetMessage ( lpMsg, hWnd, wFilterMin, wFilterMax )
+      {
+          TranslateMessage( &Message );
+          DispatchMessage( &Message );
+      }
       ```
       > get message from queue    
       > returns bool    
@@ -154,7 +158,7 @@
         
     - TranslateMessage()
       ```C
-      BOOL TranslateMessage ( lpMsg );
+      BOOL TranslateMessage ( CONST MSG* lpMsg );
       ```
       > translate event message into WM_CHAR type    
       > returns bool
@@ -163,10 +167,10 @@
         
     - DispatchMessage
       ```C
-      BOOL DispatchMessage ( lpMsg );
+      LONG DispatchMessage ( CONST MSG* lpMsg );
       ```
       > dispatch message to operating system to call window processor    
-      > returns bool
+      > 
       - lpMsg
         
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -180,8 +184,12 @@
         switch ( iMessage )
         {
             case WM_PAINT:
-                TextOut( hdc, 10, 10, text, lstrlen(text) );	//hdc == handle device context
-                break;
+                PAINTSTRUCT ps;
+                HDC hdc = BeginPaint( hWnd, &ps );	//hdc == handle device context
+                
+                TextOut( hdc, 10, 10, text, lstrlen(text) );
+                EndPaint( hWnd, &ps );
+                return 0;
             
             // ... event cases ....
             
@@ -189,6 +197,7 @@
                 PostQuitMessage(0);
                 return 0;
         }
+        return DefWindowProc( hWnd, iMessage, wParam, lParam );	// windows-default event processing
     }
     ```
     > every window own window processor one by one    
