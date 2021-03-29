@@ -89,7 +89,7 @@
       - dwStyle : the way how windows will be shown (?)
       - x, y, nWidth, nHeight : location and size of window
       - hWndParent : parent window's handle (?)
-      - hMenu : window menu's handle (?)
+      - hMenu : [control](control.html)'s handle
       - hInst : current application instance's handle
       - hpvParam : extra parameter (?)
       >     
@@ -102,6 +102,7 @@
         		 WS_MINIMIZEBOX	|\
         		 WS_MAXIMIZEBOX)
         ```
+        WS_VISIBLE make you can skip ShowWindow() in some cases.
         
         
     - ShowWindow()
