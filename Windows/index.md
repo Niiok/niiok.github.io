@@ -204,6 +204,7 @@
     > every window own window processor one by one    
     > WIndows will call with message to proper processor when event occurs    
     > main mission of Window processor is dealing with event, message    
+    > and that makes callback function (window processor) do every job of window, even making child window    
     - hWnd : window handle (return value of CreateWindow())
     - iMessage : event message
     - wParam : (?)
