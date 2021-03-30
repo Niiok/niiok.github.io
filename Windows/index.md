@@ -23,6 +23,13 @@
   - **h~** : handle
   - **n~** : (?)
   - **l~** : unicode (long)
+
+- OutputDebugString()
+  ```C
+  void OutputDebugString( L	PCTSTR Lstring);
+  ```
+  > print debug messages while debugging window program
+
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 - tbu
   - WinMain()
