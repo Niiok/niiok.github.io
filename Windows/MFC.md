@@ -5,6 +5,10 @@
 - MFC is almost depricated by many alternatives like .net WPF and other crossplatform GUI libraries
 
 -SDI
+  - CWinApp
+  - CFrameWind
+  - CView
+  - CDocument
 
 -MDI
 
