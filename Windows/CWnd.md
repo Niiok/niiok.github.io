@@ -1,6 +1,6 @@
 # Cwnd
 
--CWnd (Window Support)
+- CWnd (Window Support)
   - CFrameWnd (Frame Windows)
     - CMDIChildWnd
       - (user MDI windows)
@@ -58,7 +58,7 @@
         - CRecordView
           - (user record views)
 - (Controls)
-  -CAnimateCtrl
+  - CAnimateCtrl
   - CComboBox
   - CDateTimeCtrl
   - CEdit
@@ -83,3 +83,7 @@
   - CToolBarCtrl
   - CToolTipCtrl
   - CTreeCtrl
+
+
+- Create()
+  - almost same with CreateWindow()'s method version 
