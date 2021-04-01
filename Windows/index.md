@@ -8,6 +8,16 @@
   5. application was checking for thread message queue (GetMessage)
   6. application calls event-matching callback function (TranslateMessage, DispatchMessage)
 
+- creating window
+  1. declare _`WNDCLASS`_ object
+  2. declare proper _`LRESULT CALLBACK (*callback_function) (HWND, UINT, WPARAM, LPARAM)`_
+  3. change members inside WNDCLASS object
+     - you need to set _`ipfnWndProc`_ into callback_function as window processor
+     - you need to set _`lpszClassName`_ into LPCSTR type string as window class name
+  4. declare WNDCLASS object with _`RegisterClass()`_
+  5. Create window with _`CreateWindow()`_
+     - you need to call _`ShowWindow()`_ if window is invisible
+
 - window programming
   - SDK (Software Development Kit) : low level programming with winAPI
   - MFC (Microsoft Foundation Class) : useful library constructed by SDK
