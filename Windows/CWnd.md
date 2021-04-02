@@ -1,4 +1,4 @@
-# Cwnd
+# CWnd
 
 - CWnd (Window Support)
   - CFrameWnd (Frame Windows)

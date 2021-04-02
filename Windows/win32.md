@@ -11,7 +11,7 @@
 - creating window
   1. declare _`WNDCLASS`_ object
   2. declare proper _`LRESULT CALLBACK (*callback_function) (HWND, UINT, WPARAM, LPARAM)`_
-  3. change members inside WNDCLASS object
+  3. change fields(properties) inside WNDCLASS object
      - you need to set _`ipfnWndProc`_ into callback_function as window processor
      - you need to set _`lpszClassName`_ into LPCSTR type string as window class name
   4. declare WNDCLASS object with _`RegisterClass()`_

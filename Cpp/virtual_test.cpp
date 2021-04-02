@@ -122,7 +122,7 @@ public:
 class NVV : public NV
 {
 public:
-	void Print()
+	virtual void Print()
 	{
 		std::cout << "N-V-V\n";
 	}
