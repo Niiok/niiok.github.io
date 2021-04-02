@@ -36,7 +36,7 @@
 
 - OutputDebugString()
   ```C
-  void OutputDebugString( L	PCTSTR Lstring);
+  void OutputDebugString( LPCTSTR );
   ```
   > print debug messages while debugging window program
 
