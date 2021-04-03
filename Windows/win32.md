@@ -34,6 +34,26 @@
   - **n~** : (?)
   - **l~** : unicode (long)
 
+- data type
+  - BOOL
+  - BYTE : 8 bit unsigned
+  - DWORD : 32 bit unsigned
+  - LONG : 32 bit signed (same with long)
+  - LONGLONG : 64 bit unsigned
+  - FLOAT : float
+  - LPARAM : same with LONG but used for message parameter (32 bit)
+  - LPSTR : editable string. char * type pointer. end with NULL
+  - LPCSTR : uneditable string. const char * type pointer . end with NULL (const LPSTR)
+  - LPTSTR : editable unicode string. TCHAR * type pointer. end with NULL
+  - LPCTSTR : uneditable unicode string. const TCHAR * type pointer. end with NULL (const LPTSTR)
+  - TCHAR : unicode (window character)
+  - UNIT : 32 bit unsigned
+  - WORD : 16 bit unsigned
+  - WPARAM : same with UINT but used for message parameter (16 bit)
+  - COLORREF : composition of R, G, B (32 bit integer)
+  - POSITION : pointer for list attribute
+  - HWND : handle. 32 bit, same with HPEN, HHBRUSH, HDC
+
 - OutputDebugString()
   ```C
   void OutputDebugString( LPCTSTR );
@@ -139,39 +159,36 @@
   
   - GetMessage()
     ```C
-    BOOL GetMessage ( lpMsg, hWnd, wFilterMin, wFilterMax )
-    {
-        TranslateMessage( &Message );
-        DispatchMessage( &Message );
-    }
+    BOOL GetMessage ( LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax );
+        //TranslateMessage( &Message );
+        //DispatchMessage( &Message );
     ```
     > get message from queue    
     > returns bool    
     > returns false when message is WM_QUIT to finish event loop
-    - lpMsg
-    - hWnd
-    - wFilterMin
-    - wFilterMax
+    - lpMsg : MSG structure's pointer
+    - hWnd : message destination window's handle. (search every message if hWnd is NULL)
+    - wMsgFilterMin, wMsgFilterMax : message range to search. (search every message if they are 0)
     >
-    - event example
-      - WM_QUIT : occur when user end program
-      - WM_LBUTTONDOWN : occur when mouse left button clicked
-      - WM_CHAR : occur when keyboard character inputed
-      - WM_PAINT : occur when screen need to be drawn again
-      - WM_DESTROY : occur when window deleted inside memory (normally occur WM_QUIT at the end to stop loop)
-      - WM_CREATE : occur when window is created (normally create child windows when this occur)
-    - message struct
-      ```C
-      typedef struct tagMSG
-      {
-          HWND	hwnd;	//window handle
-          UINT	message;	//message
-          WPARAM	wParam;	//window id
-          LPARAM	lParam;	
-          DWORD	time;	//time when event occur
-          POINT	pt;	//mouse position
-      } MSG;
-      ```
+  - event example
+    - WM_QUIT : occur when user end program
+    - WM_LBUTTONDOWN : occur when mouse left button clicked
+    - WM_CHAR : occur when keyboard character inputed
+    - WM_PAINT : occur when screen need to be drawn again
+    - WM_DESTROY : occur when window deleted inside memory (normally occur WM_QUIT at the end to stop loop)
+    - WM_CREATE : occur when window is created (normally create child windows when this occur)
+  - message struct
+    ```C
+    typedef struct tagMSG
+    {
+        HWND	hwnd;	//window handle
+        UINT	message;	//message
+        WPARAM	wParam;	//window id
+        LPARAM	lParam;	
+        DWORD	time;	//time when event occur
+        POINT	pt;	//mouse position
+    } MSG;
+    ```
        
       
   - TranslateMessage()
@@ -190,6 +207,29 @@
     > dispatch message to operating system to call window processor    
     > 
     - lpMsg
+  
+  - PeekMessage()
+    ```C
+    BOOL PeekMessage( LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg );
+    ```
+    > return TRUE if found message    
+    > return FALSE if couldn't find message    
+    - almost same with _`GetMessage`_, but different in read message disposal
+    - wRemoveMsg : 
+      - PM_REMOVE : remove message in queue
+      - PM_NOREMOVE : let message stay in queue
+  
+  - SendMessage()
+    ```C
+    LResult SendMessage( HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam );
+    ```
+    > send message directly to message processor (not passing message queue)    
+  
+  - PostMessage()
+    ```C
+    LResult PostMessage( HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam );
+    ```
+    > post message on message queue
       
    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     
