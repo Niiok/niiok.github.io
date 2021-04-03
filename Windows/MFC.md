@@ -34,6 +34,11 @@
       - _`OnCustumFunction`_ : void (*) (void) type function
     - calls _`OnCustumFunction()`_ when control with _`CHILD_ID`_ occur WM_COMMAND message
 
+- CWinApp
+  - _`InitInstance()`_ : called when mfc program started
+  - _`Run()`_ : loop function
+  - _`ExitInstance()`_ : called when mfc progran ended
+
 - CRect
   - composed with 4 integers
   - first 2 are x and y of left top vertex
