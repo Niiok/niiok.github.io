@@ -1,4 +1,4 @@
-# Visual Stuido
+# Visual Studio
 
 - file extentions
   - **.sln** : solution file
