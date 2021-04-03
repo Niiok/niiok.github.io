@@ -2,8 +2,12 @@
 
 -CObject
   - CCmdTarget
-    - CWinApp
-    - CDocument
+    - CWinThread
+      - CWinApp
+    - CDocumen
+    - CDocTemPlate
+      - CSingleDocTemplace
+      - CMultiDocTemplatet
     - CWnd (Window Support)
       - CFrameWnd (Frame Windows)
         - CMDIChildWnd
@@ -87,7 +91,66 @@
       - CToolBarCtrl
       - CToolTipCtrl
       - CTreeCtrl
+  - CDC
+    - CClientDC
+    - CMetaFileDC
+    - CPaintDC
+    - CWindowDC
+  - CGdiObject
+    - CBitMap
+    - CBrush
+    - CFont
+    - CPalette
+    - CPen
+    - CRgn
+  - CFile
+    - CMemFile
+      - CShareFile
+    - COleStreamFile
+      - CMonikerFile
+        - CAsyncMonikerFile
+          - CDataPathProperty
+            - CCachedDataPathProperty
+    - CSocketFile
+    - CStdioFile
+      - CInternetFile
+        - CGopherFile
+        - CHttpFile
+  - CRecentFileList
+  - (Arrays)
+    - CArray (template)
+    - CByteArray
+    - CDWordArray
+    - CObArray
+    - CPtrArray
+    - CStringArray
+    - CUIntArray
+    - CWordArray
+    - (arrays of user types)
+  - (Lists)
+    - CList (template)
+    - CPtrList
+    - CObList
+    - CStringList
+    - (lists of user types)
+  - (Maps)
+    - CMap (template)
+    - CMapWordToPtr
+    - CMapPtrToWord
+    - CMapPtrToPtr
+    - CMapWordToOb
+    - CMapStringToPtr
+    - CMapStrngToOb
+    - CMapStringToString
+- CPoint
+- CRect
+  > composed with 4 integers    
+  > first 2 are x and y of left top vertex    
+  > last 2 are x and y of right bottom vertex    
+-CSize
+-CString
  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 - Create()
   - almost same with CreateWindow()'s method version 
