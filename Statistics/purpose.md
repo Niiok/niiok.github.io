@@ -19,3 +19,17 @@
     - ...
   - case (record)
   - variable
+
+- level of measurement (scale of measure)
+  - **nominal scale** : identifying use
+  - **ordinal scale** : serial ordering use
+  - **interval scale** : scoring use
+  - **ratio scale** : ratio use
+
+- data
+  - value's level
+    - qualitaive value
+    - quantitative value
+  - value's quantity
+    - single-meaning value
+    - multi-meaning values
