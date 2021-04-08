@@ -33,3 +33,18 @@
   - value's quantity
     - single-meaning value
     - multi-meaning values
+
+- data, information repository
+  - korea
+    - (kostat)[kostat.go.kr]
+    - (kosis)[kosis.kr]
+    - (korea-index)[index.go.kr]
+    - (micro data service)[mdis.kostat.go.kr]
+    - (statstic-geographic information)[sgis.kostat.go.kr]
+    - (economic information)[ecos.bok.or.kr]
+  - global
+    - (StRD)[itl.nist.gov/div898/strd]
+    - (DASL)[dasl.datadescription.com]
+    - (UCI data)[archive.ics.uci.edu]
+    - (ksdc)[ksdc.re.kr]
+    - (usa statistics)[usa.gov/statistics]
