@@ -84,7 +84,7 @@
   - coefficient of variation
     ```R
     ```
-  -quartile deviation
+  - quartile deviation
     - interquartile range : Q3 - Q1
     ```R
     IQR(data)
@@ -97,4 +97,18 @@
     a = rnorm(200)
     hist(a, col="RED")
     ```
-  - stem leaf
+  - stem-and-leaf
+    ```R
+    stem(data)
+    stem(data, scale=2)
+    ```
+  - box plot
+    ```R
+    boxplot(data)
+    ```
+    - five-number-summary
+    -adjacent value
+    
+- web tool
+  - (statpages)[statpages.org]
+  - (inteructivate)[shodor.org/intructivate/activities]
