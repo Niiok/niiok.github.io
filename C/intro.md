@@ -2,7 +2,7 @@
     
 <!--current page 15-->
     
-- I prefer 1983 ANSI C (K&R 2nd).
+## Writer prefer 1983 ANSI C (K&R 2nd).
     
 - C was born for UNIX
   - C is machine independent
@@ -10,7 +10,8 @@
   
 - Creator's words
   - > C is a general-purpose programming language which features economy of expression, modern control flow and data structures, and a rich set of operators.    
-  - > C wears well as one's experience with it grows     
+  - > C wears well as one's experience with it grows.    
+  - > C is a relatively "low level" language.    
     
 - standard library
   - input output
@@ -39,4 +40,29 @@
   - Function
     - returns data type
     - may be called recursively
-  - Local variables are automatic
+    - may exist in separated source files that are compiled separately
+  - Variables
+    - declared autoatically
+    - may be declared in block-structure
+    - may be internal to function, external but known only within source files, and conditional compilation
+  - C is a relatively "low level" language
+    - deals with characters, numbers, and addresses
+    - there are no operations that manipulate an entire array or string
+      - although structures may be copied as a unit
+    - stirage allocation facility
+      - static definition
+      - stack discipline provided by the local variables of functions
+      - there is no heap or garbage collection (?)
+  - Input / Output
+    - C itself provides no input/output facilities
+      - no READ, WRITE statement
+      - no built-in file access methods
+    - input/output provided by explicitly-called functions
+  - C supports only single-thread control flow (?)
+    - tests, loops, grouping, subprograms
+    - no multiprogramming 
+
+
+
+
+
