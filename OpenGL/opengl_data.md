@@ -1,10 +1,12 @@
 OpenGL Data type
 ================================================================
+OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ## Buffer
-- need name to identify
-- memory allocated for buffer object is called **data storage**.
+- need name for identify handle
+- memory space allocated for buffer object is called **data storage**.
 - two method to put data in buffer are ; using command ; _mapping_ with pointer
 - can _bind_ into context's _buffer binding point_ with buffer's name.
 - _binding point_ can be refered as _target_ in most cases. (but target may have multiple binging point)
