@@ -2,6 +2,31 @@ OpenGL Data type
 ================================================================
 OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)
 
+- Buffer
+  - glBindBuffer()
+  - glBufferData()
+  - glBufferSubData()
+  - glClearBufferSubData()
+  - glCopyBufferSubData()
+  - glGenBuffers()
+  - glMapBuffer()
+  <-- - glCreateBuffers -->
+
+- Vertex Attribute
+  - glVertexAttribPointer()
+  - glEnableVertexAttribArray()
+  - glDisableVertexAttribArray()
+  - glGetAttribLocation()
+
+- Uniform
+  1. Default Block
+    - glUniform*()
+    - glUniformMatrix*()
+  2. Uniform Block
+    - glGetUniformIndicies()
+    - glGetActiveUniforms()
+    - glGetUniformLocation()
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ## Buffer
@@ -149,7 +174,7 @@ _`buffers`_ is array of GLuint buffer names will be allocated
 <!---------------------------------------------------------------------------------------------------------------->
 
 
-- glMapBuffer ()
+- glMapBuffer()
 ```C
 void* glMapBuffer (GLenum target, GLenum access);
 ```
