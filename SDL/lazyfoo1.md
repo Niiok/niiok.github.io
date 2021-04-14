@@ -61,6 +61,8 @@
   - **return**
     - **0** on success
     - **negative integer as error code** on failure
+  > you need to call this function to use SDL functions.    
+  > input flags you'll use as parameter.    
     
 
 - SDL_GetError()
@@ -70,6 +72,7 @@
   - **return**
     - **character array** on message with information about error
     - **empty array** on no error happen
+  > this function will return character string that describe recent error.    
     
 
 - SDL_CreateWindow()
