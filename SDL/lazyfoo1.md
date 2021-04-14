@@ -28,6 +28,16 @@
 
 ## Intro
     
+- how Chapter_1 basically works?
+  1. Init SDL with _`SDL_Init()`_.
+  2. Create window with _`SDL_CreateWindow()`_.
+  3. Get surface with _`SDL_GetWindowSurface()`_.
+    - do something with surface. (like SDL_FillRect())
+  4. Update surface with _`SDL_UpdateWindowSurface()`_
+    - you can delay loop( for window lasting) with SDL_Delay().
+  5. If you done all your jobs with SDL, Destroy window with _`SDL_DestroyWindow()`_.
+  6. Don't forget calling _`SDL_Quit()`_ for terminating all jobs!
+    
 - SDL.h
   - main header file for sdl.
   - includes video, (will be updated)
