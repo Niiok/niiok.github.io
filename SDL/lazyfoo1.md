@@ -1,6 +1,7 @@
 # SDL_Chapter_1
 
 - [Intro](#intro)
+  - How Chapter_1 works?
   - SDL.h
   - main
 
@@ -28,12 +29,12 @@
 
 ## Intro
     
-- how Chapter_1 basically works?
+- How Chapter_1 works?
   1. Init SDL with _`SDL_Init()`_.
   2. Create window with _`SDL_CreateWindow()`_.
   3. Get surface with _`SDL_GetWindowSurface()`_.
     - do something with surface. (like SDL_FillRect())
-  4. Update surface with _`SDL_UpdateWindowSurface()`_
+  4. Update surface with _`SDL_UpdateWindowSurface()`_.
     - you can delay loop( for window lasting) with SDL_Delay().
   5. If you done all your jobs with SDL, Destroy window with _`SDL_DestroyWindow()`_.
   6. Don't forget calling _`SDL_Quit()`_ for terminating all jobs!
@@ -61,6 +62,7 @@
     - **0** on success
     - **negative integer as error code** on failure
     
+
 - SDL_GetError()
   ```C
   const char* SDL_GetError( void );
@@ -69,6 +71,7 @@
     - **character array** on message with information about error
     - **empty array** on no error happen
     
+
 - SDL_CreateWindow()
   ```C
   SDL_Window* SDL_CreateWindow( const char* title, int x, int y, int w, int h, Uint32 flags );
@@ -83,6 +86,7 @@
     - **window object's address** on success
     - **NULL** on failure
     
+
 - SDL_GetWindowSurface()
   ```C
   SDL_Surface* SDL_GetWindowSurface( SDL_Window* window );
@@ -92,6 +96,7 @@
     - **surface object that asociated with the window's address** on success
     - **NULL** on failure
     
+
 - SDL_FillRect()
   ```C
   int SDL_FillRect( SDL_Surface* dst, const SDL_Rect* rect, Uint32 color );
@@ -103,6 +108,7 @@
     - **0** on success
     - **negative integer as error code** on failure
     
+
 - SDL_MapRGB()
   ```C
   Uint32 SDL_MapRGB( const SDL_PixelFormat* format, Uint8 r, Uint8 g, Uint8 b );
@@ -114,6 +120,7 @@
   - **return**
     - **pixel value** on everytime
     
+
 - SDL_UpdateWindowSurface()
   ```C
   int SDL_UpdateWindowSurface( SDL_Window* window );
@@ -123,6 +130,7 @@
     - **0** on success
     - **negative integer as error code** on failure
     
+
 - SDL_Delay()
   ```C
   void SDL_Delay( Uint32 ms );
@@ -137,6 +145,7 @@
   - _`window`_ : the window to destroy
   - **return** is void
     
+
 - SDL_Quit()
   ```C
   void SDL_Quit( void );
@@ -145,12 +154,14 @@
   > this function called after all SDL jobs are done.    
   > SDL recommend to call this function essentially at end of program.    
     
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Class
     
 - SDL_Window
     
+
 - SDL_Surface
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -168,6 +179,7 @@
     - SDL_INIT_EVERYTHING: all of the above subsystems
     - SDL_INIT_NOPARACHUTE: compatibility; this flag is ignored
     
+
   - SDL_CreateWindow()
     - SDL_WINDOW_FULLSCREEN: fullscreen window
     - SDL_WINDOW_FULLSCREEN_DESKTOP: fullscreen window at desktop resolution
