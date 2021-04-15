@@ -73,6 +73,7 @@
     - **character array** on message with information about error
     - **empty array** on no error happen
   > this function will return character string that describe recent error.    
+  > this function will be your reliable best friend.    
     
 
 - SDL_CreateWindow()
@@ -88,6 +89,8 @@
   - **return**
     - **window object's address** on success
     - **NULL** on failure
+  > every SDL_Video works on SDL_Window object.    
+  > this function will create and return proper window for your OS.    
     
 
 - SDL_GetWindowSurface()
@@ -98,6 +101,8 @@
   - **return**
     - **surface object that asociated with the window's address** on success
     - **NULL** on failure
+  > after SDL_Window created, you can read and write SDL_Surface from/to SDL_Window.    
+  > this function will get address of SDL_Surface that asociated with parameter SDL_Window.    
     
 
 - SDL_FillRect()
@@ -110,6 +115,8 @@
   - **return**
     - **0** on success
     - **negative integer as error code** on failure
+  > this function is one kind of draw function.    
+  > SDL_Rect for area, SDL_Surface as target, and SDL_MapRGB(A) will choose color.    
     
 
 - SDL_MapRGB()
@@ -122,6 +129,7 @@
   - _`b`_ : the blue component of the pixel range 0~255
   - **return**
     - **pixel value** on everytime
+  > simple but cross-platform color returning function.    
     
 
 - SDL_UpdateWindowSurface()
@@ -132,6 +140,7 @@
   - **return**
     - **0** on success
     - **negative integer as error code** on failure
+  > SDL_Window object will reload SDL_Surface asociated with it without changing it.    
     
 
 - SDL_Delay()
@@ -140,6 +149,7 @@
   ```
   - _`ms`_ : the number of milliseconds to delay
   - **return** is void
+  > simple but cross-platform sleep function.    
     
 - SDL_DestroyWindow()
   ```C
@@ -147,6 +157,7 @@
   ```
   - _`window`_ : the window to destroy
   - **return** is void
+  > call this function when you're done with that SDL_Window object.    
     
 
 - SDL_Quit()
