@@ -23,7 +23,10 @@
   
 - [Term](#term)
   - SDL_Init()
+    - SDL_INIT_VIDEO
   - SDL_CreateWindow()
+    - SDL_WINDOWPOS_UNDEFINED
+    - SDL_WINDOW_SHOWN
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -183,29 +186,35 @@
 ## Term
     
   - SDL_Init()
-    - SDL_INIT_TIMER: timer subsystem
-    - SDL_INIT_AUDIO: audio subsystem
-    - SDL_INIT_VIDEO: video subsystem; automatically initializes the events subsystem
-    - SDL_INIT_JOYSTICK: joystick subsystem; automatically initializes the events subsystem
-    - SDL_INIT_HAPTIC: haptic (force feedback) subsystem
-    - SDL_INIT_GAMECONTROLLER: controller subsystem; automatically initializes the joystick subsystem
-    - SDL_INIT_EVENTS: events subsystem
-    - SDL_INIT_EVERYTHING: all of the above subsystems
-    - SDL_INIT_NOPARACHUTE: compatibility; this flag is ignored
+    - Uint32 flags
+      - SDL_INIT_TIMER: timer subsystem
+      - SDL_INIT_AUDIO: audio subsystem
+      - SDL_INIT_VIDEO: video subsystem; automatically initializes the events subsystem
+      - SDL_INIT_JOYSTICK: joystick subsystem; automatically initializes the events subsystem
+      - SDL_INIT_HAPTIC: haptic (force feedback) subsystem
+      - SDL_INIT_GAMECONTROLLER: controller subsystem; automatically initializes the joystick subsystem
+      - SDL_INIT_EVENTS: events subsystem
+      - SDL_INIT_EVERYTHING: all of the above subsystems
+      - SDL_INIT_NOPARACHUTE: compatibility; this flag is ignored
     
 
   - SDL_CreateWindow()
-    - SDL_WINDOW_FULLSCREEN: fullscreen window
-    - SDL_WINDOW_FULLSCREEN_DESKTOP: fullscreen window at desktop resolution
-    - SDL_WINDOW_OPENGL: window usable with an OpenGL context
-    - SDL_WINDOW_VULKAN: window usable with a Vulkan instance
-    - SDL_WINDOW_METAL: window usable with a Metal instance
-    - SDL_WINDOW_HIDDEN: window is not visible
-    - SDL_WINDOW_BORDERLESS: no window decoration
-    - SDL_WINDOW_RESIZABLE: window can be resized
-    - SDL_WINDOW_MINIMIZED: window is minimized
-    - SDL_WINDOW_MAXIMIZED: window is maximized
-    - SDL_WINDOW_INPUT_GRABBED: window has grabbed input focus
-    - SDL_WINDOW_ALLOW_HIGHDPI: window should be created in high-DPI mode if supported (>= SDL 2.0.1)
+    - int x,y
+      - SDL_WINDOWPOS_CENTERED
+      - SDL_WINDOWPOS_UNDEFINED
+    - Uint32 flag
+      - SDL_WINDOW_SHOWN : shown window
+      - SDL_WINDOW_FULLSCREEN: fullscreen window
+      - SDL_WINDOW_FULLSCREEN_DESKTOP: fullscreen window at desktop resolution
+      - SDL_WINDOW_OPENGL: window usable with an OpenGL context
+      - SDL_WINDOW_VULKAN: window usable with a Vulkan instance
+      - SDL_WINDOW_METAL: window usable with a Metal instance
+      - SDL_WINDOW_HIDDEN: window is not visible
+      - SDL_WINDOW_BORDERLESS: no window decoration
+      - SDL_WINDOW_RESIZABLE: window can be resized
+      - SDL_WINDOW_MINIMIZED: window is minimized
+      - SDL_WINDOW_MAXIMIZED: window is maximized
+      - SDL_WINDOW_INPUT_GRABBED: window has grabbed input focus
+      - SDL_WINDOW_ALLOW_HIGHDPI: window should be created in high-DPI mode if supported (>= SDL 2.0.1)
     
 

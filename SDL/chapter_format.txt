@@ -1,11 +1,14 @@
 # SDL_Chapter_XX
 
 - [Intro](#intro)
-  - 
+  - How Chapter_XX works?
+
 - [Function](#function)
   - 
+
 - [Class](#class)
   - 
+
 - [Term](#term)
   - 
 
@@ -13,7 +16,13 @@
 
 ## Intro
     
-- 
+- How Chapter_XX works?
+  1. init()
+  2. loadMedia()
+  3. 
+  4. 
+  5. 
+  10. close()
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
