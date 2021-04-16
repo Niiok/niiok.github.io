@@ -45,7 +45,7 @@
   - _`event`_ : the SDL_Event structure to be filled with the next event from the queue, or NULL
   - **return**
     - **1** if queue contains any event inside
-    - **0** if there's no event in queue
+    - **0** if there's no event in queue    
   > when this function called, event at head will be removed from queue and stored to _`event`_.    
   >   (return value 1 shows this works happend) (NULL inside queue won't works like this)    
   > this function implicitly contains SDL_PumpEvent().    
@@ -54,7 +54,7 @@
 
 ## Struct
     
-- SDL_Event
+- SDL_Event    
   > general cross-platform event struct     
   > contains event data    
     

@@ -44,7 +44,7 @@
   - _`file`_ : the file containing a BMP image
   - **return**
     - **surface that contain BMP** on success
-    - **NULL** on failure
+    - **NULL** on failure    
   > Gets SDL_Surface object from BMP file and returns its address.    
       
 
@@ -53,7 +53,7 @@
   void SDL_FreeSurface( SDL_Surface* surface );
   ```
   - _`surface`_ : the SDL_Surface to free
-  - **return** is void
+  - **return** is void    
   > free surface object on memory.    
     
 
@@ -67,7 +67,7 @@
   - _`dstrect`_ : the SDL_Rect structure representing the rectangle that is copied into
   - **return**
     - **0** on blit success
-    - **negative integer as error code** on failure
+    - **negative integer as error code** on failure    
   > Blit image into surface's rect area or entire surface.    
     
 

@@ -69,7 +69,7 @@
   - KEY_PRESS_SURFACE_DOWN
   - KEY_PRESS_SURFACE_LEFT
   - KEY_PRESS_SURFACE_RIGHT
-  - KEY_PRESS_SURFACE_TOTAL
+  - KEY_PRESS_SURFACE_TOTAL    
   > these enum will have global SDL_Surface* array for having mapped surface.    
     
   - SDL_Event.type

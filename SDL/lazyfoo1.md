@@ -63,7 +63,7 @@
   - _`flags`_ : subsystem initialization flags
   - **return**
     - **0** on success
-    - **negative integer as error code** on failure
+    - **negative integer as error code** on failure    
   > you need to call this function to use SDL functions.    
   > input flags you'll use as parameter.    
     
@@ -74,7 +74,7 @@
   ```
   - **return**
     - **character array** on message with information about error
-    - **empty array** on no error happen
+    - **empty array** on no error happen    
   > this function will return character string that describe recent error.    
   > this function will be your reliable best friend.    
     
@@ -91,7 +91,7 @@
   - _`flags`_ : 0, or one or more SDL_WindowFlags OR'd together (?)
   - **return**
     - **window object's address** on success
-    - **NULL** on failure
+    - **NULL** on failure    
   > every SDL_Video works on SDL_Window object.    
   > this function will create and return proper window for your OS.    
     
@@ -103,7 +103,7 @@
   - _`window`_ : the window to query
   - **return**
     - **surface object that asociated with the window's address** on success
-    - **NULL** on failure
+    - **NULL** on failure    
   > after SDL_Window created, you can read and write SDL_Surface from/to SDL_Window.    
   > this function will get address of SDL_Surface that asociated with parameter SDL_Window.    
     
@@ -117,7 +117,7 @@
   - _`color`_ : the color to fill with (SDL_MapRGB() or SDL_MapRGBA())
   - **return**
     - **0** on success
-    - **negative integer as error code** on failure
+    - **negative integer as error code** on failure    
   > this function is one kind of draw function.    
   > SDL_Rect for area, SDL_Surface as target, and SDL_MapRGB(A) will choose color.    
     
@@ -131,7 +131,7 @@
   - _`g`_ : the green component of the pixel in the range 0~255
   - _`b`_ : the blue component of the pixel range 0~255
   - **return**
-    - **pixel value** on everytime
+    - **pixel value** on everytime    
   > simple but cross-platform color returning function.    
     
 
@@ -142,7 +142,7 @@
   - _`window`_ : the window to update
   - **return**
     - **0** on success
-    - **negative integer as error code** on failure
+    - **negative integer as error code** on failure    
   > SDL_Window object will reload SDL_Surface asociated with it without changing it.    
     
 
@@ -151,7 +151,7 @@
   void SDL_Delay( Uint32 ms );
   ```
   - _`ms`_ : the number of milliseconds to delay
-  - **return** is void
+  - **return** is void    
   > simple but cross-platform sleep function.    
     
 - SDL_DestroyWindow()
@@ -159,7 +159,7 @@
   void SDL_DestroyWindow( SDL_Window* window );
   ```
   - _`window`_ : the window to destroy
-  - **return** is void
+  - **return** is void    
   > call this function when you're done with that SDL_Window object.    
     
 
@@ -167,7 +167,7 @@
   ```C
   void SDL_Quit( void );
   ```
-  - **parameter and return are both void.**
+  - **parameter and return are both void.**    
   > this function called after all SDL jobs are done.    
   > SDL recommend to call this function essentially at end of program.    
     
