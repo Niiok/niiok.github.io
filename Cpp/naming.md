@@ -3,7 +3,8 @@
 
 ## File name
 - **fully lower-case**
-- space expressed into '_' (underscore)
+- space expressed into `_` (underscore)
+    
 ```
 file_name.txt    
 very_good_source_code.c
@@ -14,6 +15,7 @@ very_good_source_code.c
 - start with capital letter
 - next letters are lower-case
 - space expressed into upper-case of new word's first letter
+    
 ```C++
 class SuperDuperClass{};
 struct TypeNameExpressedLikeThis{};
@@ -24,14 +26,16 @@ struct TypeNameExpressedLikeThis{};
 - function parameters are included in variable
 - Common variable name
   - **fully lower-case**
-  - space expressed into '_' (underscore)
+  - space expressed into `_` (underscore)
+      
   ```C++ 
   int integer_variable = 4;    
   int quantity_of_cookies = 0;       
   ```
         
 - Class data member name
-  - **same with common variable name**, but **has tailing '_' (underscore)**
+  - **same with common variable name**, but **has tailing `_` (underscore)**
+      
   ```C++
   class SampleClass    
   {    
@@ -43,6 +47,7 @@ struct TypeNameExpressedLikeThis{};
         
 - Struct data member name 
   - **fully same with common variable name**
+      
   ```C++
   struct SampleStruct    
   {
@@ -53,9 +58,10 @@ struct TypeNameExpressedLikeThis{};
         
 
 ## Constant name
-- start with 'k'
+- start with `k`
 - space expressed into upper-case of new word's first letter
-- if you can't use uppercase spacing, '_' (underscore) is allowed that time
+- if you can't use uppercase spacing, `_` (underscore) is allowed that time
+    
 ```C++
 const int kMagicNumber = 42;    
 const int kAndroid8_0_0 = 24;    
@@ -66,6 +72,7 @@ const int kAndroid8_0_0 = 24;
 - start with capital letter
 - space expressed into upper-case of new word's first letter
 - some functions like accessors and mutators can be named like variable.
+    
 ```C++
 MoveToThere();
 ScoreCount();
@@ -76,7 +83,7 @@ setName();
 
 ## NameSpace name
 - **fully lower-case**
-- space expressed into '_' (underscore)
+- space expressed into `_` (underscore)
 
 
 ## Enumerator name
@@ -86,7 +93,7 @@ setName();
 
 ## Macro name
 - fully CAPITAL LETTER
-- space expressed into '_' (underscore)
+- space expressed into `_` (underscore)
 
 
 ## Some Exceptions
