@@ -1,4 +1,4 @@
-# SDL_Chapter_XX
+# SDL_Chapter_3
 
 - [Intro](#intro)
   - How Chapter_3 works?
@@ -10,7 +10,7 @@
   - SDL_Event
 
 - [Term](#term)
-  - SDL_Event
+  - SDL_Event.type
     - SDL_QUIT
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
