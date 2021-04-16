@@ -17,7 +17,7 @@
   - SDL_DestroyWindow()
   - SDL_Quit()
 
-- [Class](#class)
+- [Struct](#struct)
   - SDL_Window
   - SDL_Surface
   
@@ -36,7 +36,7 @@
   1. Init SDL with _`SDL_Init()`_.
   2. Create window with _`SDL_CreateWindow()`_.
   3. Get surface with _`SDL_GetWindowSurface()`_.
-    - do something with surface. (like SDL_FillRect())
+    - do something with surface. (like SDL_FillRect()).
   4. Update surface with _`SDL_UpdateWindowSurface()`_.
     - you can delay loop( for window lasting) with SDL_Delay().
   5. If you done all your jobs with SDL, Destroy window with _`SDL_DestroyWindow()`_.
@@ -174,7 +174,7 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Class
+## Struct
     
 - SDL_Window
     

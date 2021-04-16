@@ -8,7 +8,7 @@
   - SDL_FreeSurface()
   - SDL_BlitSurface()
 
-- [Class](#class)
+- [Struct](#struct)
   - nothing new
 
 - [Term](#term)
@@ -73,7 +73,7 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Class
+## Struct
     
 - nothing new
     

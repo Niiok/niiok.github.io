@@ -6,7 +6,7 @@
 - [Function](#function)
   - SDL_PollEvent()
 
-- [Class](#class)
+- [Struct](#struct)
   - SDL_Event
 
 - [Term](#term)
@@ -52,10 +52,10 @@
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Class
+## Struct
     
 - SDL_Event
-  > general cross-platform event class     
+  > general cross-platform event struct     
   > contains event data    
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
