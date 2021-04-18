@@ -21,7 +21,7 @@
   1. Init()
     1. _`SDL_Init()`_
     2. _`SDL_CreateWindow()`_
-    3. _`SDL_SDL_GetWindowSurface()`_
+    3. _`SDL_GetWindowSurface()`_
   2. loadMedia()
     1. _`SDL_LoadBMP()`_
   3. start loop untill variable _`quit`_ is true.
@@ -29,7 +29,7 @@
       1. if _`SDL_Event`_.type is _`SDL_QUIT`_, quit is true( which means first loop will end).
       2. copy screen(Blit) with _`SDL_BlitSurface()`_.
       3. update window with _`SDL_UpdateWindowSurface()`_ to refresh and show what we've done.
-  5. close()
+  4. close()
     1. _`SDL_FreeSurface()`_
     2. _`SDL_DestroyWindow()`_
     3. _`SDL_Quit()`_

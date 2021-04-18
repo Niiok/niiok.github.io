@@ -22,7 +22,7 @@
   1. Init()
     1. _`SDL_Init()`_
     2. _`SDL_CreateWindow()`_
-    3. _`SDL_SDL_GetWindowSurface()`_
+    3. _`SDL_GetWindowSurface()`_
   2. loadMedia()
     1. _`SDL_LoadBMP()`_
   3. copy image(Blit) into surface with _`SDL_BlitSurface()`_.
