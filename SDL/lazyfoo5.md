@@ -8,7 +8,7 @@
   - SDL_BlitScaled()
 
 - [Struct](#struct)
-  - nothing new
+  - SDL_PixelFormat
 
 - [Term](#term)
   - nothing new
@@ -45,27 +45,33 @@
   ```C
   SDL_Surface* SDL_ConvertSurface( SDL_Surface* src, const SDL_PixelFormat* fmt, Uint32 flags );
   ```
-  - _`src`_ : 
-  - _`fmt`_ : 
-  - _`flags`_ : 
+  - _`src`_ : the existing SDL_Surface structure to convert
+  - _`fmt`_ : the SDL_PixelFormat structure that the new surface is optimized for
+  - _`flags`_ : the flags are unused and should be set to 0; this is a leftover from SDL 1.2's API
   - **return**
-    - **** on 
-  > 
+    - **new surface** on success
+    - **NULL** on failure
+  > get surface _`src`_ and convert it into specific format that _`fmt`_ indicating.    
     
     - SDL_BlitScaled()
   ```C
-  
+  int SDL_BlitScaled( SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect );
   ```
-  - _``_ : 
+  - _`src`_ : the SDL_Surface structure to be copied from
+  - _`srcrect`_ : the SDL_Rect structure representing the rectangle to be copied, or NULL to copy entire surface
+  - _`dst`_ : the SDL_Surface structure that is the blit target
+  - _`dstrect`_ : the SDL_Rect structure representing the rectangle that is copied into, or NULL to copy into the entire surface
   - **return**
-    - **** on 
-  > 
+    - **0** on success
+    - **negative integer as error code** on failure
+  > Simiral with _`SDL_BlitSurface()`_ but blit scaled surface.    
+  > this function call _`SDL_LowerBlitScaled()`_ internally.    
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Struct
     
-- nothing new
+- SDL_PixelFormat
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
