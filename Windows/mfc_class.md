@@ -1,6 +1,6 @@
 # CObject
 
--CObject
+- CObject
   - CCmdTarget
     - CWinThread
       - CWinApp

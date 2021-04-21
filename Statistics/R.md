@@ -1,3 +1,3 @@
 # R
 
-- (Download)[r-project.org]
+- [Download](r-project.org)

@@ -1,3 +1,3 @@
 # Python
 
-- (Download)[anaconda.com]
+- [Download](anaconda.com)
