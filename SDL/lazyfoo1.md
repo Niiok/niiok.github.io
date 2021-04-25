@@ -45,6 +45,11 @@
 - SDL.h
   - main header file for sdl.
   - includes video, (will be updated)
+  - when you setup SDL.h and other libraries, check
+    - include (-I)
+    - library (-L)
+    - link (-l)
+    - dll (windows)
     
 - main
   - main function type is decided for cross-platform.
