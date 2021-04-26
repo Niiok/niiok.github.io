@@ -1,4 +1,11 @@
-# SDL_Chapter_4
+---
+layout: summary
+title: "SDL_Chapter_4"
+categories: SDL
+author:
+- Niiok
+meta: ""
+---
 
 - [Intro](#intro)
   - How Chapter_4 works?
