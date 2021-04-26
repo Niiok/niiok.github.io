@@ -1,5 +1,5 @@
 ---
-layout: summary
+layout: post
 title: "SDL_Chapter_2"
 categories: SDL
 author:
