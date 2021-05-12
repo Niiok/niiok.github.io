@@ -1,4 +1,11 @@
-# SDL_Chapter_XX
+# ---
+layout: post
+title: "SDL_Chapter_XX"
+categories: SDL
+author:
+- Niiok
+meta: ""
+---
 
 - [Intro](#intro)
   - How Chapter_XX works?
