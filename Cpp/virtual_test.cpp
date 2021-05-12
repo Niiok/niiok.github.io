@@ -202,4 +202,6 @@ int main()
 	pnn = &nn; pnn->Print();
 	pnn = &nnv; pnn->Print();
 	pnn = &nnn; pnn->Print();
+
+	getchar();
 }
