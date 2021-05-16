@@ -3,7 +3,7 @@
 
 ## File name
 - **fully lower-case**
-- space expressed into `_` (underscore)
+- word separation expressed as `_` (underscore)
     
 ```
 file_name.txt    
@@ -14,7 +14,7 @@ very_good_source_code.c
 ## Type name
 - start with capital letter
 - next letters are lower-case
-- space expressed into upper-case of new word's first letter
+- word separation expressed as upper-cased first letter
     
 ```C++
 class SuperDuperClass{};
@@ -59,7 +59,7 @@ struct TypeNameExpressedLikeThis{};
 
 ## Constant name
 - start with `k`
-- space expressed into upper-case of new word's first letter
+- word separation expressed as upper-cased first letter
 - if you can't use uppercase spacing, `_` (underscore) is allowed that time
     
 ```C++
@@ -70,7 +70,7 @@ const int kAndroid8_0_0 = 24;
 
 ## Function name
 - start with capital letter
-- space expressed into upper-case of new word's first letter
+- word separation expressed as upper-cased first letter
 - some functions like accessors and mutators can be named like variable.
     
 ```C++
@@ -83,7 +83,7 @@ setName();
 
 ## NameSpace name
 - **fully lower-case**
-- space expressed into `_` (underscore)
+- word separation expressed as `_` (underscore)
 
 
 ## Enumerator name
@@ -93,7 +93,7 @@ setName();
 
 ## Macro name
 - fully CAPITAL LETTER
-- space expressed into `_` (underscore)
+- word separation expressed as `_` (underscore)
 
 
 ## Some Exceptions
