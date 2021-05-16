@@ -76,8 +76,9 @@ const int kAndroid8_0_0 = 24;
 ```C++
 MoveToThere();
 ScoreCount();
-getName();
-setName();
+get_name();
+set_name();
+size();
 ```
 
 
@@ -85,15 +86,33 @@ setName();
 - **fully lower-case**
 - word separation expressed as `_` (underscore)
 
+```C++
+namespace countryside_bus {}
+namespace project_goo {}
+```
+
 
 ## Enumerator name
 - enum follows Constant naming rule
 - not Macro naming rule
 
+```C++
+enum Fruits {
+    kBanana,
+    kApple,
+    kCherry
+};
+```
+
 
 ## Macro name
 - fully CAPITAL LETTER
 - word separation expressed as `_` (underscore)
+
+```C++
+#define PI 3.14
+#define ARRAY_SIZE 32
+```
 
 
 ## Some Exceptions
