@@ -79,12 +79,12 @@ meta: ""
   - KEY_PRESS_SURFACE_TOTAL    
   > these enum will have global SDL_Surface* array for having mapped surface.    
     
-  - SDL_Event.type
-    - SDL_KEYDOWN
+- SDL_Event.type
+  - SDL_KEYDOWN
     
-  - SDL_Event.key.keysym.sym
-    - SDLK_UP
-    - SDLK_DOWN
-    - SDLK_LEFT
-    - SDLK_RIGHT
+- SDL_Event.key.keysym.sym
+  - SDLK_UP
+  - SDLK_DOWN
+  - SDLK_LEFT
+  - SDLK_RIGHT
     

@@ -57,6 +57,7 @@ meta: ""
   >   (return value 1 shows this works happend) (NULL inside queue won't works like this)    
   > this function implicitly contains SDL_PumpEvent().    
     
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Struct
@@ -69,7 +70,6 @@ meta: ""
 
 ## Term
     
-- SDL_Event
-  - .type
-    - SDL_QUIT
+- SDL_Event..type
+  - SDL_QUIT
     

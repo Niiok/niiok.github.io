@@ -14,13 +14,18 @@ meta: ""
 - [Function](#function)
   - IMG_Init()
   - IMG_GetError()
+  - IMG_Load()
+  - IMG_Quit()
 
 - [Struct](#struct)
-  - 
+  - nothing new
 
 - [Term](#term)
   - IMG_Init()
     - IMG_INIT_PNG
+    - IMG_INIT_JPG
+    - IMG_INIT_TIF
+    - IMG_INIT_*
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -49,44 +54,72 @@ meta: ""
     4. _`SDL_Quit()`_
     
 - SDL_image.h
-  - we will use SDL_image in this chapter
+  - SDL_image is used in this chapter
   - if you're running on Windows, you need to place dll file inside proper system directory (like Windows/System32)
-    - if you have dll error, use `where DLLname.dll` command to find error-able dll's location
+    - if you have dll error, use `where <dll_name.dll>` command to find error-able dll's location
   - writer is using IMG_2.0.4 version on SDL_2.0.9 version
     
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Function
     
 - IMG_Init()
   ```C
-  
+  int IMG_Init( int flags );
   ```
-  - _``_ : 
+  - _`flsgs`_ : bit flag indicates which image format to use while program
   - **return**
     - **flags that loaded successfully** on both entire, partial success
-    - **flag that different with input** on both entire, partial failure
-  > 
+    - **0** on failure
+  > IMG_isJPG(), IMG_isPNG(), IMG_isTIF() doesn't requires its initialization.    
+  > you can check currently loaded system with calliing this function with 0.    
     
+
 - IMG_GetError()
   ```C
-  
+  char* IMG_GetError( void );
   ```
-  - _``_ : 
   - **return**
     - **char array with recent error information** on error
     - **empty array** on no error happen
-  > SDL_image version of SDL_GetError()    
+  > IMG version of SDL_GetError()    
     
+
+- IMG_Load()
+  ```C
+  SLD_Surface* IMG_Load( const char* file );
+  ```
+  - _`file`_ : image file name string (char array/pointer)
+  - **return**
+    - **image-loaded surface's address** on success
+    - **NULL** on error
+  > this function calls IMG_LoadTyped_RW() inside logic.    
+  > since this function returns surface, call SDL_FreeSurface() after use of this surface.    
+    
+
+- IMG_Quit()
+  ```C
+  void IMG_Quit( void );
+  ```
+  - **parameter and return are both void**
+  > this function called after all IMG jobs are done.    
+  > SDL recommend to call this function essentially at end of program if you used IMG subsystem.    
+    
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Struct
     
-- 
+- nothing new
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Term
     
-- 
+- IMG_Init()
+  - IMG_INIT_PNG
+  - IMG_INIT_JPG
+  - IMG_INIT_TIF
+  - IMG_INIT_*
     

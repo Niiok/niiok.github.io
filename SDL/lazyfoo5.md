@@ -60,6 +60,7 @@ meta: ""
     - **NULL** on failure
   > get surface _`src`_ and convert it into specific format that _`fmt`_ indicating.    
     
+
     - SDL_BlitScaled()
   ```C
   int SDL_BlitScaled( SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect );
@@ -74,6 +75,7 @@ meta: ""
   > Simiral with _`SDL_BlitSurface()`_ but blit scaled surface.    
   > this function call _`SDL_LowerBlitScaled()`_ internally.    
     
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Struct
