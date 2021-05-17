@@ -27,18 +27,18 @@ meta: ""
     
 - How Chapter_2 works?
   1. Init()
-    1. _`SDL_Init()`_
-    2. _`SDL_CreateWindow()`_
-    3. _`SDL_GetWindowSurface()`_
+     1. _`SDL_Init()`_
+     2. _`SDL_CreateWindow()`_
+     3. _`SDL_GetWindowSurface()`_
   2. loadMedia()
-    1. _`SDL_LoadBMP()`_
+      1. _`SDL_LoadBMP()`_
   3. copy image(Blit) into surface with _`SDL_BlitSurface()`_.
   4. update window with _`SDL_UpdateWindowSurface()`_ to refresh and show what we've done.
-    - you can delay loop( for window lasting) with SDL_Delay().
+     - you can delay loop( for window lasting) with SDL_Delay().
   5. close()
-    1. _`SDL_FreeSurface()`_
-    2. _`SDL_DestroyWindow()`_
-    3. _`SDL_Quit()`_
+     1. _`SDL_FreeSurface()`_
+     2. _`SDL_DestroyWindow()`_
+     3. _`SDL_Quit()`_
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
