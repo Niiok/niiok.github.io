@@ -64,8 +64,8 @@ meta: ""
   
   - now we are not using screen surface anymore; instead renderer!
     - loadSueface() -> loadTexture()
-    - SDL_GetWindowSurface() is gone
-    - SDL_FreeSurface() is gone
+    - SDL_GetWindowSurface() is gone from init()
+    - SDL_FreeSurface() is gone from close()
 
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
