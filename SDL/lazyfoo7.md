@@ -53,7 +53,7 @@ meta: ""
   3. start loop untill variable _`quit`_ is true.
      1. start loop that calls _`SDL_PollEvent()`_ untill it returns 0.
         1. if _`SDL_Event`_.type is _`SDL_QUIT`_, quit is true( which means first loop will end).
-        2. clear screen(render) with _`SDL_RenderCleaer()`_.
+        2. clear screen(render) with _`SDL_RenderClear()`_.
         3. render texture(copy) on screen with _`SDL_RenderCopy()`_.
         4. update screen(of window) with _`SDL_RenderPresent()`_ to refresh and show what we've done.
   4. close()
@@ -66,8 +66,11 @@ meta: ""
   - now we are not using screen surface anymore; instead renderer!
     - loadSueface() -> loadTexture()
     - SDL_GetWindowSurface() is gone from init()
+      - instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_RenderDrawColor() are required
+    - SDL_BlitSurface() is replaced into SDL_RenderClear() and SDL_RenderCopy()
+    - SDL_UpdateWindowSurface() is replaced into SDL_RenderPresent()
     - SDL_FreeSurface() is gone from close()
-
+      - instead, SDL_DestroyTexture() and SDL_DestroyRenderer() are required
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
