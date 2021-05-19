@@ -15,7 +15,7 @@ meta: ""
 - [Function](#function)
   - SDL_SetHint()
   - SDL_CreateRenderer()
-  - SetRenderDrawColor()
+  - SDL_SetRenderDrawColor()
   - SDL_CreateTextureFromSurface()
   - SDL_RenderClear()
   - SDL_RenderCopy()
@@ -66,17 +66,18 @@ meta: ""
   - now we are not using screen surface anymore; instead renderer!
     - loadSueface() -> loadTexture()
     - SDL_GetWindowSurface() is gone from init()
-      - instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_RenderDrawColor() are required
+      - instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_SetRenderDrawColor() are required
     - SDL_BlitSurface() is replaced into SDL_RenderClear() and SDL_RenderCopy()
     - SDL_UpdateWindowSurface() is replaced into SDL_RenderPresent()
     - SDL_FreeSurface() is gone from close()
       - instead, SDL_DestroyTexture() and SDL_DestroyRenderer() are required
     
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Function
     
-- 
+- SDL_SetHint()
   ```C
   
   ```
@@ -85,15 +86,105 @@ meta: ""
     - **** on 
   > 
     
+
+- SDL_CreateRenderer()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_SetRenderDrawColor()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_CreateTextureFromSurface()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_RenderClear()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_RenderCopy()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_RenderPresent()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_DestroyTexture()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
+- SDL_DestroyRender()
+  ```C
+  
+  ```
+  - _``_ : 
+  - **return**
+    - **** on 
+  > 
+    
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Struct
     
-- 
+- SDL_Renderer
     
+
+- SDL_Texture
+    
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ## Term
     
-- 
+- SDL_SetHint()
+  - SDL_HINT_RENDER_SCALE_QUALITY
+     
+
+- SDL_CreateRender()
+  - SDL_RENDERER_ACCELERATED
     
