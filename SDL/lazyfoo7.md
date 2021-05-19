@@ -45,16 +45,17 @@ meta: ""
      4. _`SDL_CreateRenderer()`_
      5. _`SDL_SetRenderDrawColor()`_
      6. _`IMG_Init()`_
-  2. loadMedia()	// not done
+  2. loadMedia()
      1. loadTexture()
         1. load PNG file on intermediate surface with _`IMG_Load()`_.
-        2. optimize loaded intermediate surface into optimized surface with _`SDL_ConvertSurface()`_.
+        2. create texture from loaded surface with _`SDL_CreateTextureFromSurface()`_.
            - free memory of intermediate surface with _`SDL_FreeSurface()`_.
-  3. start loop untill variable _`quit`_ is true.	// not done
+  3. start loop untill variable _`quit`_ is true.
      1. start loop that calls _`SDL_PollEvent()`_ untill it returns 0.
         1. if _`SDL_Event`_.type is _`SDL_QUIT`_, quit is true( which means first loop will end).
-        2. copy screen(Blit) with _`SDL_BlitSurface()`_ from chosen PNG surface to screen surface.
-        3. update window with _`SDL_UpdateWindowSurface()`_ to refresh and show what we've done.
+        2. clear screen(render) with _`SDL_RenderCleaer()`_.
+        3. render texture(copy) on screen with _`SDL_RenderCopy()`_.
+        4. update screen(of window) with _`SDL_RenderPresent()`_ to refresh and show what we've done.
   4. close()
      1. _`SDL_DestroyTexture()`_
      2. _`SDL_DestroyRenderer()`_
