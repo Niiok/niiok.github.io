@@ -63,7 +63,7 @@ meta: ""
      4. _`IMG_Quit()`_
      5. _`SDL_Quit()`_
   
-  - now we are not using screen surface anymore; instead renderer!
+  - now we are not using screen surface as our primary canvas anymore; instead renderer!
     - loadSueface() -> loadTexture()
     - SDL_GetWindowSurface() is gone from init()
       - instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_SetRenderDrawColor() are required
