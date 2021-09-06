@@ -36,18 +36,18 @@
     
 - data, information repository
   - korea
-    - [kostat](kostat.go.kr)
-    - [kosis](kosis.kr)
-    - [korea-index](index.go.kr)
-    - [micro data service](mdis.kostat.go.kr)
-    - [statstic-geographic information](sgis.kostat.go.kr)
-    - [economic information](ecos.bok.or.kr)
+    - [kostat](http://kostat.go.kr)
+    - [kosis](http://kosis.kr)
+    - [korea-index](http://index.go.kr)
+    - [micro data service](http://mdis.kostat.go.kr)
+    - [statstic-geographic information](http://sgis.kostat.go.kr)
+    - [economic information](http://ecos.bok.or.kr)
   - global
-    - [StRD](itl.nist.gov/div898/strd)
-    - [DASL](dasl.datadescription.com)
-    - [UCI data](archive.ics.uci.edu)
-    - [ksdc](ksdc.re.kr)
-    - [usa statistics](usa.gov/statistics)
+    - [StRD](http://itl.nist.gov/div898/strd)
+    - [DASL](http://dasl.datadescription.com)
+    - [UCI data](http://archive.ics.uci.edu)
+    - [ksdc](http://ksdc.re.kr)
+    - [usa statistics](http://usa.gov/statistics)
     
 - center tendency
   - mean
@@ -110,5 +110,5 @@
     -adjacent value
     
 - web tool
-  - [statpages](statpages.org)
-  - [inteructivate](shodor.org/intructivate/activities)
+  - [statpages](http://statpages.org)
+  - [inteructivate](http://shodor.org/intructivate/activities)
