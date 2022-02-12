@@ -1,7 +1,7 @@
 	:root {
 	--text-color: #FFFFFF;
-	--main-bg-color: #440000;
-	--border-color: #440000;
+	--main-bg-color: #444444;
+	--border-color: #444444;
 	--border-type: inset;
 	--border-size: 0.5vw;
 	}
@@ -34,8 +34,8 @@
 
 
 	div.bg {
-	background-color: #FFFFFF;
-	color: #000000;
+	background-color: #000000;
+	color: #ffffff;
 	margin: 0px;
 	padding: 1vw;
 	
