@@ -137,9 +137,9 @@ params:
         enabled: true
         title: "Niiok" # optional default will be site title
         subtitle: "Game Developer"
-        imageUrl: "/niiok_web.jpg" # optional
+        imageUrl: "/niiok_square.jpg" # optional
         imageTitle: "Oops, Image is missing." # optional
-        imageWidth: 320 # custom size
+        imageWidth: 256 # custom size
         imageHeight: 256 # custom size
         buttons:
             - name: Archives
