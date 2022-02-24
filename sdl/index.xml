@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SDLs on Niiok's Blog</title><link>https://niiok.github.io/sdl/</link><description>Recent content in SDLs on Niiok's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 01 Jan 1970 00:00:00 +0000</lastBuildDate><atom:link href="https://niiok.github.io/sdl/index.xml" rel="self" type="application/rss+xml"/><item><title>SDL Chapter 1</title><link>https://niiok.github.io/sdl/lazyfoo1/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo1/</guid><description>Intro
+How Chapter_1 works? SDL.h main Function
+SDL_Init() SDL_GetError() SDL_CreateWindow() SDL_GetWindowSurface() SDL_FillRect() SDL_MapRGB() SDL_UpdateWindowSurface() SDL_Delay() SDL_DestroyWindow() SDL_Quit() Struct
+SDL_Window SDL_Surface Term
+SDL_Init() SDL_INIT_VIDEO SDL_CreateWindow() SDL_WINDOWPOS_UNDEFINED SDL_WINDOW_SHOWN Intro How Chapter_1 works?
+Init SDL with SDL_Init(). Create window with SDL_CreateWindow(). Get surface with SDL_GetWindowSurface(). do something with surface.</description></item><item><title>SDL Chapter 2</title><link>https://niiok.github.io/sdl/lazyfoo2/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo2/</guid><description>Intro
+How Chapter_2 works? Function
+SDL_LoadBMP() SDL_FreeSurface() SDL_BlitSurface() Struct
+nothing new Term
+nothing new Intro How Chapter_2 works? Init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() SDL_LoadBMP() copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we&amp;rsquo;ve done. you can delay loop( for window lasting) with SDL_Delay().</description></item><item><title>SDL Chapter 3</title><link>https://niiok.github.io/sdl/lazyfoo3/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo3/</guid><description>Intro
+How Chapter_3 works? Function
+SDL_PollEvent() Struct
+SDL_Event Term
+SDL_Event.type SDL_QUIT Intro How Chapter_3 works? Init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() SDL_LoadBMP() start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0. if SDL_Event.</description></item><item><title>SDL Chapter 4</title><link>https://niiok.github.io/sdl/lazyfoo4/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo4/</guid><description>Intro
+How Chapter_4 works? Function
+nothing new Struct
+nothing new Term
+(enum(not official))KeyPressSurfaces KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL SDL_Event.type SDL_KEYDOWN SDL_Event.key.keysym.sym SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT Intro How Chapter_4 works? init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().</description></item><item><title>SDL Chapter 5</title><link>https://niiok.github.io/sdl/lazyfoo5/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo5/</guid><description>Intro
+How Chapter_5 works? Function
+SDL_ConvertSurface() SDL_BlitScaled() Struct
+SDL_PixelFormat Term
+nothing new Intro How Chapter_5 works? init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() loadSurface() load BMP file on intermediate surface with SDL_LoadBMP(). optimize loaded intermediate surface into optimized surface with SDL_ConvertSurface(). free memory of intermediate surface with SDL_FreeSurface().</description></item><item><title>SDL Chapter 6</title><link>https://niiok.github.io/sdl/lazyfoo6/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo6/</guid><description>Intro
+How Chapter_6 works? SDL_image.h Function
+IMG_Init() IMG_GetError() IMG_Load() IMG_Quit() Struct
+nothing new Term
+IMG_Init() IMG_INIT_PNG IMG_INIT_JPG IMG_INIT_TIF IMG_INIT_* Intro How Chapter_6 works?
+init() SDL_Init() SDL_CreateWindow() IMG_Init() SDL_GetWindowSurface() loadMedia() loadSurface() load PNG file on intermediate surface with IMG_Load(). optimize loaded intermediate surface into optimized surface with SDL_ConvertSurface().</description></item><item><title>SDL Chapter 7</title><link>https://niiok.github.io/sdl/lazyfoo7/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://niiok.github.io/sdl/lazyfoo7/</guid><description>This document is not done. On Going!! Intro
+How Chapter_7 works? Function
+SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender() Struct
+SDL_Renderer SDL_Texture Term
+SDL_SetHint() SDL_HINT_RENDER_SCALE_QUALITY SDL_CreateRender() SDL_RENDERER_ACCELERATED Intro How Chapter_7 works?
+init() SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init() loadMedia() loadTexture() load PNG file on intermediate surface with IMG_Load().</description></item></channel></rss>

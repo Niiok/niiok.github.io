@@ -1,0 +1,433 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>SDL Chapter 1 | Niiok's Blog</title>
+<meta name=keywords content>
+<meta name=description content="Intro
+ How Chapter_1 works? SDL.h main    Function
+ SDL_Init() SDL_GetError() SDL_CreateWindow() SDL_GetWindowSurface() SDL_FillRect() SDL_MapRGB() SDL_UpdateWindowSurface() SDL_Delay() SDL_DestroyWindow() SDL_Quit()    Struct
+ SDL_Window SDL_Surface    Term
+ SDL_Init()  SDL_INIT_VIDEO   SDL_CreateWindow()  SDL_WINDOWPOS_UNDEFINED SDL_WINDOW_SHOWN       Intro   How Chapter_1 works?
+ Init SDL with SDL_Init(). Create window with SDL_CreateWindow(). Get surface with SDL_GetWindowSurface().   do something with surface.">
+<meta name=author content="Niiok">
+<link rel=canonical href=https://niiok.github.io/sdl/lazyfoo1/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://niiok.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://niiok.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://niiok.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://niiok.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://niiok.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="SDL Chapter 1">
+<meta property="og:description" content="Intro
+ How Chapter_1 works? SDL.h main    Function
+ SDL_Init() SDL_GetError() SDL_CreateWindow() SDL_GetWindowSurface() SDL_FillRect() SDL_MapRGB() SDL_UpdateWindowSurface() SDL_Delay() SDL_DestroyWindow() SDL_Quit()    Struct
+ SDL_Window SDL_Surface    Term
+ SDL_Init()  SDL_INIT_VIDEO   SDL_CreateWindow()  SDL_WINDOWPOS_UNDEFINED SDL_WINDOW_SHOWN       Intro   How Chapter_1 works?
+ Init SDL with SDL_Init(). Create window with SDL_CreateWindow(). Get surface with SDL_GetWindowSurface().   do something with surface.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://niiok.github.io/sdl/lazyfoo1/"><meta property="article:section" content="SDL">
+<meta property="article:published_time" content="1970-01-01T00:00:00+00:00">
+<meta property="article:modified_time" content="1970-01-01T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="SDL Chapter 1">
+<meta name=twitter:description content="Intro
+ How Chapter_1 works? SDL.h main    Function
+ SDL_Init() SDL_GetError() SDL_CreateWindow() SDL_GetWindowSurface() SDL_FillRect() SDL_MapRGB() SDL_UpdateWindowSurface() SDL_Delay() SDL_DestroyWindow() SDL_Quit()    Struct
+ SDL_Window SDL_Surface    Term
+ SDL_Init()  SDL_INIT_VIDEO   SDL_CreateWindow()  SDL_WINDOWPOS_UNDEFINED SDL_WINDOW_SHOWN       Intro   How Chapter_1 works?
+ Init SDL with SDL_Init(). Create window with SDL_CreateWindow(). Get surface with SDL_GetWindowSurface().   do something with surface.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SDLs","item":"https://niiok.github.io/sdl/"},{"@type":"ListItem","position":2,"name":"SDL Chapter 1","item":"https://niiok.github.io/sdl/lazyfoo1/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 1","name":"SDL Chapter 1","description":"Intro\n How Chapter_1 works? SDL.h main    Function\n SDL_Init() SDL_GetError() SDL_CreateWindow() SDL_GetWindowSurface() SDL_FillRect() SDL_MapRGB() SDL_UpdateWindowSurface() SDL_Delay() SDL_DestroyWindow() SDL_Quit()    Struct\n SDL_Window SDL_Surface    Term\n SDL_Init()  SDL_INIT_VIDEO   SDL_CreateWindow()  SDL_WINDOWPOS_UNDEFINED SDL_WINDOW_SHOWN       Intro   How Chapter_1 works?\n Init SDL with SDL_Init(). Create window with SDL_CreateWindow(). Get surface with SDL_GetWindowSurface().   do something with surface.","keywords":[],"articleBody":"  Intro\n How Chapter_1 works? SDL.h main    Function\n SDL_Init() SDL_GetError() SDL_CreateWindow() SDL_GetWindowSurface() SDL_FillRect() SDL_MapRGB() SDL_UpdateWindowSurface() SDL_Delay() SDL_DestroyWindow() SDL_Quit()    Struct\n SDL_Window SDL_Surface    Term\n SDL_Init()  SDL_INIT_VIDEO   SDL_CreateWindow()  SDL_WINDOWPOS_UNDEFINED SDL_WINDOW_SHOWN       Intro   How Chapter_1 works?\n Init SDL with SDL_Init(). Create window with SDL_CreateWindow(). Get surface with SDL_GetWindowSurface().   do something with surface. (like SDL_FillRect()).  Update surface with SDL_UpdateWindowSurface().   you can delay loop( for window lasting) with SDL_Delay().  If you done all your jobs with SDL, Destroy window with SDL_DestroyWindow(). Don’t forget calling SDL_Quit() for terminating all jobs!    SDL.h\n main header file for sdl. includes video, (will be updated) when you setup SDL.h and other libraries, check  include (-I) library (-L) link (-l) dll (windows)      main\n main function type is decided for cross-platform. int main( int argc, char* args[] )      Function   SDL_Init()\nint SDL_Init( Uint32 flags );  flags : subsystem initialization flags return  0 on success negative integer as error code on failure     you need to call this function to use SDL functions. input flags you’ll use as parameter.\n   SDL_GetError()\nconst char* SDL_GetError( void );  return  character array on message with information about error empty array on no error happen     this function will return character string that describe recent error. this function will be your reliable best friend.\n   SDL_CreateWindow()\nSDL_Window* SDL_CreateWindow( const char* title, int x, int y, int w, int h, Uint32 flags );  title : the title of the window. un UTF-8 encoding x : the x position of the window. SDL_WINDOWPOS_CENTERED or SDL_WINDOWPOS_UNDEFINED y : the y position of the window. SDL_WINDOWPOS_CENTERED or SDL_WINDOWPOS_UNDEFINED w : the width of the window. in screen coordinates h : the height of the window. in screen coordinates flags : 0, or one or more SDL_WindowFlags OR’d together (?) return  window object’s address on success NULL on failure     every SDL_Video works on SDL_Window object. this function will create and return proper window for your OS.\n   SDL_GetWindowSurface()\nSDL_Surface* SDL_GetWindowSurface( SDL_Window* window );  window : the window to query return  surface object that asociated with the window’s address on success NULL on failure     after SDL_Window created, you can read and write SDL_Surface from/to SDL_Window. this function will get address of SDL_Surface that asociated with parameter SDL_Window.\n   SDL_FillRect()\nint SDL_FillRect( SDL_Surface* dst, const SDL_Rect* rect, Uint32 color );  dst : the SDL_Surface structure that is the drawing target rect : the SDL_Rect structure representing the rectangle to fill, or NULL to fill the entire surface color : the color to fill with (SDL_MapRGB() or SDL_MapRGBA()) return  0 on success negative integer as error code on failure     this function is one kind of draw function. SDL_Rect for area, SDL_Surface as target, and SDL_MapRGB(A) will choose color.\n   SDL_MapRGB()\nUint32 SDL_MapRGB( const SDL_PixelFormat* format, Uint8 r, Uint8 g, Uint8 b );  format : an SDL_PixelFormat structure describing the pixel format r : the red component of the pixel in the range 0~255 g : the green component of the pixel in the range 0~255 b : the blue component of the pixel range 0~255 return  pixel value on everytime     simple but cross-platform color returning function.\n   SDL_UpdateWindowSurface()\nint SDL_UpdateWindowSurface( SDL_Window* window );  window : the window to update return  0 on success negative integer as error code on failure     SDL_Window object will reload SDL_Surface asociated with it without changing it.\n   SDL_Delay()\nvoid SDL_Delay( Uint32 ms );  ms : the number of milliseconds to delay return is void   simple but cross-platform sleep function.\n   SDL_DestroyWindow()\nvoid SDL_DestroyWindow( SDL_Window* window );  window : the window to destroy return is void   call this function when you’re done with that SDL_Window object.\n   SDL_Quit()\nvoid SDL_Quit( void );  parameter and return are both void.   this function called after all SDL jobs are done. SDL recommend to call this function essentially at end of program.\n    Struct   SDL_Window\n  SDL_Surface\n   Term   SDL_Init()\n Uint32 flags  SDL_INIT_TIMER: timer subsystem SDL_INIT_AUDIO: audio subsystem SDL_INIT_VIDEO: video subsystem; automatically initializes the events subsystem SDL_INIT_JOYSTICK: joystick subsystem; automatically initializes the events subsystem SDL_INIT_HAPTIC: haptic (force feedback) subsystem SDL_INIT_GAMECONTROLLER: controller subsystem; automatically initializes the joystick subsystem SDL_INIT_EVENTS: events subsystem SDL_INIT_EVERYTHING: all of the above subsystems SDL_INIT_NOPARACHUTE: compatibility; this flag is ignored      SDL_CreateWindow()\n int x,y  SDL_WINDOWPOS_CENTERED SDL_WINDOWPOS_UNDEFINED   Uint32 flag  SDL_WINDOW_SHOWN : shown window SDL_WINDOW_FULLSCREEN: fullscreen window SDL_WINDOW_FULLSCREEN_DESKTOP: fullscreen window at desktop resolution SDL_WINDOW_OPENGL: window usable with an OpenGL context SDL_WINDOW_VULKAN: window usable with a Vulkan instance SDL_WINDOW_METAL: window usable with a Metal instance SDL_WINDOW_HIDDEN: window is not visible SDL_WINDOW_BORDERLESS: no window decoration SDL_WINDOW_RESIZABLE: window can be resized SDL_WINDOW_MINIMIZED: window is minimized SDL_WINDOW_MAXIMIZED: window is maximized SDL_WINDOW_INPUT_GRABBED: window has grabbed input focus SDL_WINDOW_ALLOW_HIGHDPI: window should be created in high-DPI mode if supported (= SDL 2.0.1)      ","wordCount":"752","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo1/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://niiok.github.io/ accesskey=h title="Niiok's Blog (Alt + H)">Niiok's Blog</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://niiok.github.io/archives title=Archive>
+<span>Archive</span>
+</a>
+</li>
+<li>
+<a href=https://niiok.github.io/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li>
+<li>
+<a href=https://niiok.github.io/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+<li>
+<a href=https://niiok.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://niiok.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://niiok.github.io/sdl/>SDLs</a></div>
+<h1 class=post-title>
+SDL Chapter 1
+</h1>
+<div class=post-meta><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Niiok&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/SDL/lazyfoo1.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header>
+<div class=post-content><ul>
+<li>
+<p><a href=#intro>Intro</a></p>
+<ul>
+<li>How Chapter_1 works?</li>
+<li>SDL.h</li>
+<li>main</li>
+</ul>
+</li>
+<li>
+<p><a href=#function>Function</a></p>
+<ul>
+<li>SDL_Init()</li>
+<li>SDL_GetError()</li>
+<li>SDL_CreateWindow()</li>
+<li>SDL_GetWindowSurface()</li>
+<li>SDL_FillRect()</li>
+<li>SDL_MapRGB()</li>
+<li>SDL_UpdateWindowSurface()</li>
+<li>SDL_Delay()</li>
+<li>SDL_DestroyWindow()</li>
+<li>SDL_Quit()</li>
+</ul>
+</li>
+<li>
+<p><a href=#struct>Struct</a></p>
+<ul>
+<li>SDL_Window</li>
+<li>SDL_Surface</li>
+</ul>
+</li>
+<li>
+<p><a href=#term>Term</a></p>
+<ul>
+<li>SDL_Init()
+<ul>
+<li>SDL_INIT_VIDEO</li>
+</ul>
+</li>
+<li>SDL_CreateWindow()
+<ul>
+<li>SDL_WINDOWPOS_UNDEFINED</li>
+<li>SDL_WINDOW_SHOWN</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h2>
+<ul>
+<li>
+<p>How Chapter_1 works?</p>
+<ol>
+<li>Init SDL with <em><code>SDL_Init()</code></em>.</li>
+<li>Create window with <em><code>SDL_CreateWindow()</code></em>.</li>
+<li>Get surface with <em><code>SDL_GetWindowSurface()</code></em>.</li>
+</ol>
+<ul>
+<li>do something with surface. (like SDL_FillRect()).</li>
+</ul>
+<ol start=4>
+<li>Update surface with <em><code>SDL_UpdateWindowSurface()</code></em>.</li>
+</ol>
+<ul>
+<li>you can delay loop( for window lasting) with SDL_Delay().</li>
+</ul>
+<ol start=5>
+<li>If you done all your jobs with SDL, Destroy window with <em><code>SDL_DestroyWindow()</code></em>.</li>
+<li>Don&rsquo;t forget calling <em><code>SDL_Quit()</code></em> for terminating all jobs!</li>
+</ol>
+</li>
+<li>
+<p>SDL.h</p>
+<ul>
+<li>main header file for sdl.</li>
+<li>includes video, (will be updated)</li>
+<li>when you setup SDL.h and other libraries, check
+<ul>
+<li>include (-I)</li>
+<li>library (-L)</li>
+<li>link (-l)</li>
+<li>dll (windows)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>main</p>
+<ul>
+<li>main function type is decided for cross-platform.
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>int</span> main( <span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> args[] )
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h2>
+<ul>
+<li>
+<p>SDL_Init()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>SDL_Init</span>( Uint32 flags );
+</code></pre></div><ul>
+<li><em><code>flags</code></em> : subsystem initialization flags</li>
+<li><strong>return</strong>
+<ul>
+<li><strong>0</strong> on success</li>
+<li><strong>negative integer as error code</strong> on failure</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>you need to call this function to use SDL functions. <br>
+input flags you&rsquo;ll use as parameter.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_GetError()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> <span style=color:#a6e22e>SDL_GetError</span>( <span style=color:#66d9ef>void</span> );
+</code></pre></div><ul>
+<li><strong>return</strong>
+<ul>
+<li><strong>character array</strong> on message with information about error</li>
+<li><strong>empty array</strong> on no error happen</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>this function will return character string that describe recent error. <br>
+this function will be your reliable best friend.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_CreateWindow()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>SDL_Window<span style=color:#f92672>*</span> <span style=color:#a6e22e>SDL_CreateWindow</span>( <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> title, <span style=color:#66d9ef>int</span> x, <span style=color:#66d9ef>int</span> y, <span style=color:#66d9ef>int</span> w, <span style=color:#66d9ef>int</span> h, Uint32 flags );
+</code></pre></div><ul>
+<li><em><code>title</code></em> : the title of the window. un UTF-8 encoding</li>
+<li><em><code>x</code></em> : the x position of the window. SDL_WINDOWPOS_CENTERED or SDL_WINDOWPOS_UNDEFINED</li>
+<li><em><code>y</code></em> : the y position of the window. SDL_WINDOWPOS_CENTERED or SDL_WINDOWPOS_UNDEFINED</li>
+<li><em><code>w</code></em> : the width of the window. in screen coordinates</li>
+<li><em><code>h</code></em> : the height of the window. in screen coordinates</li>
+<li><em><code>flags</code></em> : 0, or one or more SDL_WindowFlags OR&rsquo;d together (?)</li>
+<li><strong>return</strong>
+<ul>
+<li><strong>window object&rsquo;s address</strong> on success</li>
+<li><strong>NULL</strong> on failure</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>every SDL_Video works on SDL_Window object. <br>
+this function will create and return proper window for your OS.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_GetWindowSurface()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>SDL_Surface<span style=color:#f92672>*</span> <span style=color:#a6e22e>SDL_GetWindowSurface</span>( SDL_Window<span style=color:#f92672>*</span> window );
+</code></pre></div><ul>
+<li><em><code>window</code></em> : the window to query</li>
+<li><strong>return</strong>
+<ul>
+<li><strong>surface object that asociated with the window&rsquo;s address</strong> on success</li>
+<li><strong>NULL</strong> on failure</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>after SDL_Window created, you can read and write SDL_Surface from/to SDL_Window. <br>
+this function will get address of SDL_Surface that asociated with parameter SDL_Window.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_FillRect()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>SDL_FillRect</span>( SDL_Surface<span style=color:#f92672>*</span> dst, <span style=color:#66d9ef>const</span> SDL_Rect<span style=color:#f92672>*</span> rect, Uint32 color );
+</code></pre></div><ul>
+<li><em><code>dst</code></em> : the SDL_Surface structure that is the drawing target</li>
+<li><em><code>rect</code></em> : the SDL_Rect structure representing the rectangle to fill, or NULL to fill the entire surface</li>
+<li><em><code>color</code></em> : the color to fill with (SDL_MapRGB() or SDL_MapRGBA())</li>
+<li><strong>return</strong>
+<ul>
+<li><strong>0</strong> on success</li>
+<li><strong>negative integer as error code</strong> on failure</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>this function is one kind of draw function. <br>
+SDL_Rect for area, SDL_Surface as target, and SDL_MapRGB(A) will choose color.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_MapRGB()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>Uint32 <span style=color:#a6e22e>SDL_MapRGB</span>( <span style=color:#66d9ef>const</span> SDL_PixelFormat<span style=color:#f92672>*</span> format, Uint8 r, Uint8 g, Uint8 b );
+</code></pre></div><ul>
+<li><em><code>format</code></em> : an SDL_PixelFormat structure describing the pixel format</li>
+<li><em><code>r</code></em> : the red component of the pixel in the range 0~255</li>
+<li><em><code>g</code></em> : the green component of the pixel in the range 0~255</li>
+<li><em><code>b</code></em> : the blue component of the pixel range 0~255</li>
+<li><strong>return</strong>
+<ul>
+<li><strong>pixel value</strong> on everytime</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>simple but cross-platform color returning function.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_UpdateWindowSurface()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>SDL_UpdateWindowSurface</span>( SDL_Window<span style=color:#f92672>*</span> window );
+</code></pre></div><ul>
+<li><em><code>window</code></em> : the window to update</li>
+<li><strong>return</strong>
+<ul>
+<li><strong>0</strong> on success</li>
+<li><strong>negative integer as error code</strong> on failure</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>SDL_Window object will reload SDL_Surface asociated with it without changing it.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_Delay()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>SDL_Delay</span>( Uint32 ms );
+</code></pre></div><ul>
+<li><em><code>ms</code></em> : the number of milliseconds to delay</li>
+<li><strong>return</strong> is void</li>
+</ul>
+<blockquote>
+<p>simple but cross-platform sleep function.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_DestroyWindow()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>SDL_DestroyWindow</span>( SDL_Window<span style=color:#f92672>*</span> window );
+</code></pre></div><ul>
+<li><em><code>window</code></em> : the window to destroy</li>
+<li><strong>return</strong> is void</li>
+</ul>
+<blockquote>
+<p>call this function when you&rsquo;re done with that SDL_Window object.</p>
+</blockquote>
+</li>
+<li>
+<p>SDL_Quit()</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>SDL_Quit</span>( <span style=color:#66d9ef>void</span> );
+</code></pre></div><ul>
+<li><strong>parameter and return are both void.</strong></li>
+</ul>
+<blockquote>
+<p>this function called after all SDL jobs are done. <br>
+SDL recommend to call this function essentially at end of program.</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id=struct>Struct<a hidden class=anchor aria-hidden=true href=#struct>#</a></h2>
+<ul>
+<li>
+<p>SDL_Window</p>
+</li>
+<li>
+<p>SDL_Surface</p>
+</li>
+</ul>
+<hr>
+<h2 id=term>Term<a hidden class=anchor aria-hidden=true href=#term>#</a></h2>
+<ul>
+<li>
+<p>SDL_Init()</p>
+<ul>
+<li>Uint32 flags
+<ul>
+<li>SDL_INIT_TIMER: timer subsystem</li>
+<li>SDL_INIT_AUDIO: audio subsystem</li>
+<li>SDL_INIT_VIDEO: video subsystem; automatically initializes the events subsystem</li>
+<li>SDL_INIT_JOYSTICK: joystick subsystem; automatically initializes the events subsystem</li>
+<li>SDL_INIT_HAPTIC: haptic (force feedback) subsystem</li>
+<li>SDL_INIT_GAMECONTROLLER: controller subsystem; automatically initializes the joystick subsystem</li>
+<li>SDL_INIT_EVENTS: events subsystem</li>
+<li>SDL_INIT_EVERYTHING: all of the above subsystems</li>
+<li>SDL_INIT_NOPARACHUTE: compatibility; this flag is ignored</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SDL_CreateWindow()</p>
+<ul>
+<li>int x,y
+<ul>
+<li>SDL_WINDOWPOS_CENTERED</li>
+<li>SDL_WINDOWPOS_UNDEFINED</li>
+</ul>
+</li>
+<li>Uint32 flag
+<ul>
+<li>SDL_WINDOW_SHOWN : shown window</li>
+<li>SDL_WINDOW_FULLSCREEN: fullscreen window</li>
+<li>SDL_WINDOW_FULLSCREEN_DESKTOP: fullscreen window at desktop resolution</li>
+<li>SDL_WINDOW_OPENGL: window usable with an OpenGL context</li>
+<li>SDL_WINDOW_VULKAN: window usable with a Vulkan instance</li>
+<li>SDL_WINDOW_METAL: window usable with a Metal instance</li>
+<li>SDL_WINDOW_HIDDEN: window is not visible</li>
+<li>SDL_WINDOW_BORDERLESS: no window decoration</li>
+<li>SDL_WINDOW_RESIZABLE: window can be resized</li>
+<li>SDL_WINDOW_MINIMIZED: window is minimized</li>
+<li>SDL_WINDOW_MAXIMIZED: window is maximized</li>
+<li>SDL_WINDOW_INPUT_GRABBED: window has grabbed input focus</li>
+<li>SDL_WINDOW_ALLOW_HIGHDPI: window should be created in high-DPI mode if supported (>= SDL 2.0.1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<footer class=post-footer>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://niiok.github.io/>Niiok's Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>
