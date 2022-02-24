@@ -1,10 +1,22 @@
 ---
-layout: post
-title: "SDL_Chapter_4"
-categories: SDL
-author:
-- Niiok
-meta: ""
+title: "SDL Chapter 4"
+author: "Niiok"
+categories: ["SDL"]
+date: 1970-01-01T00:00:00+00:00
+weight: 1
+
+ShowToc: false
+TocOpen: false
+
+# searchHidden: true
+
+#cover:
+#    image: "<image path/url>"    # can also paste direct link from external site
+#    alt: "<alt text>"
+#    caption: "<text>"
+#    relative: false 	# To use relative path for cover image, used in hugo Page-bundles
+
+#ShowBreadCrumbs: false
 ---
 
 - [Intro](#intro)

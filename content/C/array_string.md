@@ -1,9 +1,8 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "Array String"
 author: "Niiok"
-categories: ["Misc"]
-date: {{ .Date }}
-draft: true
+categories: ["C"]
+date: 1970-01-01T00:00:00+00:00
 weight: 1
 
 
@@ -17,3 +16,22 @@ weight: 1
 
 #ShowBreadCrumbs: false
 ---
+
+- strlen()
+```C
+int strlen (char s[])
+{
+	int i;
+
+	i = 0;
+	while ( s[i] != '\0' )
+		++i;
+	return i;
+}
+```
+
+- memset()
+```C
+void* memset(char s[], char c, int n);
+```
+> place character c into first n characters of s, return s.

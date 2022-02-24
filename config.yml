@@ -121,7 +121,7 @@ params:
         Title: "Niiok's blog"
         Content: |
             Welcome!
-            - I was using this place as notepad.
+            - I was using this place as a kind of notepad.
             - Now trying to make them more neat.
             - You can read codes in [here](https://github.com/Niiok/niiok.github.io)!
     socialIcons:
@@ -161,6 +161,9 @@ params:
     #cover:
     #    responsiveImages: false
     #    linkFullImages: true
+    #    hidden: true # hide everywhere but not in structured data
+    #    hiddenInList: true # hide on list pages and home
+    #    hiddenInSingle: true # hide on single page
     
     # Edit link (you can custum this in front matter)
     editPost:
@@ -208,20 +211,7 @@ params:
     #     favicon32x32: "<link / abs url>"
     #     apple_touch_icon: "<link / abs url>"
     #     safari_pinned_tab: "<link / abs url>"
-
-    # cover:
-    #     hidden: true # hide everywhere but not in structured data
-    #     hiddenInList: true # hide on list pages and home
-    #     hiddenInSingle: true # hide on single page
-
-    # fuseOpts:
-    #     isCaseSensitive: false
-    #     shouldSort: true
-    #     location: 0
-    #     distance: 1000
-    #     threshold: 0.4
-    #     minMatchCharLength: 0
-    #     keys: ["title", "permalink", "summary", "content"]
+    
 
 taxonomies:
     category: categories
