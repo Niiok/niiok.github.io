@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://niiok.github.io/sitemap.xml
