@@ -1,3 +1,23 @@
+---
+title: "OpenGL data"
+author: "Niiok"
+categories: ["OpenGL"]
+date: 1970-01-01T00:00:00+00:00
+weight: 1
+
+
+# searchHidden: true
+
+#cover:
+#    image: "<image path/url>"    # can also paste direct link from external site
+#    alt: "<alt text>"
+#    caption: "<text>"
+#    relative: false 	# To use relative path for cover image, used in hugo Page-bundles
+
+#ShowBreadCrumbs: false
+---
+
+
 OpenGL Data type
 ================================================================
 OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)
