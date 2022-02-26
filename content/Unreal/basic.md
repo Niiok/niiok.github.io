@@ -2,8 +2,7 @@
 title: "Unreal basic"
 author: "Niiok"
 categories: ["Unreal"]
-date: 2022-02-25T17:14:07+09:00
-draft: true
+date: 1970-01-01T00:00:00+00:00
 weight: 1
 
 
@@ -23,7 +22,7 @@ weight: 1
 If you want to study the API on your own; You should use that API as a user until you get used to it and read the header files.    
 In every unreal code, they include "CoreMinimal.h" or "EngineMinimal.h" and those header files will be key to start studying.    
 
-### Project structure
+### Project hierarchy
 - Config :    
     project setting values. NEEDED-do not remove    
 - Content :    
@@ -57,16 +56,16 @@ Funtion name and method name are verb that describe their effct or return value(
 
 ## UObject
 every classes in UE4 derived from `UObject`.    
-Uobjects that not inherited from `AActor` called as UObject in documents.
+Subclasses that not inherited from `AActor` generally called as UObject in documents.
 
 ## Actor
 Actors are objects in world that consist game.    
-Every actors derived from `AActor`.    
+Every actor is derived from `AActor`.    
 
 
 ## Component
-Components are subobject of Actors that endow functions with Actor.    
-Every components derived from `UActorComponent`.    
+Components are subobject(not subclass) of Actors that endow functions with Actor.    
+Every component is derived from `UActorComponent`.    
 
 	Actor    
 	├── Input    
