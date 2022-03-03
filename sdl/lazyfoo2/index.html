@@ -12,6 +12,7 @@
  nothing new     Intro  How Chapter_2 works?  Init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  SDL_LoadBMP()   copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we&rsquo;ve done.  you can delay loop( for window lasting) with SDL_Delay().">
 <meta name=author content="Niiok">
 <link rel=canonical href=https://niiok.github.io/sdl/lazyfoo2/>
+<meta name=google-site-verification content="DdPXi9zFzhddjnm20EWbhWv7tBvTySWZYj82E4eWwVA">
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://niiok.github.io/favicon.ico>
@@ -42,7 +43,7 @@
  nothing new    Term
  nothing new     Intro  How Chapter_2 works?  Init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  SDL_LoadBMP()   copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we&rsquo;ve done.  you can delay loop( for window lasting) with SDL_Delay().">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SDLs","item":"https://niiok.github.io/sdl/"},{"@type":"ListItem","position":2,"name":"SDL Chapter 2","item":"https://niiok.github.io/sdl/lazyfoo2/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 2","name":"SDL Chapter 2","description":"Intro\n How Chapter_2 works?    Function\n SDL_LoadBMP() SDL_FreeSurface() SDL_BlitSurface()    Struct\n nothing new    Term\n nothing new     Intro  How Chapter_2 works?  Init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  SDL_LoadBMP()   copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we\u0026rsquo;ve done.  you can delay loop( for window lasting) with SDL_Delay().","keywords":[],"articleBody":"  Intro\n How Chapter_2 works?    Function\n SDL_LoadBMP() SDL_FreeSurface() SDL_BlitSurface()    Struct\n nothing new    Term\n nothing new     Intro  How Chapter_2 works?  Init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  SDL_LoadBMP()   copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done.  you can delay loop( for window lasting) with SDL_Delay().   close()  SDL_FreeSurface() SDL_DestroyWindow() SDL_Quit()       Function   SDL_LoadBMP()\nSDL_Surface* SDL_LoadBMP( const char* file );  file : the file containing a BMP image return  surface that contain BMP on success NULL on failure     Gets SDL_Surface object from BMP file and returns its address.\n   SDL_FreeSurface()\nvoid SDL_FreeSurface( SDL_Surface* surface );  surface : the SDL_Surface to free return is void   free surface object on memory.\n   SDL_BlitSurface()\nint SDL_BlitSurface( SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect );  src : the SDL_Surface structure to be copied from srcrect : the SDL_Rect structure representing the rectangle to be copied, or NULL to copy the entire surface dst : the SDL_Surface structure that is the blit target dstrect : the SDL_Rect structure representing the rectangle that is copied into return  0 on blit success negative integer as error code on failure     Blit image into surface’s rect area or entire surface.\n    Struct  nothing new   Term  nothing new  ","wordCount":"199","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo2/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 2","name":"SDL Chapter 2","description":"Intro\n How Chapter_2 works?    Function\n SDL_LoadBMP() SDL_FreeSurface() SDL_BlitSurface()    Struct\n nothing new    Term\n nothing new     Intro  How Chapter_2 works?  Init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  SDL_LoadBMP()   copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we\u0026rsquo;ve done.  you can delay loop( for window lasting) with SDL_Delay().","keywords":[],"articleBody":"  Intro\n How Chapter_2 works?    Function\n SDL_LoadBMP() SDL_FreeSurface() SDL_BlitSurface()    Struct\n nothing new    Term\n nothing new     Intro  How Chapter_2 works?  Init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  SDL_LoadBMP()   copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done.  you can delay loop( for window lasting) with SDL_Delay().   close()  SDL_FreeSurface() SDL_DestroyWindow() SDL_Quit()       Function   SDL_LoadBMP()\n1  SDL_Surface* SDL_LoadBMP( const char* file );    file : the file containing a BMP image return  surface that contain BMP on success NULL on failure     Gets SDL_Surface object from BMP file and returns its address.\n   SDL_FreeSurface()\n1  void SDL_FreeSurface( SDL_Surface* surface );    surface : the SDL_Surface to free return is void   free surface object on memory.\n   SDL_BlitSurface()\n1  int SDL_BlitSurface( SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect );    src : the SDL_Surface structure to be copied from srcrect : the SDL_Rect structure representing the rectangle to be copied, or NULL to copy the entire surface dst : the SDL_Surface structure that is the blit target dstrect : the SDL_Rect structure representing the rectangle that is copied into return  0 on blit success negative integer as error code on failure     Blit image into surface’s rect area or entire surface.\n    Struct  nothing new   Term  nothing new  ","wordCount":"202","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo2/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -145,8 +146,15 @@ SDL Chapter 2
 <ul>
 <li>
 <p>SDL_LoadBMP()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>SDL_Surface<span style=color:#f92672>*</span> <span style=color:#a6e22e>SDL_LoadBMP</span>( <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> file );
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>SDL_Surface<span style=color:#f92672>*</span> <span style=color:#a6e22e>SDL_LoadBMP</span>( <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> file );
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em><code>file</code></em> : the file containing a BMP image</li>
 <li><strong>return</strong>
 <ul>
@@ -161,8 +169,15 @@ SDL Chapter 2
 </li>
 <li>
 <p>SDL_FreeSurface()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>SDL_FreeSurface</span>( SDL_Surface<span style=color:#f92672>*</span> surface );
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>SDL_FreeSurface</span>( SDL_Surface<span style=color:#f92672>*</span> surface );
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em><code>surface</code></em> : the SDL_Surface to free</li>
 <li><strong>return</strong> is void</li>
 </ul>
@@ -172,8 +187,15 @@ SDL Chapter 2
 </li>
 <li>
 <p>SDL_BlitSurface()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>SDL_BlitSurface</span>( SDL_Surface<span style=color:#f92672>*</span> src, <span style=color:#66d9ef>const</span> SDL_Rect<span style=color:#f92672>*</span> srcrect, SDL_Surface<span style=color:#f92672>*</span> dst, SDL_Rect<span style=color:#f92672>*</span> dstrect );
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>SDL_BlitSurface</span>( SDL_Surface<span style=color:#f92672>*</span> src, <span style=color:#66d9ef>const</span> SDL_Rect<span style=color:#f92672>*</span> srcrect, SDL_Surface<span style=color:#f92672>*</span> dst, SDL_Rect<span style=color:#f92672>*</span> dstrect );
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em><code>src</code></em> : the SDL_Surface structure to be copied from</li>
 <li><em><code>srcrect</code></em> : the SDL_Rect structure representing the rectangle to be copied, or NULL to copy the entire surface</li>
 <li><em><code>dst</code></em> : the SDL_Surface structure that is the blit target</li>

@@ -12,6 +12,7 @@
  Default Block   glUniform*() glUniformMatrix*()  Uniform Block   glGetUniformIndicies() glGetActiveUniforms() glGetUniformLocation()     Buffer   need name for identify handle">
 <meta name=author content="Niiok">
 <link rel=canonical href=https://niiok.github.io/opengl/opengl_data/>
+<meta name=google-site-verification content="DdPXi9zFzhddjnm20EWbhWv7tBvTySWZYj82E4eWwVA">
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://niiok.github.io/favicon.ico>
@@ -42,7 +43,7 @@
  glVertexAttribPointer() glEnableVertexAttribArray() glDisableVertexAttribArray() glGetAttribLocation()    Uniform
  Default Block   glUniform*() glUniformMatrix*()  Uniform Block   glGetUniformIndicies() glGetActiveUniforms() glGetUniformLocation()     Buffer   need name for identify handle">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"OpenGLs","item":"https://niiok.github.io/opengl/"},{"@type":"ListItem","position":2,"name":"OpenGL data","item":"https://niiok.github.io/opengl/opengl_data/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenGL data","name":"OpenGL data","description":"OpenGL Data type OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)\n  Buffer\n glBindBuffer() glBufferData() glBufferSubData() glClearBufferSubData() glCopyBufferSubData() glGenBuffers() glMapBuffer() \u0026lt;\u0026ndash; - glCreateBuffers \u0026ndash;\u0026gt;    Vertex Attribute\n glVertexAttribPointer() glEnableVertexAttribArray() glDisableVertexAttribArray() glGetAttribLocation()    Uniform\n Default Block   glUniform*() glUniformMatrix*()  Uniform Block   glGetUniformIndicies() glGetActiveUniforms() glGetUniformLocation()     Buffer   need name for identify handle","keywords":[],"articleBody":"OpenGL Data type OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)\n  Buffer\n glBindBuffer() glBufferData() glBufferSubData() glClearBufferSubData() glCopyBufferSubData() glGenBuffers() glMapBuffer()     Vertex Attribute\n glVertexAttribPointer() glEnableVertexAttribArray() glDisableVertexAttribArray() glGetAttribLocation()    Uniform\n Default Block   glUniform*() glUniformMatrix*()  Uniform Block   glGetUniformIndicies() glGetActiveUniforms() glGetUniformLocation()     Buffer   need name for identify handle\n  memory space allocated for buffer object is called data storage.\n  two method to put data in buffer are ; using command ; mapping with pointer\n  can bind into context’s buffer binding point with buffer’s name.\n  binding point can be refered as target in most cases. (but target may have multiple binging point)\n  buffer binding process\n   glGenBuffers - glBindBuffer - glBufferData\n  There’s many way to manipulate buffer object’s data  using data parameter of glBufferData() using glBufferSubData() using glMapBuffer()       glBindBuffer()  void glBindBuffer (GLenum target, GLuint buffer);  target enum list  GL_ARRAY_BUFFER\t: Vertex attributes GL_ATOMIC_COUNTER_BUFFER\t: Atomic counter storage GL_COPY_READ_BUFFER\t: Buffer copy source GL_COPY_WRITE_BUFFER\t: Buffer copy destination GL_DISPATCH_INDIRECT_BUFFER\t: Indirect compute dispatch commands GL_DRAW_INDIRECT_BUFFER\t: Indirect command arguments GL_ELEMENT_ARRAY_BUFFER\t: Vertex array indices GL_PIXEL_PACK_BUFFER\t: Pixel read target GL_PIXEL_UNPACK_BUFFER\t: Texture data source GL_QUERY_BUFFER\t: Query result buffer GL_SHADER_STORAGE_BUFFER\t: Read-write storage for shaders GL_TEXTURE_BUFFER\t: Texture data buffer GL_TRANSFORM_FEEDBACK_BUFFER\t: Transform feedback buffer GL_UNIFORM_BUFFER\t: Uniform block storage      glBufferData()  void glBufferData (GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage); create ‘data store’(memory) for current buffer object of target.\n  target enum list\n GL_ARRAY_BUFFER GL_ELEMENT_ARRAY_BUFFER GL_PIXEL_PACK_BUFFER GL_PIXEL_UNPACK_BUFFER    usage enum list\n GL_STREAM_DRAW : modified once by application, accessed rarely, used for drawing and imaging. GL_STREAM_READ : modified once by GL reading, accessed rarely, used for returning data for queries of application. GL_STREAM_COPY : modified once by GL reading, accessed rarely, used for drawing and imaging. GL_STATIC_DRAW : modified once by GL application, accessed often, used for drawing and imaging. GL_STATIC_READ : modified once by GL reading, accessed often, used for returning data for queries of application. GL_STATIC_COPY : modified once by GL reading, accessed often, used for drawing and imaging. GL_DYNAMIC_DRAW : modified multiple time by GL application, accessed often, used for drawing and imaging. GL_DYNAMIC_READ : modified multiple time by GL reading, accessed often, used for returning data for queries of application. GL_DYNAMIC_COPY : modified multiple time by GL reading, accessed often, used for drawing and imaging.     size is size of data store. data is pointer indicating where data storage copy initial data from. can be setted as NULL and data store won’t be initalized.\n   glBufferSubData()  void glBufferSubData (GLenum target, GLintptr offset, GLsizeiptr size, const GLvoid * data);  target enum list is same with glBindBuffer. offset is position inside buffer to start inserting data size is byte size of inserting data data is pointer for data to insert in buffer\n   glClearBufferSubData()  void glClearBufferSubData (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void * data);   format enum list\n GL_RED\t: 1 channel GL_RG\t: 2 channel GL_RGB\t: 3 channel GL_RGBA\t: 4 channel    type basic types\n GL_BYTE\t: GLchar GL_UNSIGNED_BYTE\t: GLuchar GL_SHORT\t: GLshort GL_UNSIGNED_SHORT\t: GLushort GL_INT\t: GLint GL_UNSINGED_INT\t: GLuint GL_FLOAT\t: GLfloat GL_DOUBLE.\t: GLdouble     target is buffer to clear with constant value internalformat is specific format to convert offset is offset byte to start clear size is bytes to continue clear format and type are method to adjust data in data\n   glCopyBufferSubData()  vod glCopyBufferSubData (GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size);  this function use buffer binding points_readtarget, writetarget_. and this way of copying has unwanted sideeffects sometime. so GL_COPY_READ_BUFFER and GL_COPY_WRITE_BUFFER are provided for dedicated binding point.\n   glGenBuffers()  void glGenBuffers (GLsizei n, GLuint * buffers);  glGenBuffers generate n of buffers and insert their buffer names into GLuint array buffers.\n   glMapBuffer()  void* glMapBuffer (GLenum target, GLenum access);  access enum list  GL_READ_ONLY\t: returned pointer will be used for reading buffer object’s data GL_WRITE_ONLY\t: returned pointer will be used for writing buffer object’s data GL_READ_WRITE\t: returned pointer will be used for both reading and writing     map data store of target buffer object into client’s address space and return its void* pointer address. target enum list is same with glBindBuffer. using returned pointer address for GL function parameter is nonstandard. it may occur unexpected result. can unmap with glUnmapBuffer (_target_);.\n  alternative of glGenBuffers for modern openGL. --    Vertex attribute  glVertexAttribPointer()  void glVertexAttribPointer (GLuint index, GLint size = 0, GLenum type = GL_FLOAT, GLboolean normalized. GLsizei stride = 0, const GLvoid * pointer = 0 );  index is index of vertex attribute inside “layout (location = index)” to insert. size is number (1, 2, 3, 4) of components like ‘3 for vec3’ or ‘4 for vec4’. type is data types like GL_FLOAT, GL_INT, GL_BYTE, etc. since float is standard type for opengl vector, they will be converted into float, and it’s reason for normalized is important. if normalized is GL_TRUE, that means datas' values need to be float with value between 0.0 to 1.0 for unsigned, -1.0 to 1.0 for signed. stride indicates offset gap size between first attribute and second attribute. If this value is 0, it will be sizeof(type) * size. pointer parameter seems like pointer, but it’s byte offset for where attribute starts inside of GL_ARRAY_BUFFER.\n   glEnableVertexAttribArray()  void glEnableVertexAttribArray (GLuint index);  glDisableVertexAttribArray()  void glDisableVertexAttribArray (GLuint index);  if vertex attrib array is disabled, vertex attributes will be modified with glVertexAttrib*() funcionts. if vertex attrib array is abled, vertex attributes will be binded with glVertexAttribPointer() funtion.\n   glGetAttribLocation()  GLint glGetAttribLocation (GLuint program, const GLchar * name);  if your put program that owning vertex shader in program and name of vertex attribute’s name(identifier) in name, it will return name’s location number. if there no attribute with name, name, it will return -1.\n    Uniform   While attributes contribute in per-vertex sahder values (like position of vertice), uniform contirbute in same values to several vertex shaders (like transform matrix).\n  Uniform can exist in all kind of shaders.\n  Uniform in shaders are always constant and cannot be assigned by shader.\n  uniform may disappear after compile if none of shader use that uniform.\n  variable names are case-sensitive.\n    Default block\n Default block uniforms are just like sending vertex attributes but use glUniform*() instead glVertexAttrib*(). glUniform*() //functions below are sample glUniform*(). void glUniform1f (GLint location, GLfloat v0); //glUniform1~4f void glUniform2i (GLint location, GLint v0, GLint v1); //glUniform1~4i void glUniform4ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3); //glUniform1~4ui  //functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data. void glUniform1fv (GLint location, GLuint count, const GLfloat* value); //glUniform1~4fv void glUniform2iv (GLint location, GLuint count, const GLint* value); //glUniform1~4iv void glUniform4uiv (GLint location, GLuint count, const GLuint* value); //glUniform1~4uiv  put value or v* into uniform with layout(location = location). boolean can be sent by any type of funtion like how C works. count is length of value, array that contain arrays(i.e. vectors). value is pointer (not pointer-pointer). and that means you dont need to put parameter value into form of array[][], instead just put array’s name (pointer).\n  glUniformMatrix*() //matrix that store single-precision floating values glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); //matrix that store double-precition floating values glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);  shader matrices only stores single and double precision floating-point variety. this function can store array of matrices by setting count into larger than 1. OpenGL’s matrix is column-major. if sending matrix is not column-major, set transpose into GL_TRUE. so, use transpose parameter in handy if you use another graphic library that uses row-major matrix.\n     Uniform block (buffer)\n stored in buffer with interface form (UBO) just like vertex buffer. UBO is manipulated with functions like glBufferData() or glMapBuffer(). two way to store data in buffer  standard : store data with just same order as members of uniform block. extensive and safe but not efficient for memory space usage. since standard layout is not default, you need to put layout (std140) before uniform block declaration. shared : opengl make proper structure itself. shared layout is default layout if there’s none specification. most efficient for performance but need resource to let OpenGL manage them and application can be more complicated. shaders and programs share layout of buffer once buffer layout is decided into shared layout.       standard layout  std140 or any standard layouts have certain offset boundary and field packing rule.  array or vector of GLSL types have boundary offset of N*sizeof(vector). (e.g. vector of 2 floats has 4*2 byte boundary offset.) but array or vector with 3, 4 elements have boundary offset of N*4 bytes. (I think it’s for keeping binaric integrity.) every arrays aligned( =packed) just like vec4 in size. i.e. every arrays without vec4 and N*4 matricies - element arrays won’t be packed tightly. so you need to keep in mind to bind application array with proper offsets. structure and structure array’s boundary offsets defined by its largest member. (ceiled into size of vec4.) all of these rules look complex, but this is the way how standard layout guarantee cross-platform layout. you can check more about this from ARB_uniform_buffer_obect extention’s specification.     shared layout  shared layout may be more efficient than standard layout. but many people think it’s not worth to invest that much effort on it. you need to search block members' size and location wih indices of them. you can get indices' by using glGetUniformIndices(). void glGetUniformIndices (GLuint program, GLsizei uniformCount, const GLchar **uniformNames, GLuint *uniformIndices);  program : program that you will get uniform index from. uniformCount : number of uniform indices you want to get. uniformNames : array of GLchar array( =string) that contains uniforms' name you want to get index of. uniformIndices : this funtion will write indices of uniform you selected in this array.\n  after getting array contain indices, you can get location of uniform block elements by glGetActiveUniformsiv(). void glGetActiveUniformsiv (GLuint program, GLsizei uniformCount, const GLuint *uniformIndices, GLenum pname, GLint *params);  program : program that you will get uniformCount : number of strides or offsets you want to get uniformIndices : array of indices you want to use for getting stride or offset. pname : enum for data type that this function will get. params : result of this function will be stored at here.\n  pname enum list  GL_UNIFORM_TYPE : data type of uniform block members GL_UNIFORM_SIZE\t: array’s size of member regardless of which GL_UNIFORM_TYPE gives. 1 will be stored if indexed member is not array. GL_UNIFORM_NAME_LENGTH\t: length of uniform block member’s name (character array’s length) GL_UNIFORM_BLOCK_INDEX\t: index of uniform block that member is located. (it’s not index of uniform block member. it’s useless since parameter include them!) GL_UNIFORM_OFFSET\t: offset of uniform block member GL_UNIFORM_ARRAY_STRIDE\t: byte stride of uniform block member array. if indexed member is not array, 0 will be stored. GL_UNIFORM_MATRIX_STRIDE\t: byte stride between uniform block member matrix' column or row. if indexed member is not matrix, 0 will be stored. GL_UNIFORM_IS_ROW_MAJOR\t: 1 will be stored if indexed matrix is row-major. 0 will be stored if index matrix is column-major or even not matrix at all.     with offset and stride informations, application need to set data in proper location of buffer to send data for shared layout shader.  you can use stride and offset as parameter of buffer modification functions like glBufferSubData(). if you used glMapBuffer, application need to take care with inputting data inside buffer.         glGetUniformLocation()  GLint glGetUniformLocation (GLuint program, const GLchar * name);  Used for finding location of uniform inside program. if you put program that owning vertex shader in program and name of uniform’s name(identifier) in name, it will return name’s location number. if there no attribute with name, name, it will return -1.\n  put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).  boolean can be sent by any type of funtion like how C works.  _`count`_ is length of _`value`_, array that contain arrays(i.e. vectors).  value is pointer (not pointer-pointer). and that means you dont need to put parameter _`value`_ into form of array[][], instead just put array's name (pointer).   glUniformMatrix*()  //matrix that store single-precision floating values glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); //matrix that store double-precition floating values glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);  shader matrices only stores single and double precision floating-point variety. this function can store array of matrices by setting count into larger than 1. OpenGL’s matrix is column-major. if sending matrix is not column-major, set transpose into GL_TRUE. so, use transpose parameter in handy if you use another graphic library that uses row-major matrix.\n –\nTexture ","wordCount":"2164","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/opengl/opengl_data/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenGL data","name":"OpenGL data","description":"OpenGL Data type OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)\n  Buffer\n glBindBuffer() glBufferData() glBufferSubData() glClearBufferSubData() glCopyBufferSubData() glGenBuffers() glMapBuffer() \u0026lt;\u0026ndash; - glCreateBuffers \u0026ndash;\u0026gt;    Vertex Attribute\n glVertexAttribPointer() glEnableVertexAttribArray() glDisableVertexAttribArray() glGetAttribLocation()    Uniform\n Default Block   glUniform*() glUniformMatrix*()  Uniform Block   glGetUniformIndicies() glGetActiveUniforms() glGetUniformLocation()     Buffer   need name for identify handle","keywords":[],"articleBody":"OpenGL Data type OpenGL provides Buffer and Texture as storage for more efficient data streaming. (modern graphics processors are designed with streaming processor.)\n  Buffer\n glBindBuffer() glBufferData() glBufferSubData() glClearBufferSubData() glCopyBufferSubData() glGenBuffers() glMapBuffer()     Vertex Attribute\n glVertexAttribPointer() glEnableVertexAttribArray() glDisableVertexAttribArray() glGetAttribLocation()    Uniform\n Default Block   glUniform*() glUniformMatrix*()  Uniform Block   glGetUniformIndicies() glGetActiveUniforms() glGetUniformLocation()     Buffer   need name for identify handle\n  memory space allocated for buffer object is called data storage.\n  two method to put data in buffer are ; using command ; mapping with pointer\n  can bind into context’s buffer binding point with buffer’s name.\n  binding point can be refered as target in most cases. (but target may have multiple binging point)\n  buffer binding process\n   glGenBuffers - glBindBuffer - glBufferData\n  There’s many way to manipulate buffer object’s data  using data parameter of glBufferData() using glBufferSubData() using glMapBuffer()       glBindBuffer()  1  void glBindBuffer (GLenum target, GLuint buffer);    target enum list  GL_ARRAY_BUFFER\t: Vertex attributes GL_ATOMIC_COUNTER_BUFFER\t: Atomic counter storage GL_COPY_READ_BUFFER\t: Buffer copy source GL_COPY_WRITE_BUFFER\t: Buffer copy destination GL_DISPATCH_INDIRECT_BUFFER\t: Indirect compute dispatch commands GL_DRAW_INDIRECT_BUFFER\t: Indirect command arguments GL_ELEMENT_ARRAY_BUFFER\t: Vertex array indices GL_PIXEL_PACK_BUFFER\t: Pixel read target GL_PIXEL_UNPACK_BUFFER\t: Texture data source GL_QUERY_BUFFER\t: Query result buffer GL_SHADER_STORAGE_BUFFER\t: Read-write storage for shaders GL_TEXTURE_BUFFER\t: Texture data buffer GL_TRANSFORM_FEEDBACK_BUFFER\t: Transform feedback buffer GL_UNIFORM_BUFFER\t: Uniform block storage      glBufferData()  1  void glBufferData (GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage);   create ‘data store’(memory) for current buffer object of target.\n  target enum list\n GL_ARRAY_BUFFER GL_ELEMENT_ARRAY_BUFFER GL_PIXEL_PACK_BUFFER GL_PIXEL_UNPACK_BUFFER    usage enum list\n GL_STREAM_DRAW : modified once by application, accessed rarely, used for drawing and imaging. GL_STREAM_READ : modified once by GL reading, accessed rarely, used for returning data for queries of application. GL_STREAM_COPY : modified once by GL reading, accessed rarely, used for drawing and imaging. GL_STATIC_DRAW : modified once by GL application, accessed often, used for drawing and imaging. GL_STATIC_READ : modified once by GL reading, accessed often, used for returning data for queries of application. GL_STATIC_COPY : modified once by GL reading, accessed often, used for drawing and imaging. GL_DYNAMIC_DRAW : modified multiple time by GL application, accessed often, used for drawing and imaging. GL_DYNAMIC_READ : modified multiple time by GL reading, accessed often, used for returning data for queries of application. GL_DYNAMIC_COPY : modified multiple time by GL reading, accessed often, used for drawing and imaging.     size is size of data store. data is pointer indicating where data storage copy initial data from. can be setted as NULL and data store won’t be initalized.\n   glBufferSubData()  1  void glBufferSubData (GLenum target, GLintptr offset, GLsizeiptr size, const GLvoid * data);    target enum list is same with glBindBuffer. offset is position inside buffer to start inserting data size is byte size of inserting data data is pointer for data to insert in buffer\n   glClearBufferSubData()  1  void glClearBufferSubData (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void * data);     format enum list\n GL_RED\t: 1 channel GL_RG\t: 2 channel GL_RGB\t: 3 channel GL_RGBA\t: 4 channel    type basic types\n GL_BYTE\t: GLchar GL_UNSIGNED_BYTE\t: GLuchar GL_SHORT\t: GLshort GL_UNSIGNED_SHORT\t: GLushort GL_INT\t: GLint GL_UNSINGED_INT\t: GLuint GL_FLOAT\t: GLfloat GL_DOUBLE.\t: GLdouble     target is buffer to clear with constant value internalformat is specific format to convert offset is offset byte to start clear size is bytes to continue clear format and type are method to adjust data in data\n   glCopyBufferSubData()  1  vod glCopyBufferSubData (GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size);    this function use buffer binding points_readtarget, writetarget_. and this way of copying has unwanted sideeffects sometime. so GL_COPY_READ_BUFFER and GL_COPY_WRITE_BUFFER are provided for dedicated binding point.\n   glGenBuffers()  1  void glGenBuffers (GLsizei n, GLuint * buffers);    glGenBuffers generate n of buffers and insert their buffer names into GLuint array buffers.\n   glMapBuffer()  1  void* glMapBuffer (GLenum target, GLenum access);    access enum list  GL_READ_ONLY\t: returned pointer will be used for reading buffer object’s data GL_WRITE_ONLY\t: returned pointer will be used for writing buffer object’s data GL_READ_WRITE\t: returned pointer will be used for both reading and writing     map data store of target buffer object into client’s address space and return its void* pointer address. target enum list is same with glBindBuffer. using returned pointer address for GL function parameter is nonstandard. it may occur unexpected result. can unmap with glUnmapBuffer (_target_);.\n  alternative of glGenBuffers for modern openGL. --    Vertex attribute  glVertexAttribPointer()  1 2 3 4 5 6  void glVertexAttribPointer (GLuint index, GLint size = 0, GLenum type = GL_FLOAT, GLboolean normalized. GLsizei stride = 0, const GLvoid * pointer = 0 );    index is index of vertex attribute inside “layout (location = index)” to insert. size is number (1, 2, 3, 4) of components like ‘3 for vec3’ or ‘4 for vec4’. type is data types like GL_FLOAT, GL_INT, GL_BYTE, etc. since float is standard type for opengl vector, they will be converted into float, and it’s reason for normalized is important. if normalized is GL_TRUE, that means datas' values need to be float with value between 0.0 to 1.0 for unsigned, -1.0 to 1.0 for signed. stride indicates offset gap size between first attribute and second attribute. If this value is 0, it will be sizeof(type) * size. pointer parameter seems like pointer, but it’s byte offset for where attribute starts inside of GL_ARRAY_BUFFER.\n   glEnableVertexAttribArray()  1  void glEnableVertexAttribArray (GLuint index);    glDisableVertexAttribArray()  1  void glDisableVertexAttribArray (GLuint index);    if vertex attrib array is disabled, vertex attributes will be modified with glVertexAttrib*() funcionts. if vertex attrib array is abled, vertex attributes will be binded with glVertexAttribPointer() funtion.\n   glGetAttribLocation()  1  GLint glGetAttribLocation (GLuint program, const GLchar * name);    if your put program that owning vertex shader in program and name of vertex attribute’s name(identifier) in name, it will return name’s location number. if there no attribute with name, name, it will return -1.\n    Uniform   While attributes contribute in per-vertex sahder values (like position of vertice), uniform contirbute in same values to several vertex shaders (like transform matrix).\n  Uniform can exist in all kind of shaders.\n  Uniform in shaders are always constant and cannot be assigned by shader.\n  uniform may disappear after compile if none of shader use that uniform.\n  variable names are case-sensitive.\n    Default block\n Default block uniforms are just like sending vertex attributes but use glUniform*() instead glVertexAttrib*(). glUniform*() 1 2 3 4 5 6 7 8 9  //functions below are sample glUniform*(). void glUniform1f (GLint location, GLfloat v0); //glUniform1~4f void glUniform2i (GLint location, GLint v0, GLint v1); //glUniform1~4i void glUniform4ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3); //glUniform1~4ui  //functions below are glUniform*v() that use pointer (i.e. array, vector) to store multiple uniform data. void glUniform1fv (GLint location, GLuint count, const GLfloat* value); //glUniform1~4fv void glUniform2iv (GLint location, GLuint count, const GLint* value); //glUniform1~4iv void glUniform4uiv (GLint location, GLuint count, const GLuint* value); //glUniform1~4uiv    put value or v* into uniform with layout(location = location). boolean can be sent by any type of funtion like how C works. count is length of value, array that contain arrays(i.e. vectors). value is pointer (not pointer-pointer). and that means you dont need to put parameter value into form of array[][], instead just put array’s name (pointer).\n  glUniformMatrix*() 1 2 3 4 5 6 7 8 9  //matrix that store single-precision floating values glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); //matrix that store double-precition floating values glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);    shader matrices only stores single and double precision floating-point variety. this function can store array of matrices by setting count into larger than 1. OpenGL’s matrix is column-major. if sending matrix is not column-major, set transpose into GL_TRUE. so, use transpose parameter in handy if you use another graphic library that uses row-major matrix.\n     Uniform block (buffer)\n stored in buffer with interface form (UBO) just like vertex buffer. UBO is manipulated with functions like glBufferData() or glMapBuffer(). two way to store data in buffer  standard : store data with just same order as members of uniform block. extensive and safe but not efficient for memory space usage. since standard layout is not default, you need to put layout (std140) before uniform block declaration. shared : opengl make proper structure itself. shared layout is default layout if there’s none specification. most efficient for performance but need resource to let OpenGL manage them and application can be more complicated. shaders and programs share layout of buffer once buffer layout is decided into shared layout.       standard layout  std140 or any standard layouts have certain offset boundary and field packing rule.  array or vector of GLSL types have boundary offset of N*sizeof(vector). (e.g. vector of 2 floats has 4*2 byte boundary offset.) but array or vector with 3, 4 elements have boundary offset of N*4 bytes. (I think it’s for keeping binaric integrity.) every arrays aligned( =packed) just like vec4 in size. i.e. every arrays without vec4 and N*4 matricies - element arrays won’t be packed tightly. so you need to keep in mind to bind application array with proper offsets. structure and structure array’s boundary offsets defined by its largest member. (ceiled into size of vec4.) all of these rules look complex, but this is the way how standard layout guarantee cross-platform layout. you can check more about this from ARB_uniform_buffer_obect extention’s specification.     shared layout  shared layout may be more efficient than standard layout. but many people think it’s not worth to invest that much effort on it. you need to search block members' size and location wih indices of them. you can get indices' by using glGetUniformIndices(). 1  void glGetUniformIndices (GLuint program, GLsizei uniformCount, const GLchar **uniformNames, GLuint *uniformIndices);    program : program that you will get uniform index from. uniformCount : number of uniform indices you want to get. uniformNames : array of GLchar array( =string) that contains uniforms' name you want to get index of. uniformIndices : this funtion will write indices of uniform you selected in this array.\n  after getting array contain indices, you can get location of uniform block elements by glGetActiveUniformsiv(). 1  void glGetActiveUniformsiv (GLuint program, GLsizei uniformCount, const GLuint *uniformIndices, GLenum pname, GLint *params);    program : program that you will get uniformCount : number of strides or offsets you want to get uniformIndices : array of indices you want to use for getting stride or offset. pname : enum for data type that this function will get. params : result of this function will be stored at here.\n  pname enum list  GL_UNIFORM_TYPE : data type of uniform block members GL_UNIFORM_SIZE\t: array’s size of member regardless of which GL_UNIFORM_TYPE gives. 1 will be stored if indexed member is not array. GL_UNIFORM_NAME_LENGTH\t: length of uniform block member’s name (character array’s length) GL_UNIFORM_BLOCK_INDEX\t: index of uniform block that member is located. (it’s not index of uniform block member. it’s useless since parameter include them!) GL_UNIFORM_OFFSET\t: offset of uniform block member GL_UNIFORM_ARRAY_STRIDE\t: byte stride of uniform block member array. if indexed member is not array, 0 will be stored. GL_UNIFORM_MATRIX_STRIDE\t: byte stride between uniform block member matrix' column or row. if indexed member is not matrix, 0 will be stored. GL_UNIFORM_IS_ROW_MAJOR\t: 1 will be stored if indexed matrix is row-major. 0 will be stored if index matrix is column-major or even not matrix at all.     with offset and stride informations, application need to set data in proper location of buffer to send data for shared layout shader.  you can use stride and offset as parameter of buffer modification functions like glBufferSubData(). if you used glMapBuffer, application need to take care with inputting data inside buffer.         glGetUniformLocation()  1  GLint glGetUniformLocation (GLuint program, const GLchar * name);    Used for finding location of uniform inside program. if you put program that owning vertex shader in program and name of uniform’s name(identifier) in name, it will return name’s location number. if there no attribute with name, name, it will return -1.\n  put _`value`_ or _`v*`_ into uniform with layout(location = _`location`_).  boolean can be sent by any type of funtion like how C works.  _`count`_ is length of _`value`_, array that contain arrays(i.e. vectors).  value is pointer (not pointer-pointer). and that means you dont need to put parameter _`value`_ into form of array[][], instead just put array's name (pointer).   glUniformMatrix*()  1 2 3 4 5 6 7 8 9  //matrix that store single-precision floating values glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, const GLfloat *m); //matrix that store double-precition floating values glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m); glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, const GLdouble *m);    shader matrices only stores single and double precision floating-point variety. this function can store array of matrices by setting count into larger than 1. OpenGL’s matrix is column-major. if sending matrix is not column-major, set transpose into GL_TRUE. so, use transpose parameter in handy if you use another graphic library that uses row-major matrix.\n –\nTexture ","wordCount":"2210","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/opengl/opengl_data/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -183,8 +184,15 @@ OpenGL data
 <ul>
 <li>glBindBuffer()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glBindBuffer</span> (GLenum target, GLuint buffer);
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glBindBuffer</span> (GLenum target, GLuint buffer);
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em><code>target</code></em> enum list
 <ul>
 <li><strong>GL_ARRAY_BUFFER</strong> : Vertex attributes</li>
@@ -207,8 +215,15 @@ OpenGL data
 <ul>
 <li>glBufferData()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glBufferData</span> (GLenum target, GLsizeiptr size, <span style=color:#66d9ef>const</span> GLvoid <span style=color:#f92672>*</span> data, GLenum usage);
-</code></pre></div><p>create &lsquo;data store&rsquo;(memory) for current buffer object of <em><code>target</code></em>.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glBufferData</span> (GLenum target, GLsizeiptr size, <span style=color:#66d9ef>const</span> GLvoid <span style=color:#f92672>*</span> data, GLenum usage);
+</code></pre></td></tr></table>
+</div>
+</div><p>create &lsquo;data store&rsquo;(memory) for current buffer object of <em><code>target</code></em>.</p>
 <ul>
 <li>
 <p><em><code>target</code></em> enum list</p>
@@ -242,8 +257,15 @@ can be setted as NULL and data store won&rsquo;t be initalized.</p>
 <ul>
 <li>glBufferSubData()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glBufferSubData</span> (GLenum target, GLintptr offset, GLsizeiptr size, <span style=color:#66d9ef>const</span> GLvoid <span style=color:#f92672>*</span> data);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glBufferSubData</span> (GLenum target, GLintptr offset, GLsizeiptr size, <span style=color:#66d9ef>const</span> GLvoid <span style=color:#f92672>*</span> data);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><em><code>target</code></em> enum list is same with glBindBuffer. <br>
 <em><code>offset</code></em> is position inside buffer to start inserting data <br>
 <em><code>size</code></em> is byte size of inserting data <br>
@@ -252,8 +274,15 @@ can be setted as NULL and data store won&rsquo;t be initalized.</p>
 <ul>
 <li>glClearBufferSubData()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glClearBufferSubData</span> (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>void</span> <span style=color:#f92672>*</span> data);
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glClearBufferSubData</span> (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>void</span> <span style=color:#f92672>*</span> data);
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>
 <p><em><code>format</code></em> enum list</p>
 <ul>
@@ -287,23 +316,44 @@ can be setted as NULL and data store won&rsquo;t be initalized.</p>
 <ul>
 <li>glCopyBufferSubData()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>vod <span style=color:#a6e22e>glCopyBufferSubData</span> (GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>vod <span style=color:#a6e22e>glCopyBufferSubData</span> (GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>this function use buffer binding points_<code>readtarget, writetarget</code>_. and this way of copying has unwanted sideeffects sometime. <br>
 so <strong>GL_COPY_READ_BUFFER</strong> and <strong>GL_COPY_WRITE_BUFFER</strong> are provided for dedicated binding point.</p>
 </blockquote>
 <ul>
 <li>glGenBuffers()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glGenBuffers</span> (GLsizei n, GLuint <span style=color:#f92672>*</span> buffers);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glGenBuffers</span> (GLsizei n, GLuint <span style=color:#f92672>*</span> buffers);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>glGenBuffers generate <em><code>n</code></em> of buffers and insert their buffer names into GLuint array <em><code>buffers</code></em>.</p>
 </blockquote>
 <ul>
 <li>glMapBuffer()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span><span style=color:#f92672>*</span> <span style=color:#a6e22e>glMapBuffer</span> (GLenum target, GLenum access);
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span><span style=color:#f92672>*</span> <span style=color:#a6e22e>glMapBuffer</span> (GLenum target, GLenum access);
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em><code>access</code></em> enum list
 <ul>
 <li><strong>GL_READ_ONLY</strong> : returned pointer will be used for reading buffer object&rsquo;s data</li>
@@ -323,13 +373,25 @@ can unmap with <code>glUnmapBuffer (_target_);</code>.</p>
 <ul>
 <li>glVertexAttribPointer()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glVertexAttribPointer</span> (GLuint index,
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glVertexAttribPointer</span> (GLuint index,
 		 GLint size <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>,
 		 GLenum type <span style=color:#f92672>=</span> GL_FLOAT,
 		 GLboolean normalized.
 		 GLsizei stride <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>,
 		 <span style=color:#66d9ef>const</span> GLvoid <span style=color:#f92672>*</span> pointer <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> );
-</code></pre></div><blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><em><code>index</code></em> is index of vertex attribute inside &ldquo;layout (location = index)&rdquo; to insert. <br>
 <em><code>size</code></em> is number (1, 2, 3, 4) of components like &lsquo;3 for vec3&rsquo; or &lsquo;4 for vec4&rsquo;. <br>
 <em><code>type</code></em> is data types like <strong>GL_FLOAT</strong>, <strong>GL_INT</strong>, <strong>GL_BYTE</strong>, etc. <br>
@@ -341,20 +403,41 @@ if <em><code>normalized</code></em> is <strong>GL_TRUE</strong>, that means data
 <ul>
 <li>glEnableVertexAttribArray()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glEnableVertexAttribArray</span> (GLuint index);
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glEnableVertexAttribArray</span> (GLuint index);
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>glDisableVertexAttribArray()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glDisableVertexAttribArray</span> (GLuint index);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glDisableVertexAttribArray</span> (GLuint index);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>if vertex attrib array is disabled, vertex attributes will be modified with glVertexAttrib*() funcionts. <br>
 if vertex attrib array is abled, vertex attributes will be binded with glVertexAttribPointer() funtion.</p>
 </blockquote>
 <ul>
 <li>glGetAttribLocation()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>GLint <span style=color:#a6e22e>glGetAttribLocation</span> (GLuint program, <span style=color:#66d9ef>const</span> GLchar <span style=color:#f92672>*</span> name);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>GLint <span style=color:#a6e22e>glGetAttribLocation</span> (GLuint program, <span style=color:#66d9ef>const</span> GLchar <span style=color:#f92672>*</span> name);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>if your put program that owning vertex shader in <em><code>program</code></em> and <br>
 name of vertex attribute&rsquo;s name(identifier) in <em><code>name</code></em>, <br>
 it will return <em><code>name</code></em>&rsquo;s location number. <br>
@@ -386,7 +469,20 @@ uniform contirbute in same values to several vertex shaders (like transform matr
 <ul>
 <li>Default block uniforms are just like sending vertex attributes but use glUniform*() instead glVertexAttrib*().</li>
 <li>glUniform*()
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>//functions below are sample glUniform*().
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>//functions below are sample glUniform*().
 </span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glUniform1f</span> (GLint location, GLfloat v0); <span style=color:#75715e>//glUniform1~4f
 </span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glUniform2i</span> (GLint location, GLint v0, GLint v1); <span style=color:#75715e>//glUniform1~4i
 </span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glUniform4ui</span> (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);  <span style=color:#75715e>//glUniform1~4ui
@@ -395,7 +491,9 @@ uniform contirbute in same values to several vertex shaders (like transform matr
 </span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glUniform1fv</span> (GLint location, GLuint count, <span style=color:#66d9ef>const</span> GLfloat<span style=color:#f92672>*</span> value);  <span style=color:#75715e>//glUniform1~4fv
 </span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glUniform2iv</span> (GLint location, GLuint count, <span style=color:#66d9ef>const</span> GLint<span style=color:#f92672>*</span> value);  <span style=color:#75715e>//glUniform1~4iv
 </span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glUniform4uiv</span> (GLint location, GLuint count, <span style=color:#66d9ef>const</span> GLuint<span style=color:#f92672>*</span> value);  <span style=color:#75715e>//glUniform1~4uiv
-</span></code></pre></div><blockquote>
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>put <em><code>value</code></em> or <em><code>v*</code></em> into uniform with layout(location = <em><code>location</code></em>). <br>
 boolean can be sent by any type of funtion like how C works. <br>
 <em><code>count</code></em> is length of <em><code>value</code></em>, array that contain arrays(i.e. vectors). <br>
@@ -403,7 +501,20 @@ value is pointer (not pointer-pointer). and that means you dont need to put para
 </blockquote>
 </li>
 <li>glUniformMatrix*()
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>//matrix that store single-precision floating values
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>//matrix that store single-precision floating values
 </span><span style=color:#75715e></span>glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLfloat <span style=color:#f92672>*</span>m);
 glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLfloat <span style=color:#f92672>*</span>m);
 glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLfloat <span style=color:#f92672>*</span>m);
@@ -412,7 +523,9 @@ glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, <span sty
 </span><span style=color:#75715e></span>glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLdouble <span style=color:#f92672>*</span>m);
 glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLdouble <span style=color:#f92672>*</span>m);
 glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLdouble <span style=color:#f92672>*</span>m);
-</code></pre></div><blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>shader matrices only stores single and double precision floating-point variety. <br>
 this function can store array of matrices by setting <em><code>count</code></em> into larger than 1. <br>
 OpenGL&rsquo;s matrix is column-major. if sending matrix is not column-major, set <em><code>transpose</code></em> into <strong>GL_TRUE</strong>. <br>
@@ -460,8 +573,15 @@ shaders and programs <strong>share</strong> layout of buffer once buffer layout 
 <li>shared layout <strong>may</strong> be more efficient than standard layout. but many people think it&rsquo;s not worth to invest that much effort on it.</li>
 <li>you need to search block members' size and location wih indices of them.</li>
 <li>you can get indices' by using <em><code>glGetUniformIndices()</code></em>.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glGetUniformIndices</span> (GLuint program, GLsizei uniformCount, <span style=color:#66d9ef>const</span> GLchar <span style=color:#f92672>**</span>uniformNames, GLuint <span style=color:#f92672>*</span>uniformIndices);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glGetUniformIndices</span> (GLuint program, GLsizei uniformCount, <span style=color:#66d9ef>const</span> GLchar <span style=color:#f92672>**</span>uniformNames, GLuint <span style=color:#f92672>*</span>uniformIndices);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><em><code>program</code></em> : program that you will get uniform index from.
 <em><code>uniformCount</code></em> : number of uniform indices you want to get.
 <em><code>uniformNames</code></em> : array of GLchar array( =string) that contains uniforms' name you want to get index of.
@@ -469,8 +589,15 @@ shaders and programs <strong>share</strong> layout of buffer once buffer layout 
 </blockquote>
 </li>
 <li>after getting array contain indices, you can get location of uniform block elements by <em><code>glGetActiveUniformsiv()</code></em>.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glGetActiveUniformsiv</span> (GLuint program, GLsizei uniformCount, <span style=color:#66d9ef>const</span>  GLuint <span style=color:#f92672>*</span>uniformIndices, GLenum pname, GLint <span style=color:#f92672>*</span>params);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>glGetActiveUniformsiv</span> (GLuint program, GLsizei uniformCount, <span style=color:#66d9ef>const</span>  GLuint <span style=color:#f92672>*</span>uniformIndices, GLenum pname, GLint <span style=color:#f92672>*</span>params);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><em><code>program</code></em> : program that you will get
 <em><code>uniformCount</code></em> : number of strides or offsets you want to get
 <em><code>uniformIndices</code></em> : array of indices you want to use for getting stride or offset.
@@ -505,8 +632,15 @@ shaders and programs <strong>share</strong> layout of buffer once buffer layout 
 <ul>
 <li>glGetUniformLocation()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>GLint <span style=color:#a6e22e>glGetUniformLocation</span> (GLuint program, <span style=color:#66d9ef>const</span> GLchar <span style=color:#f92672>*</span> name);
-</code></pre></div><blockquote>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>GLint <span style=color:#a6e22e>glGetUniformLocation</span> (GLuint program, <span style=color:#66d9ef>const</span> GLchar <span style=color:#f92672>*</span> name);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>Used for finding location of uniform inside program.
 if you put program that owning vertex shader in <em><code>program</code></em> and <br>
 name of uniform&rsquo;s name(identifier) in <em><code>name</code></em>, <br>
@@ -516,7 +650,20 @@ if there no attribute with name, <em><code>name</code></em>, it will return -1.<
 <ul>
 <li>glUniformMatrix*()</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>//matrix that store single-precision floating values
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>//matrix that store single-precision floating values
 </span><span style=color:#75715e></span>glUniformMatrix2fv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLfloat <span style=color:#f92672>*</span>m);
 glUniformMatrix3fv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLfloat <span style=color:#f92672>*</span>m);
 glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLfloat <span style=color:#f92672>*</span>m);
@@ -525,7 +672,9 @@ glUniformMatrix4fv (GLint location, GLuint count, GLboolean transpose, <span sty
 </span><span style=color:#75715e></span>glUniformMatrix2dv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLdouble <span style=color:#f92672>*</span>m);
 glUniformMatrix3dv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLdouble <span style=color:#f92672>*</span>m);
 glUniformMatrix4dv (GLint location, GLuint count, GLboolean transpose, <span style=color:#66d9ef>const</span> GLdouble <span style=color:#f92672>*</span>m);
-</code></pre></div><blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>shader matrices only stores single and double precision floating-point variety. <br>
 this function can store array of matrices by setting <em><code>count</code></em> into larger than 1. <br>
 OpenGL&rsquo;s matrix is column-major. if sending matrix is not column-major, set <em><code>transpose</code></em> into <strong>GL_TRUE</strong>. <br>

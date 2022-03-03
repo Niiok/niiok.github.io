@@ -13,6 +13,7 @@
  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().">
 <meta name=author content="Niiok">
 <link rel=canonical href=https://niiok.github.io/sdl/lazyfoo7/>
+<meta name=google-site-verification content="DdPXi9zFzhddjnm20EWbhWv7tBvTySWZYj82E4eWwVA">
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://niiok.github.io/favicon.ico>
@@ -45,7 +46,7 @@
  SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?
  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SDLs","item":"https://niiok.github.io/sdl/"},{"@type":"ListItem","position":2,"name":"SDL Chapter 7","item":"https://niiok.github.io/sdl/lazyfoo7/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 7","name":"SDL Chapter 7","description":"This document is not done. On Going!!   Intro\n How Chapter_7 works?    Function\n SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct\n SDL_Renderer SDL_Texture    Term\n SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?\n init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().","keywords":[],"articleBody":"This document is not done. On Going!!   Intro\n How Chapter_7 works?    Function\n SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct\n SDL_Renderer SDL_Texture    Term\n SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?\n init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end). clear screen(render) with SDL_RenderClear(). render texture(copy) on screen with SDL_RenderCopy(). update screen(of window) with SDL_RenderPresent() to refresh and show what we’ve done.     close()  SDL_DestroyTexture() SDL_DestroyRenderer() SDL_DestroyWindow() IMG_Quit() SDL_Quit()     now we are not using screen surface as our primary canvas anymore; instead renderer!  loadSueface() - loadTexture() SDL_GetWindowSurface() is gone from init()  instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_SetRenderDrawColor() are required   SDL_BlitSurface() is replaced into SDL_RenderClear() and SDL_RenderCopy() SDL_UpdateWindowSurface() is replaced into SDL_RenderPresent() SDL_FreeSurface() is gone from close()  instead, SDL_DestroyTexture() and SDL_DestroyRenderer() are required         Function   SDL_SetHint()\n `` : return  **** on        SDL_CreateRenderer()\n `` : return  **** on        SDL_SetRenderDrawColor()\n `` : return  **** on        SDL_CreateTextureFromSurface()\n `` : return  **** on        SDL_RenderClear()\n `` : return  **** on        SDL_RenderCopy()\n `` : return  **** on        SDL_RenderPresent()\n `` : return  **** on        SDL_DestroyTexture()\n `` : return  **** on        SDL_DestroyRender()\n `` : return  **** on         Struct   SDL_Renderer\n  SDL_Texture\n   Term   SDL_SetHint()\n SDL_HINT_RENDER_SCALE_QUALITY    SDL_CreateRender()\n SDL_RENDERER_ACCELERATED    ","wordCount":"236","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo7/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 7","name":"SDL Chapter 7","description":"This document is not done. On Going!!   Intro\n How Chapter_7 works?    Function\n SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct\n SDL_Renderer SDL_Texture    Term\n SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?\n init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().","keywords":[],"articleBody":"This document is not done. On Going!!   Intro\n How Chapter_7 works?    Function\n SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct\n SDL_Renderer SDL_Texture    Term\n SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?\n init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end). clear screen(render) with SDL_RenderClear(). render texture(copy) on screen with SDL_RenderCopy(). update screen(of window) with SDL_RenderPresent() to refresh and show what we’ve done.     close()  SDL_DestroyTexture() SDL_DestroyRenderer() SDL_DestroyWindow() IMG_Quit() SDL_Quit()     now we are not using screen surface as our primary canvas anymore; instead renderer!  loadSueface() - loadTexture() SDL_GetWindowSurface() is gone from init()  instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_SetRenderDrawColor() are required   SDL_BlitSurface() is replaced into SDL_RenderClear() and SDL_RenderCopy() SDL_UpdateWindowSurface() is replaced into SDL_RenderPresent() SDL_FreeSurface() is gone from close()  instead, SDL_DestroyTexture() and SDL_DestroyRenderer() are required         Function   SDL_SetHint()\n1     `` : return  **** on        SDL_CreateRenderer()\n1     `` : return  **** on        SDL_SetRenderDrawColor()\n1     `` : return  **** on        SDL_CreateTextureFromSurface()\n1     `` : return  **** on        SDL_RenderClear()\n1     `` : return  **** on        SDL_RenderCopy()\n1     `` : return  **** on        SDL_RenderPresent()\n1     `` : return  **** on        SDL_DestroyTexture()\n1     `` : return  **** on        SDL_DestroyRender()\n1     `` : return  **** on         Struct   SDL_Renderer\n  SDL_Texture\n   Term   SDL_SetHint()\n SDL_HINT_RENDER_SCALE_QUALITY    SDL_CreateRender()\n SDL_RENDERER_ACCELERATED    ","wordCount":"245","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo7/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -205,8 +206,15 @@ SDL Chapter 7
 <ul>
 <li>
 <p>SDL_SetHint()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -219,8 +227,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_CreateRenderer()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -233,8 +248,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_SetRenderDrawColor()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -247,8 +269,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_CreateTextureFromSurface()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -261,8 +290,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_RenderClear()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -275,8 +311,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_RenderCopy()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -289,8 +332,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_RenderPresent()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -303,8 +353,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_DestroyTexture()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
@@ -317,8 +374,15 @@ SDL Chapter 7
 </li>
 <li>
 <p>SDL_DestroyRender()</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><em>``</em> :</li>
 <li><strong>return</strong>
 <ul>
