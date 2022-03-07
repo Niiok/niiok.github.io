@@ -118,6 +118,7 @@ params:
     
     #Home info
     homeInfoParams:
+        enabled: false
         Title: "Niiok's blog"
         Content: |
             Welcome!
@@ -138,7 +139,9 @@ params:
     profileMode:
         enabled: true
         title: "Niiok" # optional default will be site title
-        subtitle: "Game Developer"
+        subtitle: |    
+            Game Developer    
+            Currently interested in Unreal, OpenGL    
         imageUrl: "/niiok_square.jpg" # optional
         imageTitle: "Oops, Image is missing." # optional
         imageWidth: 256 # custom size
