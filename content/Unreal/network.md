@@ -3,7 +3,7 @@ title: "Unreal Network"
 author: "Niiok"
 categories: ["Unreal"]
 date: 2022-03-16T23:41:59+09:00
-draft: true
+#draft: true
 weight: 1
 
 
@@ -46,11 +46,40 @@ weight: 1
 ## Replication Role
 - ROLE_None
 - ROLE_Authority
-- ROLE_SimulattedProxy
+- ROLE_SimulatedProxy
 - ROLE_AutonomousProxy
 
 
-## RPC
-- Server
-- Client
-- NetMulticast
+## Replicate with property
+``` C++
+UFUNCTION()
+void void_function();
+
+UPROPERTY(Replicated)
+int SimpleReplicateProperty;
+
+UPROPERTY(ReplicatedUsing = void_function)
+int ReplicatePropertyCallsRepNotifies;
+```
+
+## Replicate with Function (RPC)
+``` C++
+UFUNCTION(Server, Reliable, WithValidation)
+void FunctionThatCalledOnServer();
+
+UFUNCTION(Client, Reliable, WithValidation)
+void FunctionThatCalledOnOwnerClient();
+
+UFUNCTION(NetMulticast, Reliable, WithValidation)
+void FunctionThatCalledOnEveryActor();
+
+void ClassName::FunctionThatCalledOnServer_Implementation() {}
+bool ClassName::FunctionThatCalledOnServer_Validation() {}
+void ClassName::FunctionThatCalledOnOwnerClient_Implementation() {}
+bool ClassName::FunctionThatCalledOnOwnerClient_Validation() {}
+void ClassName::FunctionThatCalledOnEveryActor_Implementation() {}
+bool ClassName::FunctionThatCalledOnEveryActor_Validation() {}
+```
+- You should set `Reliable`(TCP) or `Unreliable`(UDP) specifier on RPC's UFUNCTION().
+  - If you spam `Reliable` like every ticks, client may get disconnected due to preventation of DDOS.
+- `WithValidation` specifier is selective. (`_Validation` function must be followed with `WithValidation` specifier.).
