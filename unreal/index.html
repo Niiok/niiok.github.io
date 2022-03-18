@@ -61,6 +61,30 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Unreal Subsystem
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro Subsystem is handy and useful instance with various lifecycle. Every Subsystems declared as class will be instanced and called Inintialize() and Deinitialize() in proper time. Thanks to Subsystems, GameInstance don’t have to be over-responsible. (and other massive advantages) Subsystem variety UEngineSubsystem
+Lifetime : StartUp() ~ ShutDown() Reference : GEngine->GetEngineSubsystem&lt;T>(); UEditorSubsystem
+Lifetime : StartUp() ~ ShutDown() Reference : GEditor->GetEditorSubsystem&lt;T>(); UGameInstanceSubsystem...</p>
+</section>
+<footer class=entry-footer><span title="2022-03-17 23:42:05 +0900 +0900">March 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
+<a class=entry-link aria-label="post link to Unreal Subsystem" href=https://niiok.github.io/unreal/subsystem/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>Unreal Network
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro Unreal network system is based on Server-Client model. If developers consider about “Replication”, game can support both single player and multiplayer. Network Mode NM_Standalone Authoritive : true Listening : false LocalPlayer : true NM_Client Authoritive : false Listening : false LocalPlayer : true NM_ListenServer Authoritive : true Listening : true LocalPlayer : true NM_DedicatedServer Authoritive : true Listening : true LocalPlayer : false Replication Role ROLE_None ROLE_Authority ROLE_SimulatedProxy ROLE_AutonomousProxy Replicate with property 1 2 3 4 5 6 7 8 UFUNCTION() void void_function(); UPROPERTY(Replicated) int SimpleReplicateProperty; UPROPERTY(ReplicatedUsing = void_function) int ReplicatePropertyCallsRepNotifies; Replicate with Function (RPC) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 UFUNCTION(Server, Reliable, WithValidation) void FunctionThatCalledOnServer(); UFUNCTION(Client, Reliable, WithValidation) void FunctionThatCalledOnOwnerClient(); UFUNCTION(NetMulticast, Reliable, WithValidation) void FunctionThatCalledOnEveryActor(); void ClassName::FunctionThatCalledOnServer_Implementation() {} bool ClassName::FunctionThatCalledOnServer_Validation() {} void ClassName::FunctionThatCalledOnOwnerClient_Implementation() {} bool ClassName::FunctionThatCalledOnOwnerClient_Validation() {} void ClassName::FunctionThatCalledOnEveryActor_Implementation() {} bool ClassName::FunctionThatCalledOnEveryActor_Validation() {} You should set Reliable(TCP) or Unreliable(UDP) specifier on RPC’s UFUNCTION()....</p>
+</section>
+<footer class=entry-footer><span title="2022-03-16 23:41:59 +0900 +0900">March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
+<a class=entry-link aria-label="post link to Unreal Network" href=https://niiok.github.io/unreal/network/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Android packaging
 </h2>
 </header>
