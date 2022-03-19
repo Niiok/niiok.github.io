@@ -21,7 +21,7 @@ weight: 1
 
 ## Intro
 - Unreal network system is based on [Server-Client model](https://docs.unrealengine.com/InteractiveExperiences/Networking/Server/).
-- If developers consider about "Replication", game can support both single player and multiplayer.
+- If developers consider about "Replication", game can support both singleplayer and multiplayer.
 
 
 ## Network Mode
@@ -82,4 +82,4 @@ bool ClassName::FunctionThatCalledOnEveryActor_Validation() {}
 ```
 - You should set `Reliable`(TCP) or `Unreliable`(UDP) specifier on RPC's UFUNCTION().
   - If you spam `Reliable` like every ticks, client may get disconnected due to preventation of DDOS.
-- `WithValidation` specifier is selective. (`_Validation` function must be followed with `WithValidation` specifier.).
+- `WithValidation` specifier is selective. (`_Validation` function must be followed after `WithValidation` specifier.)

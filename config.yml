@@ -151,6 +151,8 @@ params:
               url: search
             - name: Categories
               url: categories
+            #- name : Archives
+            #  url : archives
         
     # Search page
     fuseOpts:
