@@ -1,11 +1,24 @@
-# ---
-layout: post
-title: "SDL_Chapter_XX"
-categories: SDL
-author:
-- Niiok
-meta: ""
 ---
+title: "SDL Chapter X"
+author: "Niiok"
+categories: ["SDL"]
+date: 1970-01-01T00:00:00+00:00
+weight: 1
+draft: true
+
+
+# searchHidden: true
+
+#cover:
+#    image: "<image path/url>"    # can also paste direct link from external site
+#    alt: "<alt text>"
+#    caption: "<text>"
+#    relative: false 	# To use relative path for cover image, used in hugo Page-bundles
+
+#ShowBreadCrumbs: false
+---
+
+<!--
 
 - [Intro](#intro)
   - How Chapter_XX works?
@@ -19,11 +32,13 @@ meta: ""
 - [Term](#term)
   - 
 
+-->
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Intro
+# Intro
     
-- How Chapter_XX works?
+### How Chapter_XX works?
   1. init()
   2. loadMedia()
   3. 
@@ -33,26 +48,27 @@ meta: ""
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Function
+# Function
     
-- 
+### Function_Name()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Struct
+# Struct
     
-- 
+### Struct_Name
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Term
+# Term
     
-- 
+### Term_Set
     
