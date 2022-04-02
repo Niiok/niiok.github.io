@@ -5,8 +5,6 @@ categories: ["SDL"]
 date: 1970-01-01T00:00:00+00:00
 weight: 1
 
-ShowToc: false
-TocOpen: false
 
 # searchHidden: true
 
@@ -21,8 +19,9 @@ TocOpen: false
 
 # This document is not done. On Going!!
 
+<!--
 - [Intro](#intro)
-  - How Chapter_7 works?
+  - How Chapter 7 works?
 
 - [Function](#function)
   - SDL_SetHint()
@@ -44,12 +43,13 @@ TocOpen: false
     - SDL_HINT_RENDER_SCALE_QUALITY
   - SDL_CreateRender()
     - SDL_RENDERER_ACCELERATED
+-->
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Intro
+# Intro
     
-- How Chapter_7 works?
+### How Chapter 7 works?
   1. init()
      1. _`SDL_Init()`_
      2. _`SDL_SetHint()`_
@@ -87,93 +87,102 @@ TocOpen: false
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Function
+# Function
     
-- SDL_SetHint()
+### SDL_SetHint()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_CreateRenderer()
+### SDL_CreateRenderer()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_SetRenderDrawColor()
+### SDL_SetRenderDrawColor()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_CreateTextureFromSurface()
+### SDL_CreateTextureFromSurface()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_RenderClear()
+### SDL_RenderClear()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_RenderCopy()
+### SDL_RenderCopy()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_RenderPresent()
+### SDL_RenderPresent()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_DestroyTexture()
+### SDL_DestroyTexture()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
     
 
-- SDL_DestroyRender()
+### SDL_DestroyRender()
   ```C
   
   ```
-  - _``_ : 
+  - **param**
+    - _``_ : 
   - **return**
     - **** on 
   > 
@@ -181,22 +190,22 @@ TocOpen: false
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Struct
+# Struct
     
-- SDL_Renderer
+### SDL_Renderer
     
 
-- SDL_Texture
+### SDL_Texture
     
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Term
+# Term
     
-- SDL_SetHint()
+### SDL_SetHint()
   - SDL_HINT_RENDER_SCALE_QUALITY
      
 
-- SDL_CreateRender()
+### SDL_CreateRender()
   - SDL_RENDERER_ACCELERATED
     

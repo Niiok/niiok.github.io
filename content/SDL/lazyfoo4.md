@@ -5,8 +5,6 @@ categories: ["SDL"]
 date: 1970-01-01T00:00:00+00:00
 weight: 1
 
-ShowToc: false
-TocOpen: false
 
 # searchHidden: true
 
@@ -19,8 +17,9 @@ TocOpen: false
 #ShowBreadCrumbs: false
 ---
 
+<!--
 - [Intro](#intro)
-  - How Chapter_4 works?
+  - How Chapter 4 works?
 
 - [Function](#function)
   - nothing new
@@ -43,12 +42,13 @@ TocOpen: false
     - SDLK_DOWN
     - SDLK_LEFT
     - SDLK_RIGHT
+-->
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Intro
+# Intro
     
-- How Chapter_4 works?
+### How Chapter 4 works?
   1. init()
      1. _`SDL_Init()`_
      2. _`SDL_CreateWindow()`_
@@ -57,8 +57,8 @@ TocOpen: false
      1. put surfaces in SDL_Surface* array( is global variable) with _`SDL_LoadBMP()`_.
   3. start loop untill variable _`quit`_ is true.
      1. start loop that calls _`SDL_PollEvent()`_ untill it returns 0.
-        1. if _`SDL_Event`_.type is _`SDL_QUIT`_, quit is true( which means first loop will end).
-           - else if _SDL_Event_.type is _`SDL_KEYDOWN`_, choose mapped sruface to key inside SDL_Surface* array( is global variable).
+        1. if _`SDL_Event.type`_ is _`SDL_QUIT`_, quit is true( which means first loop will end).
+           - else if _`SDL_Event.type`_ is _`SDL_KEYDOWN`_, choose mapped sruface to key inside _`SDL_Surface* array`_( is global variable).
         2. copy screen(Blit) with _`SDL_BlitSurface()`_ from chosen surface to screen surface.
         3. update window with _`SDL_UpdateWindowSurface()`_ to refresh and show what we've done.
   4. close()
@@ -68,21 +68,21 @@ TocOpen: false
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Function
+# Function
     
 - nothing new
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Struct
+# Struct
     
 - nothing new
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Term
+# Term
     
-- (enum(not official))KeyPressSurfaces
+### (enum(not official))KeyPressSurfaces
   - KEY_PRESS_SURFACE_DEFAULT
   - KEY_PRESS_SURFACE_UP
   - KEY_PRESS_SURFACE_DOWN
@@ -91,10 +91,10 @@ TocOpen: false
   - KEY_PRESS_SURFACE_TOTAL    
   > these enum will have global SDL_Surface* array for having mapped surface.    
     
-- SDL_Event.type
+### SDL_Event.type
   - SDL_KEYDOWN
     
-- SDL_Event.key.keysym.sym
+### SDL_Event.key.keysym.sym
   - SDLK_UP
   - SDLK_DOWN
   - SDLK_LEFT

@@ -58,7 +58,7 @@ weight: 1
   1. Init SDL with _`SDL_Init()`_.
   2. Create window with _`SDL_CreateWindow()`_.
   3. Get surface with _`SDL_GetWindowSurface()`_.
-     - do something with surface. (like SDL_FillRect()).
+     - do something with surface. (like _`SDL_FillRect()`_).
   4. Update surface with _`SDL_UpdateWindowSurface()`_.
      - you can delay loop( for window lasting) with _`SDL_Delay()`_.
   5. If you done all your jobs with SDL, Destroy window with _`SDL_DestroyWindow()`_.
@@ -105,8 +105,7 @@ weight: 1
   - **return**
     - **character array** on message with information about error
     - **empty array** on no error happen    
-  > this function will return character string that describe recent error.    
-  > this function will be your reliable best friend.    
+  > this function will return character array that represents latest error.    
     
 
 ### SDL_CreateWindow()
@@ -124,7 +123,7 @@ weight: 1
     - **window object's address** on success
     - **NULL** on failure    
   > every SDL_Video works on SDL_Window object.    
-  > this function will create and return proper window for your OS.    
+  > this function will create and return abstract window that compatible with OS.    
     
 
 ### SDL_GetWindowSurface()
@@ -137,7 +136,7 @@ weight: 1
     - **surface object that asociated with the window's address** on success
     - **NULL** on failure    
   > after SDL_Window created, you can read and write SDL_Surface from/to SDL_Window.    
-  > this function will get address of SDL_Surface that asociated with parameter SDL_Window.    
+  > this function will get address of SDL_Surface that asociated with _`window`_.    
     
 
 ### SDL_FillRect()
@@ -187,8 +186,9 @@ weight: 1
   ```
   - **param**
     - _`ms`_ : the number of milliseconds to delay
-  - **return** is void    
-  > simple but cross-platform sleep function.    
+  - **return** 
+    - void    
+  > simple cross-platform sleep function.    
     
 ### SDL_DestroyWindow()
   ```C
@@ -196,7 +196,8 @@ weight: 1
   ```
   - **param**
     - _`window`_ : the window to destroy
-  - **return** is void    
+  - **return**
+    - void    
   > call this function when you're done with that SDL_Window object.    
     
 

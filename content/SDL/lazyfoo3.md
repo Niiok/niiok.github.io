@@ -5,8 +5,6 @@ categories: ["SDL"]
 date: 1970-01-01T00:00:00+00:00
 weight: 1
 
-ShowToc: false
-TocOpen: false
 
 # searchHidden: true
 
@@ -19,8 +17,9 @@ TocOpen: false
 #ShowBreadCrumbs: false
 ---
 
+<!--
 - [Intro](#intro)
-  - How Chapter_3 works?
+  - How Chapter 3 works?
 
 - [Function](#function)
   - SDL_PollEvent()
@@ -31,12 +30,13 @@ TocOpen: false
 - [Term](#term)
   - SDL_Event.type
     - SDL_QUIT
+-->
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Intro
+# Intro
     
-- How Chapter_3 works?
+### How Chapter 3 works?
   1. Init()
      1. _`SDL_Init()`_
      2. _`SDL_CreateWindow()`_
@@ -55,13 +55,14 @@ TocOpen: false
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Function
+# Function
     
-- SDL_PollEvent()
+### SDL_PollEvent()
   ```C
   int SDL_PollEvent( SDL_Event* event );
   ```
-  - _`event`_ : the SDL_Event structure to be filled with the next event from the queue, or NULL
+  - **param**
+    - _`event`_ : the SDL_Event structure to be filled with the next event from the queue, or NULL
   - **return**
     - **1** if queue contains any event inside
     - **0** if there's no event in queue    
@@ -72,16 +73,16 @@ TocOpen: false
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Struct
+# Struct
     
-- SDL_Event    
+### SDL_Event    
   > general cross-platform event struct     
   > contains event data    
     
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-## Term
+# Term
     
-- SDL_Event..type
+### SDL_Event..type
   - SDL_QUIT
     
