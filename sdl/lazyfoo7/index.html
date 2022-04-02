@@ -5,12 +5,7 @@
 <meta name=robots content="index, follow">
 <title>SDL Chapter 7 | Niiok's Blog</title>
 <meta name=keywords content>
-<meta name=description content="This document is not done. On Going!!   Intro
- How Chapter_7 works?    Function
- SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct
- SDL_Renderer SDL_Texture    Term
- SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?
- init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().">
+<meta name=description content="This document is not done. On Going!!  Intro How Chapter 7 works?  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.">
 <meta name=author content="Niiok">
 <link rel=canonical href=https://niiok.github.io/sdl/lazyfoo7/>
 <meta name=google-site-verification content="DdPXi9zFzhddjnm20EWbhWv7tBvTySWZYj82E4eWwVA">
@@ -27,26 +22,16 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript><meta property="og:title" content="SDL Chapter 7">
-<meta property="og:description" content="This document is not done. On Going!!   Intro
- How Chapter_7 works?    Function
- SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct
- SDL_Renderer SDL_Texture    Term
- SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?
- init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().">
+<meta property="og:description" content="This document is not done. On Going!!  Intro How Chapter 7 works?  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://niiok.github.io/sdl/lazyfoo7/"><meta property="article:section" content="SDL">
 <meta property="article:published_time" content="1970-01-01T00:00:00+00:00">
 <meta property="article:modified_time" content="1970-01-01T00:00:00+00:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="SDL Chapter 7">
-<meta name=twitter:description content="This document is not done. On Going!!   Intro
- How Chapter_7 works?    Function
- SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct
- SDL_Renderer SDL_Texture    Term
- SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?
- init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().">
+<meta name=twitter:description content="This document is not done. On Going!!  Intro How Chapter 7 works?  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SDLs","item":"https://niiok.github.io/sdl/"},{"@type":"ListItem","position":2,"name":"SDL Chapter 7","item":"https://niiok.github.io/sdl/lazyfoo7/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 7","name":"SDL Chapter 7","description":"This document is not done. On Going!!   Intro\n How Chapter_7 works?    Function\n SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct\n SDL_Renderer SDL_Texture    Term\n SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?\n init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load().","keywords":[],"articleBody":"This document is not done. On Going!!   Intro\n How Chapter_7 works?    Function\n SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender()    Struct\n SDL_Renderer SDL_Texture    Term\n SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY   SDL_CreateRender()  SDL_RENDERER_ACCELERATED       Intro   How Chapter_7 works?\n init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end). clear screen(render) with SDL_RenderClear(). render texture(copy) on screen with SDL_RenderCopy(). update screen(of window) with SDL_RenderPresent() to refresh and show what we’ve done.     close()  SDL_DestroyTexture() SDL_DestroyRenderer() SDL_DestroyWindow() IMG_Quit() SDL_Quit()     now we are not using screen surface as our primary canvas anymore; instead renderer!  loadSueface() - loadTexture() SDL_GetWindowSurface() is gone from init()  instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_SetRenderDrawColor() are required   SDL_BlitSurface() is replaced into SDL_RenderClear() and SDL_RenderCopy() SDL_UpdateWindowSurface() is replaced into SDL_RenderPresent() SDL_FreeSurface() is gone from close()  instead, SDL_DestroyTexture() and SDL_DestroyRenderer() are required         Function   SDL_SetHint()\n1     `` : return  **** on        SDL_CreateRenderer()\n1     `` : return  **** on        SDL_SetRenderDrawColor()\n1     `` : return  **** on        SDL_CreateTextureFromSurface()\n1     `` : return  **** on        SDL_RenderClear()\n1     `` : return  **** on        SDL_RenderCopy()\n1     `` : return  **** on        SDL_RenderPresent()\n1     `` : return  **** on        SDL_DestroyTexture()\n1     `` : return  **** on        SDL_DestroyRender()\n1     `` : return  **** on         Struct   SDL_Renderer\n  SDL_Texture\n   Term   SDL_SetHint()\n SDL_HINT_RENDER_SCALE_QUALITY    SDL_CreateRender()\n SDL_RENDERER_ACCELERATED    ","wordCount":"245","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo7/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 7","name":"SDL Chapter 7","description":"This document is not done. On Going!!  Intro How Chapter 7 works?  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.","keywords":[],"articleBody":"This document is not done. On Going!!  Intro How Chapter 7 works?  init()  SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init()   loadMedia()  loadTexture()  load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface().  free memory of intermediate surface with SDL_FreeSurface().       start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end). clear screen(render) with SDL_RenderClear(). render texture(copy) on screen with SDL_RenderCopy(). update screen(of window) with SDL_RenderPresent() to refresh and show what we’ve done.     close()  SDL_DestroyTexture() SDL_DestroyRenderer() SDL_DestroyWindow() IMG_Quit() SDL_Quit()     now we are not using screen surface as our primary canvas anymore; instead renderer!  loadSueface() - loadTexture() SDL_GetWindowSurface() is gone from init()  instead, SDL_SetHint(), SDL_CreateRenderer() and SDL_SetRenderDrawColor() are required   SDL_BlitSurface() is replaced into SDL_RenderClear() and SDL_RenderCopy() SDL_UpdateWindowSurface() is replaced into SDL_RenderPresent() SDL_FreeSurface() is gone from close()  instead, SDL_DestroyTexture() and SDL_DestroyRenderer() are required       Function SDL_SetHint() 1     param  `` :   return  **** on      SDL_CreateRenderer() 1     param  `` :   return  **** on      SDL_SetRenderDrawColor() 1     param  `` :   return  **** on      SDL_CreateTextureFromSurface() 1     param  `` :   return  **** on      SDL_RenderClear() 1     param  `` :   return  **** on      SDL_RenderCopy() 1     param  `` :   return  **** on      SDL_RenderPresent() 1     param  `` :   return  **** on      SDL_DestroyTexture() 1     param  `` :   return  **** on      SDL_DestroyRender() 1     param  `` :   return  **** on       Struct SDL_Renderer SDL_Texture  Term SDL_SetHint()  SDL_HINT_RENDER_SCALE_QUALITY  SDL_CreateRender()  SDL_RENDERER_ACCELERATED  ","wordCount":"233","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo7/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -82,57 +67,72 @@ SDL Chapter 7
 </h1>
 <div class=post-meta><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Niiok&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/SDL/lazyfoo7.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
-</header>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#this-document-is-not-done-on-going aria-label="This document is not done. On Going!!">This document is not done. On Going!!</a></li>
+<li>
+<a href=#intro aria-label=Intro>Intro</a><ul>
+<ul>
+<li>
+<a href=#how-chapter-7-works aria-label="How Chapter 7 works?">How Chapter 7 works?</a></li></ul>
+</ul>
+</li>
+<li>
+<a href=#function aria-label=Function>Function</a><ul>
+<ul>
+<li>
+<a href=#sdl_sethint aria-label=SDL_SetHint()>SDL_SetHint()</a></li>
+<li>
+<a href=#sdl_createrenderer aria-label=SDL_CreateRenderer()>SDL_CreateRenderer()</a></li>
+<li>
+<a href=#sdl_setrenderdrawcolor aria-label=SDL_SetRenderDrawColor()>SDL_SetRenderDrawColor()</a></li>
+<li>
+<a href=#sdl_createtexturefromsurface aria-label=SDL_CreateTextureFromSurface()>SDL_CreateTextureFromSurface()</a></li>
+<li>
+<a href=#sdl_renderclear aria-label=SDL_RenderClear()>SDL_RenderClear()</a></li>
+<li>
+<a href=#sdl_rendercopy aria-label=SDL_RenderCopy()>SDL_RenderCopy()</a></li>
+<li>
+<a href=#sdl_renderpresent aria-label=SDL_RenderPresent()>SDL_RenderPresent()</a></li>
+<li>
+<a href=#sdl_destroytexture aria-label=SDL_DestroyTexture()>SDL_DestroyTexture()</a></li>
+<li>
+<a href=#sdl_destroyrender aria-label=SDL_DestroyRender()>SDL_DestroyRender()</a></li></ul>
+</ul>
+</li>
+<li>
+<a href=#struct aria-label=Struct>Struct</a><ul>
+<ul>
+<li>
+<a href=#sdl_renderer aria-label=SDL_Renderer>SDL_Renderer</a></li>
+<li>
+<a href=#sdl_texture aria-label=SDL_Texture>SDL_Texture</a></li></ul>
+</ul>
+</li>
+<li>
+<a href=#term aria-label=Term>Term</a><ul>
+<ul>
+<li>
+<a href=#sdl_sethint-1 aria-label=SDL_SetHint()>SDL_SetHint()</a></li>
+<li>
+<a href=#sdl_createrender aria-label=SDL_CreateRender()>SDL_CreateRender()</a>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
 <div class=post-content><h1 id=this-document-is-not-done-on-going>This document is not done. On Going!!<a hidden class=anchor aria-hidden=true href=#this-document-is-not-done-on-going>#</a></h1>
-<ul>
-<li>
-<p><a href=#intro>Intro</a></p>
-<ul>
-<li>How Chapter_7 works?</li>
-</ul>
-</li>
-<li>
-<p><a href=#function>Function</a></p>
-<ul>
-<li>SDL_SetHint()</li>
-<li>SDL_CreateRenderer()</li>
-<li>SDL_SetRenderDrawColor()</li>
-<li>SDL_CreateTextureFromSurface()</li>
-<li>SDL_RenderClear()</li>
-<li>SDL_RenderCopy()</li>
-<li>SDL_RenderPresent()</li>
-<li>SDL_DestroyTexture()</li>
-<li>SDL_DestroyRender()</li>
-</ul>
-</li>
-<li>
-<p><a href=#struct>Struct</a></p>
-<ul>
-<li>SDL_Renderer</li>
-<li>SDL_Texture</li>
-</ul>
-</li>
-<li>
-<p><a href=#term>Term</a></p>
-<ul>
-<li>SDL_SetHint()
-<ul>
-<li>SDL_HINT_RENDER_SCALE_QUALITY</li>
-</ul>
-</li>
-<li>SDL_CreateRender()
-<ul>
-<li>SDL_RENDERER_ACCELERATED</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 <hr>
-<h2 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h2>
-<ul>
-<li>
-<p>How Chapter_7 works?</p>
+<h1 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h1>
+<h3 id=how-chapter-7-works>How Chapter 7 works?<a hidden class=anchor aria-hidden=true href=#how-chapter-7-works>#</a></h3>
 <ol>
 <li>init()
 <ol>
@@ -199,13 +199,9 @@ SDL Chapter 7
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <hr>
-<h2 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h2>
-<ul>
-<li>
-<p>SDL_SetHint()</p>
+<h1 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h1>
+<h3 id=sdl_sethint>SDL_SetHint()<a hidden class=anchor aria-hidden=true href=#sdl_sethint>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -215,7 +211,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -224,9 +224,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_CreateRenderer()</p>
+<h3 id=sdl_createrenderer>SDL_CreateRenderer()<a hidden class=anchor aria-hidden=true href=#sdl_createrenderer>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -236,7 +234,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -245,9 +247,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_SetRenderDrawColor()</p>
+<h3 id=sdl_setrenderdrawcolor>SDL_SetRenderDrawColor()<a hidden class=anchor aria-hidden=true href=#sdl_setrenderdrawcolor>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -257,7 +257,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -266,9 +270,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_CreateTextureFromSurface()</p>
+<h3 id=sdl_createtexturefromsurface>SDL_CreateTextureFromSurface()<a hidden class=anchor aria-hidden=true href=#sdl_createtexturefromsurface>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -278,7 +280,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -287,9 +293,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_RenderClear()</p>
+<h3 id=sdl_renderclear>SDL_RenderClear()<a hidden class=anchor aria-hidden=true href=#sdl_renderclear>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -299,7 +303,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -308,9 +316,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_RenderCopy()</p>
+<h3 id=sdl_rendercopy>SDL_RenderCopy()<a hidden class=anchor aria-hidden=true href=#sdl_rendercopy>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -320,7 +326,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -329,9 +339,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_RenderPresent()</p>
+<h3 id=sdl_renderpresent>SDL_RenderPresent()<a hidden class=anchor aria-hidden=true href=#sdl_renderpresent>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -341,7 +349,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -350,9 +362,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_DestroyTexture()</p>
+<h3 id=sdl_destroytexture>SDL_DestroyTexture()<a hidden class=anchor aria-hidden=true href=#sdl_destroytexture>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -362,7 +372,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -371,9 +385,7 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-<li>
-<p>SDL_DestroyRender()</p>
+<h3 id=sdl_destroyrender>SDL_DestroyRender()<a hidden class=anchor aria-hidden=true href=#sdl_destroyrender>#</a></h3>
 <div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
 <pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
@@ -383,7 +395,11 @@ SDL Chapter 7
 </code></pre></td></tr></table>
 </div>
 </div><ul>
+<li><strong>param</strong>
+<ul>
 <li><em>``</em> :</li>
+</ul>
+</li>
 <li><strong>return</strong>
 <ul>
 <li>**** on</li>
@@ -392,33 +408,19 @@ SDL Chapter 7
 </ul>
 <blockquote>
 </blockquote>
-</li>
-</ul>
 <hr>
-<h2 id=struct>Struct<a hidden class=anchor aria-hidden=true href=#struct>#</a></h2>
-<ul>
-<li>
-<p>SDL_Renderer</p>
-</li>
-<li>
-<p>SDL_Texture</p>
-</li>
-</ul>
+<h1 id=struct>Struct<a hidden class=anchor aria-hidden=true href=#struct>#</a></h1>
+<h3 id=sdl_renderer>SDL_Renderer<a hidden class=anchor aria-hidden=true href=#sdl_renderer>#</a></h3>
+<h3 id=sdl_texture>SDL_Texture<a hidden class=anchor aria-hidden=true href=#sdl_texture>#</a></h3>
 <hr>
-<h2 id=term>Term<a hidden class=anchor aria-hidden=true href=#term>#</a></h2>
-<ul>
-<li>
-<p>SDL_SetHint()</p>
+<h1 id=term>Term<a hidden class=anchor aria-hidden=true href=#term>#</a></h1>
+<h3 id=sdl_sethint-1>SDL_SetHint()<a hidden class=anchor aria-hidden=true href=#sdl_sethint-1>#</a></h3>
 <ul>
 <li>SDL_HINT_RENDER_SCALE_QUALITY</li>
 </ul>
-</li>
-<li>
-<p>SDL_CreateRender()</p>
+<h3 id=sdl_createrender>SDL_CreateRender()<a hidden class=anchor aria-hidden=true href=#sdl_createrender>#</a></h3>
 <ul>
 <li>SDL_RENDERER_ACCELERATED</li>
-</ul>
-</li>
 </ul>
 </div>
 <footer class=post-footer>

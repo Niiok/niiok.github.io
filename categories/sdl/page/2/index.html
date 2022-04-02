@@ -64,12 +64,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro
-How Chapter_6 works? SDL_image.h Function
-IMG_Init() IMG_GetError() IMG_Load() IMG_Quit() Struct
-nothing new Term
-IMG_Init() IMG_INIT_PNG IMG_INIT_JPG IMG_INIT_TIF IMG_INIT_* Intro How Chapter_6 works?
-init() SDL_Init() SDL_CreateWindow() IMG_Init() SDL_GetWindowSurface() loadMedia() loadSurface() load PNG file on intermediate surface with IMG_Load(). optimize loaded intermediate surface into optimized surface with SDL_ConvertSurface()....</p>
+<p>Intro How Chapter 6 works? init() SDL_Init() SDL_CreateWindow() IMG_Init() SDL_GetWindowSurface() loadMedia() loadSurface() load PNG file on intermediate surface with IMG_Load(). optimize loaded intermediate surface into optimized surface with SDL_ConvertSurface(). free memory of intermediate surface with SDL_FreeSurface(). start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0. if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end)....</p>
 </section>
 <footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to SDL Chapter 6" href=https://niiok.github.io/sdl/lazyfoo6/></a>
@@ -80,12 +75,7 @@ init() SDL_Init() SDL_CreateWindow() IMG_Init() SDL_GetWindowSurface() loadMedia
 </h2>
 </header>
 <section class=entry-content>
-<p>This document is not done. On Going!! Intro
-How Chapter_7 works? Function
-SDL_SetHint() SDL_CreateRenderer() SDL_SetRenderDrawColor() SDL_CreateTextureFromSurface() SDL_RenderClear() SDL_RenderCopy() SDL_RenderPresent() SDL_DestroyTexture() SDL_DestroyRender() Struct
-SDL_Renderer SDL_Texture Term
-SDL_SetHint() SDL_HINT_RENDER_SCALE_QUALITY SDL_CreateRender() SDL_RENDERER_ACCELERATED Intro How Chapter_7 works?
-init() SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init() loadMedia() loadTexture() load PNG file on intermediate surface with IMG_Load()....</p>
+<p>This document is not done. On Going!! Intro How Chapter 7 works? init() SDL_Init() SDL_SetHint() SDL_CreateWindow() SDL_CreateRenderer() SDL_SetRenderDrawColor() IMG_Init() loadMedia() loadTexture() load PNG file on intermediate surface with IMG_Load(). create texture from loaded surface with SDL_CreateTextureFromSurface(). free memory of intermediate surface with SDL_FreeSurface(). start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0....</p>
 </section>
 <footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to SDL Chapter 7" href=https://niiok.github.io/sdl/lazyfoo7/></a>

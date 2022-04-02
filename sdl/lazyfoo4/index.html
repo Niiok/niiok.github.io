@@ -5,11 +5,7 @@
 <meta name=robots content="index, follow">
 <title>SDL Chapter 4 | Niiok's Blog</title>
 <meta name=keywords content>
-<meta name=description content="Intro
- How Chapter_4 works?    Function
- nothing new    Struct
- nothing new    Term
- (enum(not official))KeyPressSurfaces  KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   SDL_Event.type  SDL_KEYDOWN   SDL_Event.key.keysym.sym  SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT       Intro  How Chapter_4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().">
+<meta name=description content="Intro How Chapter 4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().   start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end).  else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable).">
 <meta name=author content="Niiok">
 <link rel=canonical href=https://niiok.github.io/sdl/lazyfoo4/>
 <meta name=google-site-verification content="DdPXi9zFzhddjnm20EWbhWv7tBvTySWZYj82E4eWwVA">
@@ -26,24 +22,16 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript><meta property="og:title" content="SDL Chapter 4">
-<meta property="og:description" content="Intro
- How Chapter_4 works?    Function
- nothing new    Struct
- nothing new    Term
- (enum(not official))KeyPressSurfaces  KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   SDL_Event.type  SDL_KEYDOWN   SDL_Event.key.keysym.sym  SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT       Intro  How Chapter_4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().">
+<meta property="og:description" content="Intro How Chapter 4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().   start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end).  else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable).">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://niiok.github.io/sdl/lazyfoo4/"><meta property="article:section" content="SDL">
 <meta property="article:published_time" content="1970-01-01T00:00:00+00:00">
 <meta property="article:modified_time" content="1970-01-01T00:00:00+00:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="SDL Chapter 4">
-<meta name=twitter:description content="Intro
- How Chapter_4 works?    Function
- nothing new    Struct
- nothing new    Term
- (enum(not official))KeyPressSurfaces  KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   SDL_Event.type  SDL_KEYDOWN   SDL_Event.key.keysym.sym  SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT       Intro  How Chapter_4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().">
+<meta name=twitter:description content="Intro How Chapter 4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().   start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end).  else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable).">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SDLs","item":"https://niiok.github.io/sdl/"},{"@type":"ListItem","position":2,"name":"SDL Chapter 4","item":"https://niiok.github.io/sdl/lazyfoo4/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 4","name":"SDL Chapter 4","description":"Intro\n How Chapter_4 works?    Function\n nothing new    Struct\n nothing new    Term\n (enum(not official))KeyPressSurfaces  KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   SDL_Event.type  SDL_KEYDOWN   SDL_Event.key.keysym.sym  SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT       Intro  How Chapter_4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().","keywords":[],"articleBody":"  Intro\n How Chapter_4 works?    Function\n nothing new    Struct\n nothing new    Term\n (enum(not official))KeyPressSurfaces  KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   SDL_Event.type  SDL_KEYDOWN   SDL_Event.key.keysym.sym  SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT       Intro  How Chapter_4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().   start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end).  else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable).   copy screen(Blit) with SDL_BlitSurface() from chosen surface to screen surface. update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done.     close()  free surfacees in SDL_Surface* array( is global varable) with SDL_FreeSurface(). SDL_DestroyWindow() SDL_Quit()       Function  nothing new   Struct  nothing new   Term   (enum(not official))KeyPressSurfaces\n KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   these enum will have global SDL_Surface* array for having mapped surface.\n   SDL_Event.type\n SDL_KEYDOWN    SDL_Event.key.keysym.sym\n SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT    ","wordCount":"157","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo4/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDL Chapter 4","name":"SDL Chapter 4","description":"Intro How Chapter 4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().   start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end).  else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable).","keywords":[],"articleBody":" Intro How Chapter 4 works?  init()  SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface()   loadMedia()  put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP().   start loop untill variable quit is true.  start loop that calls SDL_PollEvent() untill it returns 0.  if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end).  else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable).   copy screen(Blit) with SDL_BlitSurface() from chosen surface to screen surface. update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done.     close()  free surfacees in SDL_Surface* array( is global varable) with SDL_FreeSurface(). SDL_DestroyWindow() SDL_Quit()     Function  nothing new   Struct  nothing new   Term (enum(not official))KeyPressSurfaces  KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL   these enum will have global SDL_Surface* array for having mapped surface.\n SDL_Event.type  SDL_KEYDOWN  SDL_Event.key.keysym.sym  SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT  ","wordCount":"132","inLanguage":"en","datePublished":"1970-01-01T00:00:00Z","dateModified":"1970-01-01T00:00:00Z","author":{"@type":"Person","name":"Niiok"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/sdl/lazyfoo4/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -79,59 +67,44 @@ SDL Chapter 4
 </h1>
 <div class=post-meta><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/SDL/lazyfoo4.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
-</header>
-<div class=post-content><ul>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
 <li>
-<p><a href=#intro>Intro</a></p>
+<a href=#intro aria-label=Intro>Intro</a><ul>
 <ul>
-<li>How Chapter_4 works?</li>
-</ul>
-</li>
 <li>
-<p><a href=#function>Function</a></p>
-<ul>
-<li>nothing new</li>
-</ul>
-</li>
-<li>
-<p><a href=#struct>Struct</a></p>
-<ul>
-<li>nothing new</li>
+<a href=#how-chapter-4-works aria-label="How Chapter 4 works?">How Chapter 4 works?</a></li></ul>
 </ul>
 </li>
 <li>
-<p><a href=#term>Term</a></p>
+<a href=#function aria-label=Function>Function</a></li>
+<li>
+<a href=#struct aria-label=Struct>Struct</a></li>
+<li>
+<a href=#term aria-label=Term>Term</a><ul>
 <ul>
-<li>(enum(not official))KeyPressSurfaces
-<ul>
-<li>KEY_PRESS_SURFACE_DEFAULT</li>
-<li>KEY_PRESS_SURFACE_UP</li>
-<li>KEY_PRESS_SURFACE_DOWN</li>
-<li>KEY_PRESS_SURFACE_LEFT</li>
-<li>KEY_PRESS_SURFACE_RIGHT</li>
-<li>KEY_PRESS_SURFACE_TOTAL</li>
-</ul>
+<li>
+<a href=#enumnot-officialkeypresssurfaces aria-label="(enum(not official))KeyPressSurfaces">(enum(not official))KeyPressSurfaces</a></li>
+<li>
+<a href=#sdl_eventtype aria-label=SDL_Event.type>SDL_Event.type</a></li>
+<li>
+<a href=#sdl_eventkeykeysymsym aria-label=SDL_Event.key.keysym.sym>SDL_Event.key.keysym.sym</a>
 </li>
-<li>SDL_Event.type
-<ul>
-<li>SDL_KEYDOWN</li>
 </ul>
-</li>
-<li>SDL_Event.key.keysym.sym
-<ul>
-<li>SDLK_UP</li>
-<li>SDLK_DOWN</li>
-<li>SDLK_LEFT</li>
-<li>SDLK_RIGHT</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+</div>
+</details>
+</div>
+<div class=post-content>
 <hr>
-<h2 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h2>
-<ul>
-<li>How Chapter_4 works?
+<h1 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h1>
+<h3 id=how-chapter-4-works>How Chapter 4 works?<a hidden class=anchor aria-hidden=true href=#how-chapter-4-works>#</a></h3>
 <ol>
 <li>init()
 <ol>
@@ -149,9 +122,9 @@ SDL Chapter 4
 <ol>
 <li>start loop that calls <em><code>SDL_PollEvent()</code></em> untill it returns 0.
 <ol>
-<li>if <em><code>SDL_Event</code></em>.type is <em><code>SDL_QUIT</code></em>, quit is true( which means first loop will end).
+<li>if <em><code>SDL_Event.type</code></em> is <em><code>SDL_QUIT</code></em>, quit is true( which means first loop will end).
 <ul>
-<li>else if <em>SDL_Event</em>.type is <em><code>SDL_KEYDOWN</code></em>, choose mapped sruface to key inside SDL_Surface* array( is global variable).</li>
+<li>else if <em><code>SDL_Event.type</code></em> is <em><code>SDL_KEYDOWN</code></em>, choose mapped sruface to key inside <em><code>SDL_Surface* array</code></em>( is global variable).</li>
 </ul>
 </li>
 <li>copy screen(Blit) with <em><code>SDL_BlitSurface()</code></em> from chosen surface to screen surface.</li>
@@ -168,23 +141,19 @@ SDL Chapter 4
 </ol>
 </li>
 </ol>
-</li>
-</ul>
 <hr>
-<h2 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h2>
+<h1 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h1>
 <ul>
 <li>nothing new</li>
 </ul>
 <hr>
-<h2 id=struct>Struct<a hidden class=anchor aria-hidden=true href=#struct>#</a></h2>
+<h1 id=struct>Struct<a hidden class=anchor aria-hidden=true href=#struct>#</a></h1>
 <ul>
 <li>nothing new</li>
 </ul>
 <hr>
-<h2 id=term>Term<a hidden class=anchor aria-hidden=true href=#term>#</a></h2>
-<ul>
-<li>
-<p>(enum(not official))KeyPressSurfaces</p>
+<h1 id=term>Term<a hidden class=anchor aria-hidden=true href=#term>#</a></h1>
+<h3 id=enumnot-officialkeypresssurfaces>(enum(not official))KeyPressSurfaces<a hidden class=anchor aria-hidden=true href=#enumnot-officialkeypresssurfaces>#</a></h3>
 <ul>
 <li>KEY_PRESS_SURFACE_DEFAULT</li>
 <li>KEY_PRESS_SURFACE_UP</li>
@@ -196,22 +165,16 @@ SDL Chapter 4
 <blockquote>
 <p>these enum will have global SDL_Surface* array for having mapped surface.</p>
 </blockquote>
-</li>
-<li>
-<p>SDL_Event.type</p>
+<h3 id=sdl_eventtype>SDL_Event.type<a hidden class=anchor aria-hidden=true href=#sdl_eventtype>#</a></h3>
 <ul>
 <li>SDL_KEYDOWN</li>
 </ul>
-</li>
-<li>
-<p>SDL_Event.key.keysym.sym</p>
+<h3 id=sdl_eventkeykeysymsym>SDL_Event.key.keysym.sym<a hidden class=anchor aria-hidden=true href=#sdl_eventkeykeysymsym>#</a></h3>
 <ul>
 <li>SDLK_UP</li>
 <li>SDLK_DOWN</li>
 <li>SDLK_LEFT</li>
 <li>SDLK_RIGHT</li>
-</ul>
-</li>
 </ul>
 </div>
 <footer class=post-footer>

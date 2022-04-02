@@ -76,11 +76,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro
-How Chapter_2 works? Function
-SDL_LoadBMP() SDL_FreeSurface() SDL_BlitSurface() Struct
-nothing new Term
-nothing new Intro How Chapter_2 works? Init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() SDL_LoadBMP() copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done. you can delay loop( for window lasting) with SDL_Delay()....</p>
+<p>Intro How Chapter 2 works? Init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() SDL_LoadBMP() copy image(Blit) into surface with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done. you can delay loop( for window lasting) with SDL_Delay(). close() SDL_FreeSurface() SDL_DestroyWindow() SDL_Quit() Function SDL_LoadBMP() 1 SDL_Surface* SDL_LoadBMP( const char* file ); param file : the file containing a BMP image return surface that contain BMP on success NULL on failure Gets SDL_Surface object from BMP file and returns its address....</p>
 </section>
 <footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to SDL Chapter 2" href=https://niiok.github.io/sdl/lazyfoo2/></a>
@@ -91,11 +87,7 @@ nothing new Intro How Chapter_2 works? Init() SDL_Init() SDL_CreateWindow() SDL_
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro
-How Chapter_3 works? Function
-SDL_PollEvent() Struct
-SDL_Event Term
-SDL_Event.type SDL_QUIT Intro How Chapter_3 works? Init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() SDL_LoadBMP() start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0. if SDL_Event....</p>
+<p>Intro How Chapter 3 works? Init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() SDL_LoadBMP() start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0. if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end). copy screen(Blit) with SDL_BlitSurface(). update window with SDL_UpdateWindowSurface() to refresh and show what we’ve done. close() SDL_FreeSurface() SDL_DestroyWindow() SDL_Quit() Function SDL_PollEvent() 1 int SDL_PollEvent( SDL_Event* event ); param event : the SDL_Event structure to be filled with the next event from the queue, or NULL return 1 if queue contains any event inside 0 if there’s no event in queue when this function called, event at head will be removed from queue and stored to event....</p>
 </section>
 <footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to SDL Chapter 3" href=https://niiok.github.io/sdl/lazyfoo3/></a>
@@ -106,11 +98,7 @@ SDL_Event.type SDL_QUIT Intro How Chapter_3 works? Init() SDL_Init() SDL_CreateW
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro
-How Chapter_4 works? Function
-nothing new Struct
-nothing new Term
-(enum(not official))KeyPressSurfaces KEY_PRESS_SURFACE_DEFAULT KEY_PRESS_SURFACE_UP KEY_PRESS_SURFACE_DOWN KEY_PRESS_SURFACE_LEFT KEY_PRESS_SURFACE_RIGHT KEY_PRESS_SURFACE_TOTAL SDL_Event.type SDL_KEYDOWN SDL_Event.key.keysym.sym SDLK_UP SDLK_DOWN SDLK_LEFT SDLK_RIGHT Intro How Chapter_4 works? init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP()....</p>
+<p>Intro How Chapter 4 works? init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() put surfaces in SDL_Surface* array( is global variable) with SDL_LoadBMP(). start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0. if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end). else if SDL_Event.type is SDL_KEYDOWN, choose mapped sruface to key inside SDL_Surface* array( is global variable)....</p>
 </section>
 <footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to SDL Chapter 4" href=https://niiok.github.io/sdl/lazyfoo4/></a>
@@ -121,11 +109,7 @@ nothing new Term
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro
-How Chapter_5 works? Function
-SDL_ConvertSurface() SDL_BlitScaled() Struct
-SDL_PixelFormat Term
-nothing new Intro How Chapter_5 works? init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() loadSurface() load BMP file on intermediate surface with SDL_LoadBMP(). optimize loaded intermediate surface into optimized surface with SDL_ConvertSurface(). free memory of intermediate surface with SDL_FreeSurface()....</p>
+<p>Intro How Chapter 5 works? init() SDL_Init() SDL_CreateWindow() SDL_GetWindowSurface() loadMedia() loadSurface() load BMP file on intermediate surface with SDL_LoadBMP(). optimize loaded intermediate surface into optimized surface with SDL_ConvertSurface(). free memory of intermediate surface with SDL_FreeSurface(). start loop untill variable quit is true. start loop that calls SDL_PollEvent() untill it returns 0. if SDL_Event.type is SDL_QUIT, quit is true( which means first loop will end)....</p>
 </section>
 <footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to SDL Chapter 5" href=https://niiok.github.io/sdl/lazyfoo5/></a>
