@@ -61,64 +61,20 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Unreal Kickstart
+<h2>Unreal basic
 </h2>
 </header>
 <section class=entry-content>
-<p>About this kickstart Kickstart for giving Big picture perspective of UE4 Not a step-by-step walkthrough of how to use UE4 about what, why, terminology, logic, history plus advices and practises for beginners Composed with Philosophy and Intro Schematic Overview Advice Presenters Sjoerd De Jong Evangelism Lead Europe 20 Years experience with UE1-4 Anything content or Blueprint related except for Animation/Audio Mario Palmero 8 hours years experience with UE3/4 Programming, Tech Art and Animation Contents World Building Rendering Animation Engine Structure Programming Blueprint Character Material </p>
+<p>Unreal project If you want to study the API on your own; You should use that API as a user until you get used to it and read the header files. In every unreal code, they include “CoreMinimal.h” or “EngineMinimal.h” and those header files will be key to start studying.
+Project hierarchy Config : project setting values. NEEDED-do not remove
+Content : asset storage. NEEDED-do not remove...</p>
 </section>
-<footer class=entry-footer><span title="2022-04-24 14:25:00 +0900 +0900">April 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sjoerd De Jong, Mario Palmero</footer>
-<a class=entry-link aria-label="post link to Unreal Kickstart" href=https://niiok.github.io/unreal/sjoerddejong/kickstart/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>UE5 New Features
-</h2>
-</header>
-<section class=entry-content>
-<p>Core Nanite Lumen Open World File per Actor World Partition Data Layer Level Instance Large World Coordinate </p>
-</section>
-<footer class=entry-footer><span title="2022-04-13 18:16:26 +0900 +0900">April 13, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
-<a class=entry-link aria-label="post link to UE5 New Features" href=https://niiok.github.io/unreal/ue5_new/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Unreal Subsystem
-</h2>
-</header>
-<section class=entry-content>
-<p>Intro Subsystem is handy and useful instance with various lifecycle. Every Subsystems declared as class will be instanced and called Inintialize() and Deinitialize() in proper time. Thanks to Subsystems, GameInstance don’t have to be over-responsible. (and other massive advantages) Subsystem variety UEngineSubsystem
-Lifetime : StartUp() ~ ShutDown() Reference : GEngine->GetEngineSubsystem&lt;T>(); UEditorSubsystem
-Lifetime : StartUp() ~ ShutDown() Reference : GEditor->GetEditorSubsystem&lt;T>(); UGameInstanceSubsystem...</p>
-</section>
-<footer class=entry-footer><span title="2022-03-17 23:42:05 +0900 +0900">March 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
-<a class=entry-link aria-label="post link to Unreal Subsystem" href=https://niiok.github.io/unreal/subsystem/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Unreal Network
-</h2>
-</header>
-<section class=entry-content>
-<p>Intro Unreal network system is based on Server-Client model. If developers consider about “Replication”, game can support both singleplayer and multiplayer. Network Mode NM_Standalone Authoritive : true Listening : false LocalPlayer : true NM_Client Authoritive : false Listening : false LocalPlayer : true NM_ListenServer Authoritive : true Listening : true LocalPlayer : true NM_DedicatedServer Authoritive : true Listening : true LocalPlayer : false Replication Role ROLE_None ROLE_Authority ROLE_SimulatedProxy ROLE_AutonomousProxy Replicate with property 1 2 3 4 5 6 7 8 UFUNCTION() void void_function(); UPROPERTY(Replicated) int SimpleReplicateProperty; UPROPERTY(ReplicatedUsing = void_function) int ReplicatePropertyCallsRepNotifies; Replicate with Function (RPC) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 UFUNCTION(Server, Reliable, WithValidation) void FunctionThatCalledOnServer(); UFUNCTION(Client, Reliable, WithValidation) void FunctionThatCalledOnOwnerClient(); UFUNCTION(NetMulticast, Reliable, WithValidation) void FunctionThatCalledOnEveryActor(); void ClassName::FunctionThatCalledOnServer_Implementation() {} bool ClassName::FunctionThatCalledOnServer_Validation() {} void ClassName::FunctionThatCalledOnOwnerClient_Implementation() {} bool ClassName::FunctionThatCalledOnOwnerClient_Validation() {} void ClassName::FunctionThatCalledOnEveryActor_Implementation() {} bool ClassName::FunctionThatCalledOnEveryActor_Validation() {} You should set Reliable(TCP) or Unreliable(UDP) specifier on RPC’s UFUNCTION()....</p>
-</section>
-<footer class=entry-footer><span title="2022-03-16 23:41:59 +0900 +0900">March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
-<a class=entry-link aria-label="post link to Unreal Network" href=https://niiok.github.io/unreal/network/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Android packaging
-</h2>
-</header>
-<section class=entry-content>
-<p>To package apk successfully via Android Studio (UE4.25~) First, follow this official document. Tips below may be useful if your Gradle spit errors out. (wrote in 2022 March with UE4.27.2) Check existence of these 2 files (Windows) Users/[User name]/AppData\Local\Android\Sdk\build-tools\[SDK version]/dx.bat Users/[User name]/AppData\Local\Android\Sdk\build-tools\[SDK version]/lib/dx.jar If they don’t exist, make symbolic links of d8.bat and d8.jar. You MUST enable AndroidDeviceProfileSelector and AndroidPermission plugins. Then execute [EngineFolder]/Engine/Extras/Android/SetupAndroid.* while UE4 and Android Studio are off....</p>
-</section>
-<footer class=entry-footer><span title="2022-03-14 13:07:15 +0900 +0900">March 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
-<a class=entry-link aria-label="post link to Android packaging" href=https://niiok.github.io/unreal/android_packaging/></a>
+<footer class=entry-footer><span title="1970-01-01 00:00:00 +0000 UTC">January 1, 1970</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Niiok</footer>
+<a class=entry-link aria-label="post link to Unreal basic" href=https://niiok.github.io/unreal/basic/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
-<a class=next href=https://niiok.github.io/unreal/page/2/>Next Page »</a>
+<a class=prev href=https://niiok.github.io/unreal/>« Prev Page</a>
 </nav>
 </footer>
 </main>
