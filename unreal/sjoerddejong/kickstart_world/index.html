@@ -1,0 +1,578 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Unreal Kickstart - World Building | Niiok's Blog</title>
+<meta name=keywords content>
+<meta name=description content="Intro and Philosophy History of UE  visual based complete toolset level centric started from level editor other tools added-on level editor, and then it called as engine  UE1 (1997/1999)  Called as UnrealEd1, UnrealEd2 BSP Brush focused Engine struct was formulated  Actors, Viewport, Camera controls, toolbar&mldr; Lighting rendered in viewport   Event/Tag scripted Subtractive world (Skybox)  UE2 (2002)  Meshes added  BSP-Mesh hybrid workflow   Event/Tag scripted Subtractive world (Skybox) used Ctrl+S to subtract (prevent spam)  UE3 (2006)  Visual scripting (Kismet) added sub-editors added  Matinee, Cascade, Material editor, etc   Additive world (no Skybox) UE4&rsquo;s structure was almost completed  UE4 (2014)  Blueprint added UI revamp 2nd generation sub-editors and tools  Matinee and Cascade are replaced Sequencer, Sound cue editor, etc Unified interface with blueprint    UE5 (2022)  Lumen, Nanite added Reinforced sub-editors and open world support  Chaos, Niagara, AFPA, World Partition, etc    Schematic-Schematic  All required tools and sub-editors are part of the editor and engine.">
+<meta name=author content="Sjoerd De Jong, Mario Palmero">
+<link rel=canonical href=https://niiok.github.io/unreal/sjoerddejong/kickstart_world/>
+<meta name=google-site-verification content="DdPXi9zFzhddjnm20EWbhWv7tBvTySWZYj82E4eWwVA">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://niiok.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://niiok.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://niiok.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://niiok.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://niiok.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Unreal Kickstart - World Building">
+<meta property="og:description" content="Intro and Philosophy History of UE  visual based complete toolset level centric started from level editor other tools added-on level editor, and then it called as engine  UE1 (1997/1999)  Called as UnrealEd1, UnrealEd2 BSP Brush focused Engine struct was formulated  Actors, Viewport, Camera controls, toolbar&mldr; Lighting rendered in viewport   Event/Tag scripted Subtractive world (Skybox)  UE2 (2002)  Meshes added  BSP-Mesh hybrid workflow   Event/Tag scripted Subtractive world (Skybox) used Ctrl+S to subtract (prevent spam)  UE3 (2006)  Visual scripting (Kismet) added sub-editors added  Matinee, Cascade, Material editor, etc   Additive world (no Skybox) UE4&rsquo;s structure was almost completed  UE4 (2014)  Blueprint added UI revamp 2nd generation sub-editors and tools  Matinee and Cascade are replaced Sequencer, Sound cue editor, etc Unified interface with blueprint    UE5 (2022)  Lumen, Nanite added Reinforced sub-editors and open world support  Chaos, Niagara, AFPA, World Partition, etc    Schematic-Schematic  All required tools and sub-editors are part of the editor and engine.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://niiok.github.io/unreal/sjoerddejong/kickstart_world/"><meta property="article:section" content="Unreal">
+<meta property="article:published_time" content="2022-04-25T16:31:05+09:00">
+<meta property="article:modified_time" content="2022-04-25T16:31:05+09:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Unreal Kickstart - World Building">
+<meta name=twitter:description content="Intro and Philosophy History of UE  visual based complete toolset level centric started from level editor other tools added-on level editor, and then it called as engine  UE1 (1997/1999)  Called as UnrealEd1, UnrealEd2 BSP Brush focused Engine struct was formulated  Actors, Viewport, Camera controls, toolbar&mldr; Lighting rendered in viewport   Event/Tag scripted Subtractive world (Skybox)  UE2 (2002)  Meshes added  BSP-Mesh hybrid workflow   Event/Tag scripted Subtractive world (Skybox) used Ctrl+S to subtract (prevent spam)  UE3 (2006)  Visual scripting (Kismet) added sub-editors added  Matinee, Cascade, Material editor, etc   Additive world (no Skybox) UE4&rsquo;s structure was almost completed  UE4 (2014)  Blueprint added UI revamp 2nd generation sub-editors and tools  Matinee and Cascade are replaced Sequencer, Sound cue editor, etc Unified interface with blueprint    UE5 (2022)  Lumen, Nanite added Reinforced sub-editors and open world support  Chaos, Niagara, AFPA, World Partition, etc    Schematic-Schematic  All required tools and sub-editors are part of the editor and engine.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unreals","item":"https://niiok.github.io/unreal/"},{"@type":"ListItem","position":2,"name":"Unreal Kickstart - World Building","item":"https://niiok.github.io/unreal/sjoerddejong/kickstart_world/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unreal Kickstart - World Building","name":"Unreal Kickstart - World Building","description":"Intro and Philosophy History of UE  visual based complete toolset level centric started from level editor other tools added-on level editor, and then it called as engine  UE1 (1997/1999)  Called as UnrealEd1, UnrealEd2 BSP Brush focused Engine struct was formulated  Actors, Viewport, Camera controls, toolbar\u0026hellip; Lighting rendered in viewport   Event/Tag scripted Subtractive world (Skybox)  UE2 (2002)  Meshes added  BSP-Mesh hybrid workflow   Event/Tag scripted Subtractive world (Skybox) used Ctrl+S to subtract (prevent spam)  UE3 (2006)  Visual scripting (Kismet) added sub-editors added  Matinee, Cascade, Material editor, etc   Additive world (no Skybox) UE4\u0026rsquo;s structure was almost completed  UE4 (2014)  Blueprint added UI revamp 2nd generation sub-editors and tools  Matinee and Cascade are replaced Sequencer, Sound cue editor, etc Unified interface with blueprint    UE5 (2022)  Lumen, Nanite added Reinforced sub-editors and open world support  Chaos, Niagara, AFPA, World Partition, etc    Schematic-Schematic  All required tools and sub-editors are part of the editor and engine.","keywords":[],"articleBody":"Intro and Philosophy History of UE  visual based complete toolset level centric started from level editor other tools added-on level editor, and then it called as engine  UE1 (1997/1999)  Called as UnrealEd1, UnrealEd2 BSP Brush focused Engine struct was formulated  Actors, Viewport, Camera controls, toolbar… Lighting rendered in viewport   Event/Tag scripted Subtractive world (Skybox)  UE2 (2002)  Meshes added  BSP-Mesh hybrid workflow   Event/Tag scripted Subtractive world (Skybox) used Ctrl+S to subtract (prevent spam)  UE3 (2006)  Visual scripting (Kismet) added sub-editors added  Matinee, Cascade, Material editor, etc   Additive world (no Skybox) UE4’s structure was almost completed  UE4 (2014)  Blueprint added UI revamp 2nd generation sub-editors and tools  Matinee and Cascade are replaced Sequencer, Sound cue editor, etc Unified interface with blueprint    UE5 (2022)  Lumen, Nanite added Reinforced sub-editors and open world support  Chaos, Niagara, AFPA, World Partition, etc    Schematic-Schematic  All required tools and sub-editors are part of the editor and engine.\n  for same team, same style, same logic to work together seamlessly   WYSIWYG\n  fully visual not text based scripting/programming  not only for programmers speed up world production  posititate experimentation, qualty, diversity      Schematic Overview Full size (4MB)\nPlacable Actors excluding 3D  Audio Actors Emitter Actors  Cascade particle or Niagara particle   Reflection Captures  Sphere, Box, Planar   Light Actors  Point, Rectangular, Spot, Directional, Sky Static, Stationary, Dynamic(Movable)   Volumes  Represent Area of something or somewhat, somehow Geometry Editing available   BP Actors  Used for both Gameplay and Workflow (not only for programmers)   Gameplay/Other  Trigger, Maker, Spawn(e.g. player start), Decal, etc    Placable 3D Actors  Static Meshes  without some exceptions(e.g. vertex shader), theres no change like bone animation HLOD : composit meshes into one, so that reduce drawcall Instanced Static Meshes : Batching meshes to render Splines : revole/deform static mesh   Skeletal Meshes  Meshes with bone   Geometry  Geometry Editing available Binary Space Partition (BSP) almost deprecated   Procedural Mesh  available with plugin generated at runtime   Foliage  Foliage Tool  automatically batched   Grass  automatically generated by landscape material layer uses landscape’s lighting (good for performance)   Procedural Foliage  experimental automatically generated in foliage volume poliage type (imitate real nature)     Geometry Collections  Chaos Destructibles   Landscapes  Layer, Components, Gizmos, Visibility, Painting, Sculpting, etc Landscape Splines Landmass Plugin  Landscape Brushes     Skies  Static mesh and Material new : Physical based Sky Atmosphere    3D Tools  Import Modeling Tools  Sculpting Tools   UV Tools Mesh Simplification  can be used for generating LOD    Controls the Level  World Properties Level Blueprint  Timeline good for simple animations(changes)   Variants Manager  can assign any property ce on console to test   Sequencer  used for movie or cutscene can handle almost kind of values Sequence Template    Rebuilding  Lighting  Lightmass Importance Volume  Lightmaps Volumetric Lightmaps   Precomputed Visibility   HLOD Reflection Captures Navmesh  Navmsh Agent “Build Paths” Runtime Navmesh (not pre-built)    Sub-Level For  great for co-work Devide by location Devide by actor type Light Scenarios  set different lights in individual sublevels    How to load  Blueprint (LoadStreamLevel)  also code   Volumes Always Loaded World Composition  load automatically by instigator’s distance (x and y, but not z) good for open world    Performance  Stats  since UE2 type stat [command] in console e.g. scenerendering, none, game, physics, FPS, unit   GPU Profiler  Ctrl + Shift + , or Profile GPU to open   Statistics Panel  good for performance optimizing   View Modes  can check complexity   Cull/Max Draw Distance Scalability World Detail  since UE1 or UE2 can tag visual effects with rate    Advice  Multi user editing is available with editor server  without source controls    Level organization  Important actor standards  Editor Billdboard Scale   Outliner  since UE4 (not familiar with old devs)   Groups  Ctrl Shift G doesn’t affect on rendering and outliner (not batch)   Layers  actually not layer one actor can be contained in multiple layers useful for selecting   Selection tools  right clikc on actor for a lot of options Ctrl + B open mesh in content browser  asset action   can select in Statistics Panel too    Level cleanliness  Rotation and scale Grid and snapping  can customize snap unit Brackets(snap unit in/decrease) are good shortcut for preventing movement mistake   Shadows/Collision  Landscapes  LOD and Collision Component setting Material complexity change and Shared Sampler Distance Fading scale/textures Hard blends  Foliage  Foliage Assets Range and Shadow  removing shadow is recommended reducing rendering range is recommended   Lower position material trick  cognitive trick   Slope material trick  Painting Tools  it’s material tricks  Questions  is light mass volume needed in raytrace?  not need in fully dynamic lights but raytrace is not every-solution   co-working on sublevel  sublevel can share same transform    ","wordCount":"721","inLanguage":"en","datePublished":"2022-04-25T16:31:05+09:00","dateModified":"2022-04-25T16:31:05+09:00","author":[{"@type":"Person","name":"Sjoerd De Jong"},{"@type":"Person","name":"Mario Palmero"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/unreal/sjoerddejong/kickstart_world/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://niiok.github.io/ accesskey=h title="Niiok's Blog (Alt + H)">Niiok's Blog</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://niiok.github.io/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li>
+<li>
+<a href=https://niiok.github.io/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://niiok.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://niiok.github.io/unreal/>Unreals</a></div>
+<h1 class=post-title>
+Unreal Kickstart - World Building
+</h1>
+<div class=post-meta><span title="2022-04-25 16:31:05 +0900 +0900">April 25, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Sjoerd De Jong, Mario Palmero&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/Unreal/SjoerdDeJong/kickstart_world.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#intro-and-philosophy aria-label="Intro and Philosophy">Intro and Philosophy</a><ul>
+<li>
+<a href=#history-of-ue aria-label="History of UE">History of UE</a><ul>
+<li>
+<a href=#ue1-19971999 aria-label="UE1 (1997/1999)">UE1 (1997/1999)</a></li>
+<li>
+<a href=#ue2-2002 aria-label="UE2 (2002)">UE2 (2002)</a></li>
+<li>
+<a href=#ue3-2006 aria-label="UE3 (2006)">UE3 (2006)</a></li>
+<li>
+<a href=#ue4-2014 aria-label="UE4 (2014)">UE4 (2014)</a></li>
+<li>
+<a href=#ue5-2022 aria-label="UE5 (2022)">UE5 (2022)</a></li></ul>
+</li>
+<li>
+<a href=#schematic-schematic aria-label=Schematic-Schematic>Schematic-Schematic</a></li></ul>
+</li>
+<li>
+<a href=#schematic-overview aria-label="Schematic Overview">Schematic Overview</a><ul>
+<li>
+<a href=#placable-actors-excluding-3d aria-label="Placable Actors excluding 3D">Placable Actors excluding 3D</a></li>
+<li>
+<a href=#placable-3d-actors aria-label="Placable 3D Actors">Placable 3D Actors</a></li>
+<li>
+<a href=#3d-tools aria-label="3D Tools">3D Tools</a></li>
+<li>
+<a href=#controls-the-level aria-label="Controls the Level">Controls the Level</a></li>
+<li>
+<a href=#rebuilding aria-label=Rebuilding>Rebuilding</a></li>
+<li>
+<a href=#sub-level aria-label=Sub-Level>Sub-Level</a><ul>
+<li>
+<a href=#for aria-label=For>For</a></li>
+<li>
+<a href=#how-to-load aria-label="How to load">How to load</a></li></ul>
+</li>
+<li>
+<a href=#performance aria-label=Performance>Performance</a></li></ul>
+</li>
+<li>
+<a href=#advice aria-label=Advice>Advice</a><ul>
+<li>
+<a href=#level-organization aria-label="Level organization">Level organization</a></li>
+<li>
+<a href=#level-cleanliness aria-label="Level cleanliness">Level cleanliness</a></li>
+<li>
+<a href=#landscapes aria-label=Landscapes>Landscapes</a></li>
+<li>
+<a href=#foliage aria-label=Foliage>Foliage</a></li>
+<li>
+<a href=#painting-tools aria-label="Painting Tools">Painting Tools</a></li>
+<li>
+<a href=#questions aria-label=Questions>Questions</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=intro-and-philosophy>Intro and Philosophy<a hidden class=anchor aria-hidden=true href=#intro-and-philosophy>#</a></h1>
+<h2 id=history-of-ue>History of UE<a hidden class=anchor aria-hidden=true href=#history-of-ue>#</a></h2>
+<ul>
+<li><strong>visual based complete toolset</strong></li>
+<li><strong>level centric</strong></li>
+<li>started from <strong>level editor</strong></li>
+<li><strong>other tools added-on</strong> level editor, and then it called as engine</li>
+</ul>
+<h3 id=ue1-19971999>UE1 (1997/1999)<a hidden class=anchor aria-hidden=true href=#ue1-19971999>#</a></h3>
+<ul>
+<li>Called as <em>UnrealEd1, UnrealEd2</em></li>
+<li>BSP Brush focused</li>
+<li>Engine struct was formulated
+<ul>
+<li>Actors, Viewport, Camera controls, toolbar&mldr;</li>
+<li>Lighting rendered in viewport</li>
+</ul>
+</li>
+<li>Event/Tag scripted</li>
+<li>Subtractive world (Skybox)</li>
+</ul>
+<h3 id=ue2-2002>UE2 (2002)<a hidden class=anchor aria-hidden=true href=#ue2-2002>#</a></h3>
+<ul>
+<li>Meshes added
+<ul>
+<li>BSP-Mesh hybrid workflow</li>
+</ul>
+</li>
+<li>Event/Tag scripted</li>
+<li>Subtractive world (Skybox)</li>
+<li>used Ctrl+S to subtract (prevent spam)</li>
+</ul>
+<h3 id=ue3-2006>UE3 (2006)<a hidden class=anchor aria-hidden=true href=#ue3-2006>#</a></h3>
+<ul>
+<li>Visual scripting (Kismet) added</li>
+<li>sub-editors added
+<ul>
+<li>Matinee, Cascade, Material editor, etc</li>
+</ul>
+</li>
+<li>Additive world (no Skybox)</li>
+<li>UE4&rsquo;s structure was almost completed</li>
+</ul>
+<h3 id=ue4-2014>UE4 (2014)<a hidden class=anchor aria-hidden=true href=#ue4-2014>#</a></h3>
+<ul>
+<li>Blueprint added</li>
+<li>UI revamp</li>
+<li>2nd generation sub-editors and tools
+<ul>
+<li>Matinee and Cascade are replaced</li>
+<li>Sequencer, Sound cue editor, etc</li>
+<li>Unified interface with blueprint</li>
+</ul>
+</li>
+</ul>
+<h3 id=ue5-2022>UE5 (2022)<a hidden class=anchor aria-hidden=true href=#ue5-2022>#</a></h3>
+<ul>
+<li>Lumen, Nanite added</li>
+<li>Reinforced sub-editors and open world support
+<ul>
+<li>Chaos, Niagara, AFPA, World Partition, etc</li>
+</ul>
+</li>
+</ul>
+<h2 id=schematic-schematic>Schematic-Schematic<a hidden class=anchor aria-hidden=true href=#schematic-schematic>#</a></h2>
+<blockquote>
+<p><strong>All required tools and sub-editors are part of the editor and engine.</strong></p>
+</blockquote>
+<ul>
+<li>for same team, same style, same logic</li>
+<li>to work together seamlessly</li>
+</ul>
+<blockquote>
+<p><strong>WYSIWYG</strong></p>
+</blockquote>
+<ul>
+<li>fully visual</li>
+<li>not text based scripting/programming
+<ul>
+<li>not only for programmers</li>
+<li>speed up world production
+<ul>
+<li>posititate experimentation, qualty, diversity</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id=schematic-overview>Schematic Overview<a hidden class=anchor aria-hidden=true href=#schematic-overview>#</a></h1>
+<p><img loading=lazy src=../World_Building_18x24.png alt=image>
+<br>
+<a href=../World_Building_poster.png>Full size (4MB)</a></p>
+<h2 id=placable-actors-excluding-3d>Placable Actors excluding 3D<a hidden class=anchor aria-hidden=true href=#placable-actors-excluding-3d>#</a></h2>
+<ul>
+<li>Audio Actors</li>
+<li>Emitter Actors
+<ul>
+<li>Cascade particle or Niagara particle</li>
+</ul>
+</li>
+<li>Reflection Captures
+<ul>
+<li>Sphere, Box, Planar</li>
+</ul>
+</li>
+<li>Light Actors
+<ul>
+<li>Point, Rectangular, Spot, Directional, Sky</li>
+<li>Static, Stationary, Dynamic(Movable)</li>
+</ul>
+</li>
+<li>Volumes
+<ul>
+<li>Represent Area of something or somewhat, somehow</li>
+<li>Geometry Editing available</li>
+</ul>
+</li>
+<li>BP Actors
+<ul>
+<li>Used for both Gameplay and Workflow (not only for programmers)</li>
+</ul>
+</li>
+<li>Gameplay/Other
+<ul>
+<li>Trigger, Maker, Spawn(e.g. player start), Decal, etc</li>
+</ul>
+</li>
+</ul>
+<h2 id=placable-3d-actors>Placable 3D Actors<a hidden class=anchor aria-hidden=true href=#placable-3d-actors>#</a></h2>
+<ul>
+<li>Static Meshes
+<ul>
+<li>without some exceptions(e.g. vertex shader), theres no change like bone animation</li>
+<li>HLOD : composit meshes into one, so that reduce drawcall</li>
+<li>Instanced Static Meshes : Batching meshes to render</li>
+<li>Splines : revole/deform static mesh</li>
+</ul>
+</li>
+<li>Skeletal Meshes
+<ul>
+<li>Meshes with bone</li>
+</ul>
+</li>
+<li>Geometry
+<ul>
+<li>Geometry Editing available</li>
+<li>Binary Space Partition (BSP)</li>
+<li>almost deprecated</li>
+</ul>
+</li>
+<li>Procedural Mesh
+<ul>
+<li>available with plugin</li>
+<li>generated at runtime</li>
+</ul>
+</li>
+<li>Foliage
+<ul>
+<li>Foliage Tool
+<ul>
+<li>automatically batched</li>
+</ul>
+</li>
+<li>Grass
+<ul>
+<li>automatically generated by landscape material layer</li>
+<li>uses landscape&rsquo;s lighting (good for performance)</li>
+</ul>
+</li>
+<li>Procedural Foliage
+<ul>
+<li>experimental</li>
+<li>automatically generated in foliage volume</li>
+<li>poliage type (imitate real nature)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Geometry Collections
+<ul>
+<li>Chaos Destructibles</li>
+</ul>
+</li>
+<li>Landscapes
+<ul>
+<li>Layer, Components, Gizmos, Visibility, Painting, Sculpting, etc</li>
+<li>Landscape Splines</li>
+<li>Landmass Plugin
+<ul>
+<li>Landscape Brushes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Skies
+<ul>
+<li>Static mesh and Material</li>
+<li>new : Physical based Sky Atmosphere</li>
+</ul>
+</li>
+</ul>
+<h2 id=3d-tools>3D Tools<a hidden class=anchor aria-hidden=true href=#3d-tools>#</a></h2>
+<ul>
+<li>Import</li>
+<li>Modeling Tools
+<ul>
+<li>Sculpting Tools</li>
+</ul>
+</li>
+<li>UV Tools</li>
+<li>Mesh Simplification
+<ul>
+<li>can be used for generating LOD</li>
+</ul>
+</li>
+</ul>
+<h2 id=controls-the-level>Controls the Level<a hidden class=anchor aria-hidden=true href=#controls-the-level>#</a></h2>
+<ul>
+<li>World Properties</li>
+<li>Level Blueprint
+<ul>
+<li>Timeline</li>
+<li>good for simple animations(changes)</li>
+</ul>
+</li>
+<li>Variants Manager
+<ul>
+<li>can assign any property</li>
+<li><code>ce</code> on console to test</li>
+</ul>
+</li>
+<li>Sequencer
+<ul>
+<li>used for movie or cutscene</li>
+<li>can handle almost kind of values</li>
+<li>Sequence Template</li>
+</ul>
+</li>
+</ul>
+<h2 id=rebuilding>Rebuilding<a hidden class=anchor aria-hidden=true href=#rebuilding>#</a></h2>
+<ul>
+<li>Lighting
+<ul>
+<li>Lightmass Importance Volume
+<ul>
+<li>Lightmaps</li>
+<li>Volumetric Lightmaps</li>
+</ul>
+</li>
+<li>Precomputed Visibility</li>
+</ul>
+</li>
+<li>HLOD</li>
+<li>Reflection Captures</li>
+<li>Navmesh
+<ul>
+<li>Navmsh Agent</li>
+<li>&ldquo;Build Paths&rdquo;</li>
+<li>Runtime Navmesh (not pre-built)</li>
+</ul>
+</li>
+</ul>
+<h2 id=sub-level>Sub-Level<a hidden class=anchor aria-hidden=true href=#sub-level>#</a></h2>
+<h3 id=for>For<a hidden class=anchor aria-hidden=true href=#for>#</a></h3>
+<ul>
+<li>great for co-work</li>
+<li>Devide by location</li>
+<li>Devide by actor type</li>
+<li>Light Scenarios
+<ul>
+<li>set different lights in individual sublevels</li>
+</ul>
+</li>
+</ul>
+<h3 id=how-to-load>How to load<a hidden class=anchor aria-hidden=true href=#how-to-load>#</a></h3>
+<ul>
+<li>Blueprint (LoadStreamLevel)
+<ul>
+<li>also code</li>
+</ul>
+</li>
+<li>Volumes</li>
+<li>Always Loaded</li>
+<li>World Composition
+<ul>
+<li>load automatically by instigator&rsquo;s distance (x and y, but not z)</li>
+<li>good for open world</li>
+</ul>
+</li>
+</ul>
+<h2 id=performance>Performance<a hidden class=anchor aria-hidden=true href=#performance>#</a></h2>
+<ul>
+<li>Stats
+<ul>
+<li>since UE2</li>
+<li>type <code>stat [command]</code> in console</li>
+<li>e.g. <code>scenerendering</code>, <code>none</code>, <code>game</code>, <code>physics</code>, <code>FPS</code>, <code>unit</code></li>
+</ul>
+</li>
+<li>GPU Profiler
+<ul>
+<li><code>Ctrl + Shift + ,</code> or <code>Profile GPU</code> to open</li>
+</ul>
+</li>
+<li>Statistics Panel
+<ul>
+<li>good for performance optimizing</li>
+</ul>
+</li>
+<li>View Modes
+<ul>
+<li>can check complexity</li>
+</ul>
+</li>
+<li>Cull/Max Draw Distance</li>
+<li>Scalability</li>
+<li>World Detail
+<ul>
+<li>since UE1 or UE2</li>
+<li>can tag visual effects with rate</li>
+</ul>
+</li>
+</ul>
+<h1 id=advice>Advice<a hidden class=anchor aria-hidden=true href=#advice>#</a></h1>
+<ul>
+<li>Multi user editing is available with editor server
+<ul>
+<li>without source controls</li>
+</ul>
+</li>
+</ul>
+<h2 id=level-organization>Level organization<a hidden class=anchor aria-hidden=true href=#level-organization>#</a></h2>
+<ul>
+<li>Important actor standards
+<ul>
+<li>Editor Billdboard Scale</li>
+</ul>
+</li>
+<li>Outliner
+<ul>
+<li>since UE4 (not familiar with old devs)</li>
+</ul>
+</li>
+<li>Groups
+<ul>
+<li><code>Ctrl</code> <code>Shift</code> <code>G</code></li>
+<li>doesn&rsquo;t affect on rendering and outliner (not batch)</li>
+</ul>
+</li>
+<li>Layers
+<ul>
+<li>actually not layer</li>
+<li>one actor can be contained in multiple layers</li>
+<li>useful for selecting</li>
+</ul>
+</li>
+<li>Selection tools
+<ul>
+<li>right clikc on actor for a lot of options</li>
+<li><code>Ctrl + B</code> open mesh in content browser
+<ul>
+<li>asset action</li>
+</ul>
+</li>
+<li>can select in Statistics Panel too</li>
+</ul>
+</li>
+</ul>
+<h2 id=level-cleanliness>Level cleanliness<a hidden class=anchor aria-hidden=true href=#level-cleanliness>#</a></h2>
+<ul>
+<li>Rotation and scale</li>
+<li>Grid and snapping
+<ul>
+<li>can customize snap unit</li>
+<li>Brackets(snap unit in/decrease) are good shortcut for preventing movement mistake</li>
+</ul>
+</li>
+<li>Shadows/Collision</li>
+</ul>
+<h2 id=landscapes>Landscapes<a hidden class=anchor aria-hidden=true href=#landscapes>#</a></h2>
+<ul>
+<li>LOD and Collision</li>
+<li>Component setting</li>
+<li>Material complexity change and Shared Sampler</li>
+<li>Distance Fading scale/textures</li>
+<li>Hard blends</li>
+</ul>
+<h2 id=foliage>Foliage<a hidden class=anchor aria-hidden=true href=#foliage>#</a></h2>
+<ul>
+<li>Foliage Assets</li>
+<li>Range and Shadow
+<ul>
+<li>removing shadow is recommended</li>
+<li>reducing rendering range is recommended</li>
+</ul>
+</li>
+<li>Lower position material trick
+<ul>
+<li>cognitive trick</li>
+</ul>
+</li>
+<li>Slope material trick</li>
+</ul>
+<h2 id=painting-tools>Painting Tools<a hidden class=anchor aria-hidden=true href=#painting-tools>#</a></h2>
+<ul>
+<li>it&rsquo;s material tricks</li>
+</ul>
+<h2 id=questions>Questions<a hidden class=anchor aria-hidden=true href=#questions>#</a></h2>
+<ul>
+<li>is light mass volume needed in raytrace?
+<ul>
+<li>not need in fully dynamic lights</li>
+<li>but raytrace is not every-solution</li>
+</ul>
+</li>
+<li>co-working on sublevel
+<ul>
+<li>sublevel can share same transform</li>
+</ul>
+</li>
+</ul>
+</div>
+<footer class=post-footer>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://niiok.github.io/>Niiok's Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>
