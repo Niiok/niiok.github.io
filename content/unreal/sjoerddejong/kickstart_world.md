@@ -79,8 +79,8 @@ weight: 1
 
 # Schematic Overview
 
-![image](../World_Building_18x24.png)    
-[Full size (4MB)](../World_Building_poster.png)    
+![image](../world_building_18x24.png)    
+[Full size (4MB)](../world_building_poster.png)    
 
 ## Placable Actors excluding 3D
 - Audio Actors
