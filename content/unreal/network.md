@@ -20,34 +20,38 @@ weight: 1
 
 
 ## Intro
-- Unreal network system is based on [Server-Client model](https://docs.unrealengine.com/InteractiveExperiences/Networking/Server/).
+- Unreal network system is based on [Server-Client model](https://docs.unrealengine.com/4.27/InteractiveExperiences/Networking/Server/).
 - If developers consider about "Replication", game can support both singleplayer and multiplayer.
 
 
 ## Network Mode
 - NM_Standalone
-  - Authoritive : true
+  - Authoritative : true
   - Listening : false
   - LocalPlayer : true
 - NM_Client
-  - Authoritive : false
+  - Authoritative : false
   - Listening : false
   - LocalPlayer : true
 - NM_ListenServer
-  - Authoritive : true
+  - Authoritative : true
   - Listening : true
   - LocalPlayer : true
 - NM_DedicatedServer
-  - Authoritive : true
+  - Authoritative : true
   - Listening : true
   - LocalPlayer : false
 
 
-## Replication Role
+### Replication Role
 - ROLE_None
 - ROLE_Authority
 - ROLE_SimulatedProxy
 - ROLE_AutonomousProxy
+
+### Relevance
+
+### Priority
 
 
 ## Replicate with property
@@ -60,7 +64,17 @@ int SimpleReplicateProperty;
 
 UPROPERTY(ReplicatedUsing = void_function)
 int ReplicatePropertyCallsRepNotifies;
+
+void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	DOREPLIFETIME(ClassName, SimpleReplicateProperty);
+	DOREPLIFETIME(ClassName, ReplicatePropertyCallsRepNotifies);
+	// and other replicated properties..
+}
 ```
+
+### NetUpdateFrequency
+
 
 ## Replicate with Function (RPC)
 ``` C++

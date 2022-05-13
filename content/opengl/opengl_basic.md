@@ -41,28 +41,28 @@ void glClearBufferfv (GLenum buffer, GLint drawBuffer, const GLfloat *value);
 ```C
 GLuint glCreateShader (GLenum type);
 ```
->create _`type`_ of shader(structure that manage shader code compile and linking it) and return _`GLuint`_ as identifier.
+> create _`type`_ of shader(structure that manage shader code compile and linking it) and return _`GLuint`_ as identifier.
 
 
 - glShaderSource
 ```C
 void glShaderSource (GLuint shader, GLsizei count, const GLchar* const *string, const GLint *length);
 ```
->will add more explains
+> will add more explains
 
 
 - glCompileShader
 ```C
 void glCompileShader (GLuint shader);
 ```
-> Compile _`shader`_ type sader.
+> Compile _`shader`_ indenfied shader.
 
 
 - glCreateProgram
 ```C
 GLuint glCreateProgram (void);
 ```
->create a program object and return it.
+>create a program object and return its identifier.
 
 
 - glAttachShader
@@ -76,21 +76,21 @@ void glAttachShader (GLuint program, GLuint shader);
 ```C
 void glLinkProgram (GLuint program);
 ```
->as-is name
+>as its name
 
 
 - glDeleteShader
 ```C
 void glDeleteShader (GLuint shader);
 ```
->as-is name
+>as its name
 
 
 - glDeleteProgram
 ```C
 void glDeleteProgram (GLuint program);
 ```
->as-is name
+>as its name
 
 
 
@@ -122,7 +122,7 @@ void glBindVertexArray (GLuint array);
 ```C
 void glDrawArrays (GLenum mode, GLint first, GLsizei count);
 ```
->send vertexes to pipeline. started from _`first`_, _`count`_ of vertexes with premitive _`mode`_    
+>send vertices to pipeline. started from _`first`_, _`count`_ of vertices with premitive _`mode`_    
 >mode example: GL_POINTS, GL_LINES, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_PATCHES, ...
 
 

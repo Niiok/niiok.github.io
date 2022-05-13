@@ -20,7 +20,7 @@ weight: 1
 
 # Intro and Philosophy
 
-## History of UE
+## History
 - **visual based complete toolset**
 - **level centric**
 - started from **level editor**
@@ -58,9 +58,8 @@ weight: 1
   - Unified interface with blueprint
 
 ### UE5 (2022)
-- Lumen, Nanite added
 - Reinforced sub-editors and open world support
-  - Chaos, Niagara, AFPA, World Partition, etc
+  - Chaos, AFPA, World Partition, etc
 
 
 ## Schematic-Schematic
@@ -123,7 +122,7 @@ weight: 1
   - Procedural Foliage
     - experimental
 	- automatically generated in foliage volume
-	- poliage type (imitate real nature)
+	- foliage type (imitate real nature)
 - Geometry Collections
   - Chaos Destructibles
 - Landscapes
