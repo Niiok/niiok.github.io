@@ -60,6 +60,17 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Unreal Network
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro Unreal network system is based on Server-Client model. If developers consider about “Replication”, game can support both singleplayer and multiplayer. UE4 Clients can not communicate without Server (p2p is not currently supported) Struct Network Mode ENetMode NM_Standalone Authoritative : true Listening : false LocalPlayer : true NM_DedicatedServer Authoritative : true Listening : true LocalPlayer : false NM_ListenServer Authoritative : true Listening : true LocalPlayer : true NM_Client Authoritative : false Listening : false LocalPlayer : true NM_MAX Role, RemoteRole ENetRole ROLE_None not related with replication ROLE_SimulatedProxy copy of ROLE_Authority extrapolative-predicted with server values ROLE_AutonomousProxy copy of ROLE_Authority extrapolative-predicted with server values + local functions (e....</p>
+</section>
+<footer class=entry-footer><span title="2022-05-17 00:00:00 +0000 UTC">May 17, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Niiok</footer>
+<a class=entry-link aria-label="post link to Unreal Network" href=https://niiok.github.io/unreal/network/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Unreal Kickstart - World Building
 </h2>
 </header>
@@ -103,17 +114,6 @@ Lifetime : StartUp() ~ ShutDown() Reference : GEditor->GetEditorSubsystem&lt;T>(
 </section>
 <footer class=entry-footer><span title="2022-03-17 23:42:05 +0900 +0900">March 17, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
 <a class=entry-link aria-label="post link to Unreal Subsystem" href=https://niiok.github.io/unreal/subsystem/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Unreal Network
-</h2>
-</header>
-<section class=entry-content>
-<p>Intro Unreal network system is based on Server-Client model. If developers consider about “Replication”, game can support both singleplayer and multiplayer. Network Mode NM_Standalone Authoritative : true Listening : false LocalPlayer : true NM_Client Authoritative : false Listening : false LocalPlayer : true NM_ListenServer Authoritative : true Listening : true LocalPlayer : true NM_DedicatedServer Authoritative : true Listening : true LocalPlayer : false Replication Role ROLE_None ROLE_Authority ROLE_SimulatedProxy ROLE_AutonomousProxy Relevance Priority Replicate with property 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 UFUNCTION() void void_function(); UPROPERTY(Replicated) int SimpleReplicateProperty; UPROPERTY(ReplicatedUsing = void_function) int ReplicatePropertyCallsRepNotifies; void GetLifetimeReplicatedProps(TArray&lt;FLifetimeProperty>& OutLifetimeProps) const { DOREPLIFETIME(ClassName, SimpleReplicateProperty); DOREPLIFETIME(ClassName, ReplicatePropertyCallsRepNotifies); // and other replicated properties....</p>
-</section>
-<footer class=entry-footer><span title="2022-03-16 23:41:59 +0900 +0900">March 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Niiok</footer>
-<a class=entry-link aria-label="post link to Unreal Network" href=https://niiok.github.io/unreal/network/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
