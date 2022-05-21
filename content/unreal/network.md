@@ -83,58 +83,31 @@ weight: 1
 
 ## Property Replication
 ``` C++
-// "AActor::bReplicates" need to be "true"
-
-UFUNCTION()
-virtual void void_function(); 
-// void return, void param, UFUNCTION specifier
-// its default name is "OnRep_PropertyName"
-// virtual is not essential
-
-UPROPERTY(Replicated)
-int SimpleReplicateProperty;
-
-UPROPERTY(ReplicatedUsing = void_function)
-int ReplicatePropertyCallsRepNotifies;
-
-void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{
-	DOREPLIFETIME(ClassName, SimpleReplicateProperty);
-	DOREPLIFETIME(ClassName, ReplicatePropertyCallsRepNotifies);
-	// and other replicated properties..
-	
-	// you can use these too
-	// DOREPLIFETIME_COND(ClassName, PropertyName, ELifetimeCondition) or 
-	// DOREPLIFETIME_ACTIVE_OVERRIDE(ClassName, PriorityName, bPropertyReplicates)
-}
-```
-- e.g. How AActor replicates
-``` C++
 class ENGINE_API AActor : public UObject
 {
-    UPROPERTY( replicated )
+    UPROPERTY( Replicated ) // originally, it's ReplicatedWith specifier
     AActor * Owner;
+
+    UPROPERTY(EditDefaultsOnly, ReplicatedUsing=OnRep_ReplicatedMovement, Category=Replication, AdvancedDisplay)
+    struct FRepMovement ReplicatedMovement;
+
+    UFUNCTION()
+    virtual void OnRep_ReplicatedMovement();
 };
 
 void AActor::GetLifetimeReplicatedProps( TArray< FLifetimeProperty > & OutLifetimeProps ) const
 {
     DOREPLIFETIME( AActor, Owner );
-}
-
-AActor::AActor( const class FPostConstructInitializeProperties & PCIP ) : Super( PCIP )
-{ 
-    bReplicates = true;
-}
-
-void AActor::GetLifetimeReplicatedProps( TArray< FLifetimeProperty > & OutLifetimeProps ) const
-{
     DOREPLIFETIME_CONDITION( AActor, ReplicatedMovement, COND_SimulatedOnly );
+	// check "UnrealNetwork.h" for more variations
 }
 
 void AActor::PreReplication( IRepChangedPropertyTracker & ChangedPropertyTracker )
 {
     DOREPLIFETIME_ACTIVE_OVERRIDE( AActor, ReplicatedMovement, bReplicateMovement );
 }
+
+void AActor::OnRep_ReplicatedMovement() { ... }
 ```
 - server to client only
 - reliable
@@ -176,25 +149,29 @@ void AActor::PreReplication( IRepChangedPropertyTracker & ChangedPropertyTracker
 
 ## Remote Procedure Call (RPC)
 ``` C++
-UFUNCTION(Server, Reliable, WithValidation)
+UFUNCTION(Server, WithValidation)
 void FunctionThatCalledOnServer();
 
-UFUNCTION(Client, Reliable, WithValidation)
+UFUNCTION(Client, Reliable)
 void FunctionThatCalledOnOwnerClient();
 
-UFUNCTION(NetMulticast, Reliable, WithValidation)
+UFUNCTION(NetMulticast)
 void FunctionThatCalledOnEveryActor();
 
 void ClassName::FunctionThatCalledOnServer_Implementation() {}
-bool ClassName::FunctionThatCalledOnServer_Validation() {}
+bool ClassName::FunctionThatCalledOnServer_Validation() {return true;}
 void ClassName::FunctionThatCalledOnOwnerClient_Implementation() {}
-bool ClassName::FunctionThatCalledOnOwnerClient_Validation() {}
 void ClassName::FunctionThatCalledOnEveryActor_Implementation() {}
-bool ClassName::FunctionThatCalledOnEveryActor_Validation() {}
 ```
-- You should set `Reliable`(TCP) or `Unreliable`(UDP) specifier on RPC's UFUNCTION().
+- Only executed on Actor that is replicating
+- If you want to make sure RPC executed. you should set `Reliable` specifier on RPC's UFUNCTION().
+  - RPC is Unreiiable by default.
   - If you spam `Reliable` like every ticks, client may get disconnected due to preventation of DDOS.
-- `WithValidation` specifier is selective. (`_Validation` function must be followed after `WithValidation` specifier.)
+- `WithValidation` specifier declares `_Validation` function with bool return and same parameters. 
+  - `_Validation` function must be followed after `WithValidation` specifier.
+  - disconnect client if return is `false`
+  - execute RPC if return is `true`
+  - Server RPC requires WithValidation
 - when calling RPC on Server  
 | actor \ specifier | none   | `NetMulticast`       | `Server` | `Client`      |  
 |-------------------|--------|----------------------|----------|---------------|  
@@ -211,7 +188,20 @@ bool ClassName::FunctionThatCalledOnEveryActor_Validation() {}
 
 ## ~~Component Replication~~
 - tbd
-
+<!--
+- Component Replication
+  - only some special components replicated directly
+  - static component (not need replicate)
+    - spawned with actor together
+  - dynamic component (need replicate)
+    - spawned separted with actor in runtime
+  - Needs
+    - implement of `GetLifetimeReplicatedProps(...)` just like actors docs
+	- `AActorComponent::SetIsReplicated(true)` (can be skipped if it's default subobject)
+  - other subobjects can be replicated too
+    ``` C++
+	```
+-->
 
 
 # Optimization
@@ -259,12 +249,12 @@ bool ClassName::FunctionThatCalledOnEveryActor_Validation() {}
 - tbd
 
 ## Conceptual Tips
-- reducing bReplicates
-- reducing NetUpdateFrequency
-- using Dormancy
-- using Relevancy
-- reducing NetClientTicksPerSecond
-- using Quantizing (e.g. FVector_NetQuantize)
+- reduce bReplicates
+- reduce NetUpdateFrequency
+- use Dormancy
+- use Relevancy
+- reduce NetClientTicksPerSecond
+- use Quantizing (e.g. FVector_NetQuantize)
 - minimize RPC : replace into RepNotify
   - remove Server RPC that unused on clients
   - reduce NetMulticast RPC
@@ -333,18 +323,3 @@ bool ClassName::FunctionThatCalledOnEveryActor_Validation() {}
 ## ~~Testing Multiplay~~
 - tbd
 
-
-<!--
-- Component Replication
-  - only some special components replicated directly
-  - static component (not need replicate)
-    - spawned with actor together
-  - dynamic component (need replicate)
-    - spawned separted with actor in runtime
-  - Needs
-    - implement of `GetLifetimeReplicatedProps(...)` just like actors docs
-	- `AActorComponent::SetIsReplicated(true)` (can be skipped if it's default subobject)
-  - other subobjects can be replicated too
-    ``` C++
-	```
--->
