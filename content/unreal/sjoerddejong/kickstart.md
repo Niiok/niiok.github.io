@@ -38,13 +38,13 @@ weight: 1
 - Anything content or Blueprint related except for Animation/Audio
 
 ## Mario Palmero
-- 8 ~~_hours_~~ years experience with UE3/4
+- 8 ~~_hours_~~ years experience with UE3-4
 - Programming, Tech Art and Animation
 
 
 # Contents
 ## [World Building](../kickstart_world)
-## [Rendering]()
+## [Rendering](../kickstart_rendering)
 ## [Animation]()
 ## [Engine Structure]()
 ## [Programming]()

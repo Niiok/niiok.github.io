@@ -208,55 +208,55 @@ weight: 1
 - Multi user editing is available with editor server
   - without source controls
 
-## Level organization
-- Important actor standards
-  - Editor Billdboard Scale
-- Outliner
-  - since UE4 (not familiar with old devs)
-- Groups
-  - `Ctrl` `Shift` `G`
-  - doesn't affect on rendering and outliner (not batch)
-- Layers
-  - actually not layer
-  - one actor can be contained in multiple layers
-  - useful for selecting
-- Selection tools
-  - right clikc on actor for a lot of options
-  - `Ctrl + B` open mesh in content browser
-    - asset action
-  - can select in Statistics Panel too
+- Level organization
+  - Important actor standards
+    - Editor Billdboard Scale
+  - Outliner
+    - since UE4 (not familiar with old devs)
+  - Groups
+    - `Ctrl` `Shift` `G`
+    - doesn't affect on rendering and outliner (not batch)
+  - Layers
+    - actually not layer
+    - one actor can be contained in multiple layers
+    - useful for selecting
+  - Selection tools
+    - right clikc on actor for a lot of options
+    - `Ctrl + B` open mesh in content browser
+      - asset action
+    - can select in Statistics Panel too
 
-## Level cleanliness
-- Rotation and scale
-- Grid and snapping
-  - can customize snap unit
-  - Brackets(snap unit in/decrease) are good shortcut for preventing movement mistake
-- Shadows/Collision
+- Level cleanliness
+  - Rotation and scale
+  - Grid and snapping
+    - can customize snap unit
+    - Brackets(snap unit in/decrease) are good shortcut for preventing movement mistake
+  - Shadows/Collision
 
-## Landscapes
-- LOD and Collision
-- Component setting
-- Material complexity change and Shared Sampler
-- Distance Fading scale/textures
-- Hard blends
+- Landscapes
+  - LOD and Collision
+  - Component setting
+  - Material complexity change and Shared Sampler
+  - Distance Fading scale/textures
+  - Hard blends
 
-## Foliage
-- Foliage Assets
-- Range and Shadow
-  - removing shadow is recommended
-  - reducing rendering range is recommended
-- Lower position material trick
-  - cognitive trick
-- Slope material trick
+- Foliage
+  - Foliage Assets
+  - Range and Shadow
+    - removing shadow is recommended
+    - reducing rendering range is recommended
+  - Lower position material trick
+    - cognitive trick
+  - Slope material trick
 
-## Painting Tools
-- it's material tricks
+- Painting Tools
+  - it's material tricks
 
-## Questions
-- is light mass volume needed in raytrace?
-  - not need in fully dynamic lights
-  - but raytrace is not every-solution
-- co-working on sublevel
-  - sublevel can share same transform
+- Questions
+  - is light mass volume needed in raytrace?
+    - not need in fully dynamic lights
+    - but raytrace is not every-solution
+  - co-working on sublevel
+    - sublevel can share same transform
 
  
