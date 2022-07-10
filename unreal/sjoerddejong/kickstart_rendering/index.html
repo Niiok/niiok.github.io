@@ -31,7 +31,7 @@
 <meta name=twitter:title content="Unreal Kickstart - Rendering">
 <meta name=twitter:description content="Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light & Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unreals","item":"https://niiok.github.io/unreal/"},{"@type":"ListItem","position":2,"name":"Unreal Kickstart - Rendering","item":"https://niiok.github.io/unreal/sjoerddejong/kickstart_rendering/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unreal Kickstart - Rendering","name":"Unreal Kickstart - Rendering","description":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026amp; Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)","keywords":[],"articleBody":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026 Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)\nAhead of Rendering (Frame 0, CPU) All Logic  deciding what to render\n  Gameplay Animation Physics etc..  Visibility (Frame 1, CPU)  check what can be seen by camera. process lighter tasks first to reduce calcuration candidates\n  Occlusion/Visibility Processes  Distance Culling (Lightest)  not enabled by default (recommended) by CullDistanceVolume  or you have to set Desired Max Draw Distance for every actors (annoying)     Frustum Culling  standard enabled why you have to disable this?   Precomputed Visibility  not enabled by default (optional) enable with World Setting property Good for space-time tradeoff  use memmory to reduce cpu cost   by PrecomputedVisibilityVolume   Visibility Culling (Heaviest)  standard enabled heavy check with freezerendering Hardware Occlusion  use every mesh as occluder not work in every devices (so engine need Software Occlusion)   Software Occlusion  uses Mesh LODs as occluder        Start of Rendering (Frame 2, GPU) Early Z Pass  Scene Depth used for deferred rendering pipeline  Basepass  Act of rendering all geometries can check with GPU compiler\n  Drawcalls  HLOD Static Meshes Instanced Meshes Skeletal Meshes Landscapes Procedural Meshes Geometry Collection … etc (Geometry, 3D to render)   Dynamic Instancing  automatically batch drawcalls\n  enabled by default   Basspass Materials  unreal’s defered rendering don’t render every materials at once but render basic materials here (without shadow, blending, etc)\n  Lightmaps Generated by Lightmass    Static Lighting/Shadows GBuffer  Buffer A Buffer B Buffer C Buffer D Buffer E  Dyanmic Lighting/Shadows Reflections Additional Post Processing Final Frame (Frame N, ) Performance Scalability Example Plugin : RenderDoc\n data,  Advice ","wordCount":"384","inLanguage":"en","datePublished":"2022-04-26T17:40:24+09:00","dateModified":"2022-04-26T17:40:24+09:00","author":[{"@type":"Person","name":"Sjoerd De Jong"},{"@type":"Person","name":"Mario Palmero"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/unreal/sjoerddejong/kickstart_rendering/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unreal Kickstart - Rendering","name":"Unreal Kickstart - Rendering","description":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026amp; Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)","keywords":[],"articleBody":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026 Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)\nAhead of Rendering (Frame 0, CPU) All Logic  deciding what to render\n  Gameplay Animation Physics etc..  Visibility (Frame 1, CPU)  check what can be seen by camera. process lighter tasks first to reduce calcuration candidates\n  Occlusion/Visibility Processes  Distance Culling (Lightest)  not enabled by default (recommended) by CullDistanceVolume  or you have to set Desired Max Draw Distance for every actors (annoying)     Frustum Culling  standard enabled why you have to disable this?   Precomputed Visibility  not enabled by default (optional) enable with World Setting property Good for space-time tradeoff  use memmory to reduce cpu cost   by PrecomputedVisibilityVolume   Visibility Culling (Heaviest)  standard enabled heavy check with freezerendering Hardware Occlusion  use every mesh as occluder not work in every devices (so engine need Software Occlusion)   Software Occlusion  uses Mesh LODs as occluder        Start of Rendering (Frame 2, GPU) Early Z Pass  Scene Depth used for deferred rendering pipeline  Basepass  Act of rendering all geometries can check with GPU compiler\n  Drawcalls  HLOD Static Meshes Instanced Meshes Skeletal Meshes Landscapes Procedural Meshes Geometry Collection … etc (Geometry, 3D to render)   Dynamic Instancing  automatically batch drawcalls\n  enabled by default same mesh, same material in one drawcall   Basspass Materials  unreal’s deferred rendering do not render every materials at once. first, basic materials are rendered here (without shadow, blending, etc)\n  Lightmaps  need for initial shading Generated by Lightmass      Static Lighting/Shadows  Lightmass  Separeted application run by Swarm agent manage building and baking lights\n  what  Static Light Actors placed in the world Lightmass Importance Volume Global Illumination/Radiosity   how  Volumetric Lightmaps  default setting for current version saves lighting data since lightmap doesn’t provide dynamic lighitng data   Volume Lighting Samples  used for older version less memory, less gpu time, less accuracy saves single color only for dynamic lighting data        GBuffer  Buffer A : World Normals Buffer B : Specular / Roughness / Metalic Buffer C : Base Color / Lighting Buffer D : Additional Buffer E : Additional  Dyanmic Lighting/Shadows Direct-Light  IES Profiles  customize light projection and intensity can be static   Light Functions  Material - Material Domain - Light Function e.g. fire flickering, water caustics, cloud shadow kinda heavy work, so set Fade Distance in proper value    Direct-Shadow  Dynamic Shadows  optionally use Mesh Distance Field cached (performance dip when invalidated) r.Shadow.CacheWholeSceneShadows   Cascaded Shadow Maps  for gradually disappearing shadows low, medium, high quality (3 by default) commonly used in directional light, outdoor environments still heavy, ugly when shadow disappear - Distance Field Shadows   Distance Field Shadow  not enabled by default uses Mesh Distance Field need more memory and imprecise   Raytraced Shadows Per Object Shdows \u0026 Inset Shadows  used for often-seen shadows (like character mesh) can show more precise shadow   Contact Shadows  shadow over close obejcts kind of post processing for tiny detail    Indirect-Light  both are not commonly used for nowdays\n  Light Propagation  older realtime GI outdated; not recommended   Raytraced GI  complication of raytracing feature complex works    Indirect-Sahdow  Raycast AO  raycast feature Accurate raytraced Ambient Occlusion (a.k.a. its name)   Capsule Shadow  simplicating skeletal mesh shadows commonly used for tiny creatures or massive characters can be used for vague light art style   DFAO  Distance Field Ambient Occlusion uses Mesh Distance Field used for moveable. stationary Skylight (in detail panel) let actor scale stay close to 1, or Distance Field will look weird    Reflections Additional Post Processing Final Frame (Frame N, ) Performance Scalability Example Plugin : RenderDoc\n data,  Advice ","wordCount":"699","inLanguage":"en","datePublished":"2022-04-26T17:40:24+09:00","dateModified":"2022-04-26T17:40:24+09:00","author":[{"@type":"Person","name":"Sjoerd De Jong"},{"@type":"Person","name":"Mario Palmero"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/unreal/sjoerddejong/kickstart_rendering/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -65,7 +65,7 @@
 <h1 class=post-title>
 Unreal Kickstart - Rendering
 </h1>
-<div class=post-meta><span title="2022-04-26 17:40:24 +0900 +0900">April 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sjoerd De Jong, Mario Palmero&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/unreal/sjoerddejong/kickstart_rendering.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2022-04-26 17:40:24 +0900 +0900">April 26, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Sjoerd De Jong, Mario Palmero&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/unreal/sjoerddejong/kickstart_rendering.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header> <div class=toc>
 <details open>
@@ -111,7 +111,16 @@ Unreal Kickstart - Rendering
 <li>
 <a href=#gbuffer aria-label=GBuffer>GBuffer</a></li>
 <li>
-<a href=#dyanmic-lightingshadows aria-label="Dyanmic Lighting/Shadows">Dyanmic Lighting/Shadows</a></li>
+<a href=#dyanmic-lightingshadows aria-label="Dyanmic Lighting/Shadows">Dyanmic Lighting/Shadows</a><ul>
+<li>
+<a href=#direct-light aria-label=Direct-Light>Direct-Light</a></li>
+<li>
+<a href=#direct-shadow aria-label=Direct-Shadow>Direct-Shadow</a></li>
+<li>
+<a href=#indirect-light aria-label=Indirect-Light>Indirect-Light</a></li>
+<li>
+<a href=#indirect-sahdow aria-label=Indirect-Sahdow>Indirect-Sahdow</a></li></ul>
+</li>
 <li>
 <a href=#reflections aria-label=Reflections>Reflections</a></li>
 <li>
@@ -313,28 +322,165 @@ can check with GPU compiler</p>
 </blockquote>
 <ul>
 <li>enabled by default</li>
+<li>same mesh, same material in one drawcall</li>
 </ul>
 </li>
 <li>Basspass Materials
 <blockquote>
-<p>unreal&rsquo;s defered rendering don&rsquo;t render every materials at once but render basic materials here (without shadow, blending, etc)</p>
+<p>unreal&rsquo;s deferred rendering do not render every materials at once. <br>
+first, basic materials are rendered here (without shadow, blending, etc)</p>
 </blockquote>
 <ul>
 <li>Lightmaps
-Generated by Lightmass</li>
+<ul>
+<li>need for initial shading</li>
+<li>Generated by Lightmass</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id=static-lightingshadows>Static Lighting/Shadows<a hidden class=anchor aria-hidden=true href=#static-lightingshadows>#</a></h3>
+<ul>
+<li>Lightmass
+<blockquote>
+<p>Separeted application run by Swarm agent <br>
+manage building and baking lights</p>
+</blockquote>
+<ul>
+<li>what
+<ul>
+<li>Static Light Actors placed in the world</li>
+<li>Lightmass Importance Volume</li>
+<li>Global Illumination/Radiosity</li>
+</ul>
+</li>
+<li>how
+<ul>
+<li>Volumetric Lightmaps
+<ul>
+<li>default setting for current version</li>
+<li>saves lighting data since lightmap doesn&rsquo;t provide dynamic lighitng data</li>
+</ul>
+</li>
+<li>Volume Lighting Samples
+<ul>
+<li>used for older version</li>
+<li>less memory, less gpu time, less accuracy</li>
+<li>saves single color only for dynamic lighting data</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id=gbuffer>GBuffer<a hidden class=anchor aria-hidden=true href=#gbuffer>#</a></h3>
 <ul>
-<li>Buffer A</li>
-<li>Buffer B</li>
-<li>Buffer C</li>
-<li>Buffer D</li>
-<li>Buffer E</li>
+<li>Buffer A : World Normals</li>
+<li>Buffer B : Specular / Roughness / Metalic</li>
+<li>Buffer C : Base Color / Lighting</li>
+<li>Buffer D : Additional</li>
+<li>Buffer E : Additional</li>
 </ul>
 <h3 id=dyanmic-lightingshadows>Dyanmic Lighting/Shadows<a hidden class=anchor aria-hidden=true href=#dyanmic-lightingshadows>#</a></h3>
+<h4 id=direct-light>Direct-Light<a hidden class=anchor aria-hidden=true href=#direct-light>#</a></h4>
+<ul>
+<li>IES Profiles
+<ul>
+<li>customize light projection and intensity</li>
+<li>can be static</li>
+</ul>
+</li>
+<li>Light Functions
+<ul>
+<li>Material -> Material Domain -> Light Function</li>
+<li>e.g. fire flickering, water caustics, cloud shadow</li>
+<li>kinda heavy work, so set Fade Distance in proper value</li>
+</ul>
+</li>
+</ul>
+<h4 id=direct-shadow>Direct-Shadow<a hidden class=anchor aria-hidden=true href=#direct-shadow>#</a></h4>
+<ul>
+<li>Dynamic Shadows
+<ul>
+<li>optionally use <code>Mesh Distance Field</code></li>
+<li>cached (performance dip when invalidated)</li>
+<li><code>r.Shadow.CacheWholeSceneShadows</code></li>
+</ul>
+</li>
+<li>Cascaded Shadow Maps
+<ul>
+<li>for gradually disappearing shadows</li>
+<li>low, medium, high quality (3 by default)</li>
+<li>commonly used in directional light, outdoor environments</li>
+<li>still heavy, ugly when shadow disappear -> Distance Field Shadows</li>
+</ul>
+</li>
+<li>Distance Field Shadow
+<ul>
+<li>not enabled by default</li>
+<li>uses <code>Mesh Distance Field</code></li>
+<li>need more memory and imprecise</li>
+</ul>
+</li>
+<li>Raytraced Shadows</li>
+<li>Per Object Shdows & Inset Shadows
+<ul>
+<li>used for often-seen shadows (like character mesh)</li>
+<li>can show more precise shadow</li>
+</ul>
+</li>
+<li>Contact Shadows
+<ul>
+<li>shadow over close obejcts</li>
+<li>kind of post processing</li>
+<li>for tiny detail</li>
+</ul>
+</li>
+</ul>
+<h4 id=indirect-light>Indirect-Light<a hidden class=anchor aria-hidden=true href=#indirect-light>#</a></h4>
+<blockquote>
+<p>both are not commonly used for nowdays</p>
+</blockquote>
+<ul>
+<li>Light Propagation
+<ul>
+<li>older realtime GI</li>
+<li>outdated; not recommended</li>
+</ul>
+</li>
+<li>Raytraced GI
+<ul>
+<li>complication of raytracing feature</li>
+<li>complex works</li>
+</ul>
+</li>
+</ul>
+<h4 id=indirect-sahdow>Indirect-Sahdow<a hidden class=anchor aria-hidden=true href=#indirect-sahdow>#</a></h4>
+<ul>
+<li>Raycast AO
+<ul>
+<li>raycast feature</li>
+<li>Accurate raytraced Ambient Occlusion (a.k.a. its name)</li>
+</ul>
+</li>
+<li>Capsule Shadow
+<ul>
+<li>simplicating skeletal mesh shadows</li>
+<li>commonly used for tiny creatures or massive characters</li>
+<li>can be used for vague light art style</li>
+</ul>
+</li>
+<li>DFAO
+<ul>
+<li>Distance Field Ambient Occlusion</li>
+<li>uses <code>Mesh Distance Field</code></li>
+<li>used for moveable. stationary Skylight (in detail panel)</li>
+<li>let actor scale stay close to 1, or Distance Field will look weird</li>
+</ul>
+</li>
+</ul>
 <h3 id=reflections>Reflections<a hidden class=anchor aria-hidden=true href=#reflections>#</a></h3>
 <h3 id=additional>Additional<a hidden class=anchor aria-hidden=true href=#additional>#</a></h3>
 <h3 id=post-processing>Post Processing<a hidden class=anchor aria-hidden=true href=#post-processing>#</a></h3>
