@@ -256,7 +256,7 @@ weight: 1
 	- Volumetric Materials
 	- Distance Fog
   - Physically Based Sky Atmosphere
-    - check for [World Building chapter](kickstart_world)
+    - check for [World Building chapter](../kickstart_world)
 	- Distance Fog
 - Translucency
   - Refraction
