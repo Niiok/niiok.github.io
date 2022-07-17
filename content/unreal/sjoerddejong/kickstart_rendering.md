@@ -156,7 +156,7 @@ weight: 1
   - how
     - Volumetric Lightmaps
 	  - default setting for current version
-	  - saves lighting data since lightmap doesn't provide dynamic lighitng data
+	  - saves multiple lighting data since lightmap doesn't provide dynamic lighitng data
 	- Volume Lighting Samples
 	  - used for older version
 	  - less memory, less gpu time, less accuracy
@@ -212,13 +212,13 @@ weight: 1
   - complication of raytracing feature
   - complex works
 
-#### Indirect-Sahdow
+#### Indirect-Shadow
 - Raycast AO
   - raycast feature
   - Accurate raytraced Ambient Occlusion (a.k.a. its name)
 - Capsule Shadow
-  - simplicating skeletal mesh shadows
-  - commonly used for tiny creatures or massive characters
+  - simplicating skeletal mesh's shadow
+  - commonly used for tiny creatures or swarming characters
   - can be used for vague light art style
 - DFAO
   - Distance Field Ambient Occlusion
@@ -227,8 +227,54 @@ weight: 1
   - let actor scale stay close to 1, or Distance Field will look weird
 
 ### Reflections
+- Reflection Process
+  1. Reflection Captures
+     - Placed in world, statically captures blend cubemap
+	 - fast, not precise
+  2. Planar Reflections
+     - Placed in world, dynamically capture everytime
+     - precise, but only for flat surface
+	 - realtime; not good for performance
+  3. Screen Space Reflections
+     - reuse already-rendered result
+	 - replaces previous reflections if it possible (per-pixel)
+     - can tweak with poss-process volume and cvar (e.g. `SSR.Quality`)
+  4. Raytraced Reflections (optional)
 
 ### Additional
+- Atmospherics
+  - In Editor,
+    - Exponential Height Fog
+	  - Distance Fog
+    - Atmospheric Fog
+    - Sky Atmosphere
+  - Volumetric Fog
+    - with Exponential Height Fog
+	- reads [Volumetric Lightmaps](#static-lightingshadows) and adjust color on fog
+	- renders dynamic light/shadows on top (e.g. god rays, light illumination)
+	- can be tied into particle
+	- Volumetric Materials
+	- Distance Fog
+  - Physically Based Sky Atmosphere
+    - check for [World Building chapter](kickstart_world)
+	- Distance Fog
+- Translucency
+  - Refraction
+    - material detail panel -> Refraction Mode
+	  - Pixel Normal Offset : for flat surface
+	  - Index Of Refraction : for complex 3d objects
+  - if you set Shading Mode as unlit, it's good for performance
+  - Lighting Mode
+    - Volumetric NonDirectional
+	  - cheapest
+	- Volumetric Directional
+	- Translucency Volume
+	- Volumetric PerVertex NonDirectional
+	  - almost cheapest
+	- Volumetric PerVertex Directional
+	- Surface ForwardShading
+	  - heaviest, nice looking
+	- Raytraced
 
 ### Post Processing
 
