@@ -277,20 +277,95 @@ weight: 1
 	- Raytraced
 
 ### Post Processing
+> Unrea;'s almost postprocessings are enabled by default    
+> Highlight with Volume, Camera, Component, Project Setting    
+> turning checkbox off doesn't mean feature is off    
+> set Cvar into 0 or modify project setting to turn feature off    
+- Tonemapper
+  - `r.Tonemapper.Sharpen`
+- Bloom
+  > multi-stage; layered resulting    
+  > supports reflection, 6 of size scale and tint    
+  - Standard
+  - Convolution
+    - high quality, expensive, not for realtime rendering
+- SSAO (Screen Space Ambient Occlusion)
+- SSSSS (Screen Space SubSurface Scattering)
+  > for skin, wax on candle. leaves
+  - Burley SSSSS
+- SSGI (Screen Space Global Illuminaion)
+  - disabled by default
+  - approximate GI in screen space (like photoshop)
+- Depth Of Field
+  - Gaussian
+    - low quality, cheapest
+  - Bokeh
+    - expensive, high quality
+	- but Circle/Cinematic is better in performance
+	- deprecated; will be removed
+  - Circle/Cinematic
+    - high quality, acceptable performance
+- Exposure
+  - uses setting in game setting
+- Blendables
+  - allows PP Material to modify how screen looks like
+  - e.g. underwater
+- Camera Effects
+  - Grain
+  - Vignette
+  - Chromatic Abberation
+  - Lensflares
+  - Dirt Mask
 
 ## Final Frame (Frame N, )
 
 ### Performance
-
-### Scalability Example
-
-
-
-Plugin : RenderDoc
-- data, 
-
+> check for world building chepter since its closely related    
+- GPU Profiler
+- Stats
+- View Modes
+- Scalability
+  - **CVars**
+    - CVars are not saved; reset when you turn editor o
+    - `r.*` : rendering, performance critial
+	- `help` : generate HTML page that lists command and description
+  - Scalability Example
+    - Device Profile
+	  > CVars are automatically called in distinct device    
+	  - can type in text inside `DefaultDeviceProfile.ini`
+	  - can set layer by power to make engine estimate device power and adjust them
 
 
 # Advice
+- Managing tris and draw calls
+  - do not forget using statistic panel
+  - Merge Actors
+    - grouping by materials
+	- into single mesh
+	- into an actor with multiple instanced static mesh components
+  - Hitting the right balance (check rendering course)
+  - LOD
+    - Forced LOD Model
+	- LOD Reduction
+    - Detail Mode
+- Shadow rendering
+  - Balnce Cascaded Shadow Map / Distant Field
+  - Far Shadows
+    - set number of cascade cases and distance in directional light
+	- set whether makes far shadow or not in model
+	- kinda deprecated by distance field
+  - Toggling/Light Range
+    - Max draw distnace in Light detail panel
+  - Polycount/LODs
+  - Large Meshes/Foliage Shadows
+  - Toggling Shadows on detail meshes (DF+Regular)
+- Material cost
+- Translucency
+- Baking lighting
+- Reflections
+- Forward/Mobile
+- Scalability Cvars/Shows
+
+- try to use RenderDoc
 
  
