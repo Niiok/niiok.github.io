@@ -317,10 +317,10 @@ weight: 1
   - Lensflares
   - Dirt Mask
 
-## Final Frame (Frame N, )
+## Final Frame (Frame N, done)
 
 ### Performance
-> check for world building chepter since its closely related    
+> check for world building chepter since it's closely related    
 - GPU Profiler
 - Stats
 - View Modes
@@ -349,23 +349,53 @@ weight: 1
 	- LOD Reduction
     - Detail Mode
 - Shadow rendering
-  - Balnce Cascaded Shadow Map / Distant Field
+  - Balance Cascaded Shadow Map / Distant Field
   - Far Shadows
     - set number of cascade cases and distance in directional light
 	- set whether makes far shadow or not in model
-	- kinda deprecated by distance field
+	- kinda outdated by distance field
   - Toggling/Light Range
     - Max draw distnace in Light detail panel
   - Polycount/LODs
   - Large Meshes/Foliage Shadows
   - Toggling Shadows on detail meshes (DF+Regular)
+    - Distance Field Shadow is useless for small meshes
 - Material cost
+  - Noise is expensive
+  - Instruction counts / Shader complexity
+  - Balance between permutations/Instruction and Materials/Instances
+  - Quality Switch
 - Translucency
+  - use Unlit if you can
+  - Instruction counts important
+  - if lit - use the volume mode + CVars
+    - e.g. `r.TranslucencyLightingVolumeDim`
+  - Forward + Reflection is very expensive
+  - Dithered translucency
 - Baking lighting
+  - baking light needs all levels loaded
+  - Lightmass Importance Volume
+  - Volumetric Lightmaps tips
+    - cell size in world property
+	- Volumetric Lightmap Density Volume
+  - override Lightmap size
+  - can mass manipulate LM + Statics
+  - Build time = LM Res + # lighta + # Meshes + Source Radius + Radius
 - Reflections
+  - Base layer with Sphere Reflection Captures
+  - Placement, tactic, cost and limits
+  - Screen Space Reflection settings
+  - Planar is rare, careful with real time
 - Forward/Mobile
+  - Other renderers and where to find them
+  - Previewing
+  - Material settngs
 - Scalability Cvars/Shows
-
+  - CVar tweaking and experimentation workflow
+  - Help HTML Export
+  - Setting defaults
+  - Performance assessments with CVar toggling and Show/Hide commands
+- use Light Fallout Exponent for sizing light with less cost
 - try to use RenderDoc
 
  
