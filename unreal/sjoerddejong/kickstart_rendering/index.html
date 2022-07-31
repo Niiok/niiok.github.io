@@ -31,7 +31,7 @@
 <meta name=twitter:title content="Unreal Kickstart - Rendering">
 <meta name=twitter:description content="Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light & Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unreals","item":"https://niiok.github.io/unreal/"},{"@type":"ListItem","position":2,"name":"Unreal Kickstart - Rendering","item":"https://niiok.github.io/unreal/sjoerddejong/kickstart_rendering/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unreal Kickstart - Rendering","name":"Unreal Kickstart - Rendering","description":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026amp; Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)","keywords":[],"articleBody":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026 Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)\nAhead of Rendering (Frame 0, CPU) All Logic  deciding what to render\n  Gameplay Animation Physics etc..  Visibility (Frame 1, CPU)  check what can be seen by camera. process lighter tasks first to reduce calcuration candidates\n  Occlusion/Visibility Processes  Distance Culling (Lightest)  not enabled by default (recommended) by CullDistanceVolume  or you have to set Desired Max Draw Distance for every actors (annoying)     Frustum Culling  standard enabled why you have to disable this?   Precomputed Visibility  not enabled by default (optional) enable with World Setting property Good for space-time tradeoff  use memmory to reduce cpu cost   by PrecomputedVisibilityVolume   Visibility Culling (Heaviest)  standard enabled heavy check with freezerendering Hardware Occlusion  use every mesh as occluder not work in every devices (so engine need Software Occlusion)   Software Occlusion  uses Mesh LODs as occluder        Start of Rendering (Frame 2, GPU) Early Z Pass  Scene Depth used for deferred rendering pipeline  Basepass  Act of rendering all geometries can check with GPU compiler\n  Drawcalls  HLOD Static Meshes Instanced Meshes Skeletal Meshes Landscapes Procedural Meshes Geometry Collection … etc (Geometry, 3D to render)   Dynamic Instancing  automatically batch drawcalls\n  enabled by default same mesh, same material in one drawcall   Basspass Materials  unreal’s deferred rendering do not render every materials at once. first, basic materials are rendered here (without shadow, blending, etc)\n  Lightmaps  need for initial shading Generated by Lightmass      Static Lighting/Shadows  Lightmass  Separeted application run by Swarm agent manage building and baking lights\n  what  Static Light Actors placed in the world Lightmass Importance Volume Global Illumination/Radiosity   how  Volumetric Lightmaps  default setting for current version saves multiple lighting data since lightmap doesn’t provide dynamic lighitng data   Volume Lighting Samples  used for older version less memory, less gpu time, less accuracy saves single color only for dynamic lighting data        GBuffer  Buffer A : World Normals Buffer B : Specular / Roughness / Metalic Buffer C : Base Color / Lighting Buffer D : Additional Buffer E : Additional  Dyanmic Lighting/Shadows Direct-Light  IES Profiles  customize light projection and intensity can be static   Light Functions  Material - Material Domain - Light Function e.g. fire flickering, water caustics, cloud shadow kinda heavy work, so set Fade Distance in proper value    Direct-Shadow  Dynamic Shadows  optionally use Mesh Distance Field cached (performance dip when invalidated) r.Shadow.CacheWholeSceneShadows   Cascaded Shadow Maps  for gradually disappearing shadows low, medium, high quality (3 by default) commonly used in directional light, outdoor environments still heavy, ugly when shadow disappear - Distance Field Shadows   Distance Field Shadow  not enabled by default uses Mesh Distance Field need more memory and imprecise   Raytraced Shadows Per Object Shdows \u0026 Inset Shadows  used for often-seen shadows (like character mesh) can show more precise shadow   Contact Shadows  shadow over close obejcts kind of post processing for tiny detail    Indirect-Light  both are not commonly used for nowdays\n  Light Propagation  older realtime GI outdated; not recommended   Raytraced GI  complication of raytracing feature complex works    Indirect-Shadow  Raycast AO  raycast feature Accurate raytraced Ambient Occlusion (a.k.a. its name)   Capsule Shadow  simplicating skeletal mesh’s shadow commonly used for tiny creatures or swarming characters can be used for vague light art style   DFAO  Distance Field Ambient Occlusion uses Mesh Distance Field used for moveable. stationary Skylight (in detail panel) let actor scale stay close to 1, or Distance Field will look weird    Reflections  Reflection Process  Reflection Captures  Placed in world, statically captures blend cubemap fast, not precise   Planar Reflections  Placed in world, dynamically capture everytime precise, but only for flat surface realtime; not good for performance   Screen Space Reflections  reuse already-rendered result replaces previous reflections if it possible (per-pixel) can tweak with poss-process volume and cvar (e.g. SSR.Quality)   Raytraced Reflections (optional)    Additional  Atmospherics  In Editor,  Exponential Height Fog  Distance Fog   Atmospheric Fog Sky Atmosphere   Volumetric Fog  with Exponential Height Fog reads Volumetric Lightmaps and adjust color on fog renders dynamic light/shadows on top (e.g. god rays, light illumination) can be tied into particle Volumetric Materials Distance Fog   Physically Based Sky Atmosphere  check for World Building chapter Distance Fog     Translucency  Refraction  material detail panel - Refraction Mode  Pixel Normal Offset : for flat surface Index Of Refraction : for complex 3d objects     if you set Shading Mode as unlit, it’s good for performance Lighting Mode  Volumetric NonDirectional  cheapest   Volumetric Directional Translucency Volume Volumetric PerVertex NonDirectional  almost cheapest   Volumetric PerVertex Directional Surface ForwardShading  heaviest, nice looking   Raytraced      Post Processing  Unrea;’s almost postprocessings are enabled by default Highlight with Volume, Camera, Component, Project Setting turning checkbox off doesn’t mean feature is off set Cvar into 0 or modify project setting to turn feature off\n  Tonemapper  r.Tonemapper.Sharpen   Bloom  multi-stage; layered resulting supports reflection, 6 of size scale and tint\n  Standard Convolution  high quality, expensive, not for realtime rendering     SSAO (Screen Space Ambient Occlusion) SSSSS (Screen Space SubSurface Scattering)  for skin, wax on candle. leaves\n  Burley SSSSS   SSGI (Screen Space Global Illuminaion)  disabled by default approximate GI in screen space (like photoshop)   Depth Of Field  Gaussian  low quality, cheapest   Bokeh  expensive, high quality but Circle/Cinematic is better in performance deprecated; will be removed   Circle/Cinematic  high quality, acceptable performance     Exposure  uses setting in game setting   Blendables  allows PP Material to modify how screen looks like e.g. underwater   Camera Effects  Grain Vignette Chromatic Abberation Lensflares Dirt Mask    Final Frame (Frame N, ) Performance  check for world building chepter since its closely related\n  GPU Profiler Stats View Modes Scalability  CVars  CVars are not saved; reset when you turn editor o r.* : rendering, performance critial help : generate HTML page that lists command and description   Scalability Example  Device Profile  CVars are automatically called in distinct device\n  can type in text inside DefaultDeviceProfile.ini can set layer by power to make engine estimate device power and adjust them        Advice   Managing tris and draw calls\n do not forget using statistic panel Merge Actors  grouping by materials into single mesh into an actor with multiple instanced static mesh components   Hitting the right balance (check rendering course) LOD  Forced LOD Model LOD Reduction Detail Mode      Shadow rendering\n Balnce Cascaded Shadow Map / Distant Field Far Shadows  set number of cascade cases and distance in directional light set whether makes far shadow or not in model kinda deprecated by distance field   Toggling/Light Range  Max draw distnace in Light detail panel   Polycount/LODs Large Meshes/Foliage Shadows Toggling Shadows on detail meshes (DF+Regular)    Material cost\n  Translucency\n  Baking lighting\n  Reflections\n  Forward/Mobile\n  Scalability Cvars/Shows\n  try to use RenderDoc\n  ","wordCount":"1190","inLanguage":"en","datePublished":"2022-04-26T17:40:24+09:00","dateModified":"2022-04-26T17:40:24+09:00","author":[{"@type":"Person","name":"Sjoerd De Jong"},{"@type":"Person","name":"Mario Palmero"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/unreal/sjoerddejong/kickstart_rendering/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unreal Kickstart - Rendering","name":"Unreal Kickstart - Rendering","description":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026amp; Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)","keywords":[],"articleBody":"Intro and Philosophy History  rendering has always been focus point best visual at the best performance all-compatible set of tools for any renderer or platform  UE1 (1997)  blended colored light dynamic, static light volumetric light, lensflare, perfect mirrors, procedural texture effects 1k, 2k supported, detailed texture in 256mb memory  UE2 (2002)  DirectX 7 support mesh, terrains, larger outdoor environments, vehicles foliage and particle basic material vertex lighting  UE3 (2006)  DirectX 9 support forward rendering even larger outdoor environments full lightmapping, dynamic shadows  UE4 (2014)  handle any style (not only high realism) scalabiliy, from indipendable to AAA over game egine  better fidelity, architecture, pipeline, flexibility    UE5 (2022)  Nanite Lumen Niagara  Schematic Schematic  Ahead of Rendering Visibility Features Start of Rendering BasePass  BasePass Material  Geometry Precomputed Lighting     GBuffer Dynamic Light \u0026 Shadow Reflections Additional  Translucency Atmospherics Etc   Post Processing Final Frame  Scalability and Performance    Schematic Overview Full size (4MB)\nAhead of Rendering (Frame 0, CPU) All Logic  deciding what to render\n  Gameplay Animation Physics etc..  Visibility (Frame 1, CPU)  check what can be seen by camera. process lighter tasks first to reduce calcuration candidates\n  Occlusion/Visibility Processes  Distance Culling (Lightest)  not enabled by default (recommended) by CullDistanceVolume  or you have to set Desired Max Draw Distance for every actors (annoying)     Frustum Culling  standard enabled why you have to disable this?   Precomputed Visibility  not enabled by default (optional) enable with World Setting property Good for space-time tradeoff  use memmory to reduce cpu cost   by PrecomputedVisibilityVolume   Visibility Culling (Heaviest)  standard enabled heavy check with freezerendering Hardware Occlusion  use every mesh as occluder not work in every devices (so engine need Software Occlusion)   Software Occlusion  uses Mesh LODs as occluder        Start of Rendering (Frame 2, GPU) Early Z Pass  Scene Depth used for deferred rendering pipeline  Basepass  Act of rendering all geometries can check with GPU compiler\n  Drawcalls  HLOD Static Meshes Instanced Meshes Skeletal Meshes Landscapes Procedural Meshes Geometry Collection … etc (Geometry, 3D to render)   Dynamic Instancing  automatically batch drawcalls\n  enabled by default same mesh, same material in one drawcall   Basspass Materials  unreal’s deferred rendering do not render every materials at once. first, basic materials are rendered here (without shadow, blending, etc)\n  Lightmaps  need for initial shading Generated by Lightmass      Static Lighting/Shadows  Lightmass  Separeted application run by Swarm agent manage building and baking lights\n  what  Static Light Actors placed in the world Lightmass Importance Volume Global Illumination/Radiosity   how  Volumetric Lightmaps  default setting for current version saves multiple lighting data since lightmap doesn’t provide dynamic lighitng data   Volume Lighting Samples  used for older version less memory, less gpu time, less accuracy saves single color only for dynamic lighting data        GBuffer  Buffer A : World Normals Buffer B : Specular / Roughness / Metalic Buffer C : Base Color / Lighting Buffer D : Additional Buffer E : Additional  Dyanmic Lighting/Shadows Direct-Light  IES Profiles  customize light projection and intensity can be static   Light Functions  Material - Material Domain - Light Function e.g. fire flickering, water caustics, cloud shadow kinda heavy work, so set Fade Distance in proper value    Direct-Shadow  Dynamic Shadows  optionally use Mesh Distance Field cached (performance dip when invalidated) r.Shadow.CacheWholeSceneShadows   Cascaded Shadow Maps  for gradually disappearing shadows low, medium, high quality (3 by default) commonly used in directional light, outdoor environments still heavy, ugly when shadow disappear - Distance Field Shadows   Distance Field Shadow  not enabled by default uses Mesh Distance Field need more memory and imprecise   Raytraced Shadows Per Object Shdows \u0026 Inset Shadows  used for often-seen shadows (like character mesh) can show more precise shadow   Contact Shadows  shadow over close obejcts kind of post processing for tiny detail    Indirect-Light  both are not commonly used for nowdays\n  Light Propagation  older realtime GI outdated; not recommended   Raytraced GI  complication of raytracing feature complex works    Indirect-Shadow  Raycast AO  raycast feature Accurate raytraced Ambient Occlusion (a.k.a. its name)   Capsule Shadow  simplicating skeletal mesh’s shadow commonly used for tiny creatures or swarming characters can be used for vague light art style   DFAO  Distance Field Ambient Occlusion uses Mesh Distance Field used for moveable. stationary Skylight (in detail panel) let actor scale stay close to 1, or Distance Field will look weird    Reflections  Reflection Process  Reflection Captures  Placed in world, statically captures blend cubemap fast, not precise   Planar Reflections  Placed in world, dynamically capture everytime precise, but only for flat surface realtime; not good for performance   Screen Space Reflections  reuse already-rendered result replaces previous reflections if it possible (per-pixel) can tweak with poss-process volume and cvar (e.g. SSR.Quality)   Raytraced Reflections (optional)    Additional  Atmospherics  In Editor,  Exponential Height Fog  Distance Fog   Atmospheric Fog Sky Atmosphere   Volumetric Fog  with Exponential Height Fog reads Volumetric Lightmaps and adjust color on fog renders dynamic light/shadows on top (e.g. god rays, light illumination) can be tied into particle Volumetric Materials Distance Fog   Physically Based Sky Atmosphere  check for World Building chapter Distance Fog     Translucency  Refraction  material detail panel - Refraction Mode  Pixel Normal Offset : for flat surface Index Of Refraction : for complex 3d objects     if you set Shading Mode as unlit, it’s good for performance Lighting Mode  Volumetric NonDirectional  cheapest   Volumetric Directional Translucency Volume Volumetric PerVertex NonDirectional  almost cheapest   Volumetric PerVertex Directional Surface ForwardShading  heaviest, nice looking   Raytraced      Post Processing  Unrea;’s almost postprocessings are enabled by default Highlight with Volume, Camera, Component, Project Setting turning checkbox off doesn’t mean feature is off set Cvar into 0 or modify project setting to turn feature off\n  Tonemapper  r.Tonemapper.Sharpen   Bloom  multi-stage; layered resulting supports reflection, 6 of size scale and tint\n  Standard Convolution  high quality, expensive, not for realtime rendering     SSAO (Screen Space Ambient Occlusion) SSSSS (Screen Space SubSurface Scattering)  for skin, wax on candle. leaves\n  Burley SSSSS   SSGI (Screen Space Global Illuminaion)  disabled by default approximate GI in screen space (like photoshop)   Depth Of Field  Gaussian  low quality, cheapest   Bokeh  expensive, high quality but Circle/Cinematic is better in performance deprecated; will be removed   Circle/Cinematic  high quality, acceptable performance     Exposure  uses setting in game setting   Blendables  allows PP Material to modify how screen looks like e.g. underwater   Camera Effects  Grain Vignette Chromatic Abberation Lensflares Dirt Mask    Final Frame (Frame N, done) Performance  check for world building chepter since it’s closely related\n  GPU Profiler Stats View Modes Scalability  CVars  CVars are not saved; reset when you turn editor o r.* : rendering, performance critial help : generate HTML page that lists command and description   Scalability Example  Device Profile  CVars are automatically called in distinct device\n  can type in text inside DefaultDeviceProfile.ini can set layer by power to make engine estimate device power and adjust them        Advice  Managing tris and draw calls  do not forget using statistic panel Merge Actors  grouping by materials into single mesh into an actor with multiple instanced static mesh components   Hitting the right balance (check rendering course) LOD  Forced LOD Model LOD Reduction Detail Mode     Shadow rendering  Balance Cascaded Shadow Map / Distant Field Far Shadows  set number of cascade cases and distance in directional light set whether makes far shadow or not in model kinda outdated by distance field   Toggling/Light Range  Max draw distnace in Light detail panel   Polycount/LODs Large Meshes/Foliage Shadows Toggling Shadows on detail meshes (DF+Regular)  Distance Field Shadow is useless for small meshes     Material cost  Noise is expensive Instruction counts / Shader complexity Balance between permutations/Instruction and Materials/Instances Quality Switch   Translucency  use Unlit if you can Instruction counts important if lit - use the volume mode + CVars  e.g. r.TranslucencyLightingVolumeDim   Forward + Reflection is very expensive Dithered translucency   Baking lighting  baking light needs all levels loaded Lightmass Importance Volume Volumetric Lightmaps tips  cell size in world property Volumetric Lightmap Density Volume   override Lightmap size can mass manipulate LM + Statics Build time = LM Res + # lighta + # Meshes + Source Radius + Radius   Reflections  Base layer with Sphere Reflection Captures Placement, tactic, cost and limits Screen Space Reflection settings Planar is rare, careful with real time   Forward/Mobile  Other renderers and where to find them Previewing Material settngs   Scalability Cvars/Shows  CVar tweaking and experimentation workflow Help HTML Export Setting defaults Performance assessments with CVar toggling and Show/Hide commands   use Light Fallout Exponent for sizing light with less cost try to use RenderDoc  ","wordCount":"1346","inLanguage":"en","datePublished":"2022-04-26T17:40:24+09:00","dateModified":"2022-04-26T17:40:24+09:00","author":[{"@type":"Person","name":"Sjoerd De Jong"},{"@type":"Person","name":"Mario Palmero"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://niiok.github.io/unreal/sjoerddejong/kickstart_rendering/"},"publisher":{"@type":"Organization","name":"Niiok's Blog","logo":{"@type":"ImageObject","url":"https://niiok.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -65,7 +65,7 @@
 <h1 class=post-title>
 Unreal Kickstart - Rendering
 </h1>
-<div class=post-meta><span title="2022-04-26 17:40:24 +0900 +0900">April 26, 2022</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Sjoerd De Jong, Mario Palmero&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/unreal/sjoerddejong/kickstart_rendering.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2022-04-26 17:40:24 +0900 +0900">April 26, 2022</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Sjoerd De Jong, Mario Palmero&nbsp;|&nbsp;<a href=https://github.com/Niiok/niiok.github.io/tree/master/content/unreal/sjoerddejong/kickstart_rendering.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header> <div class=toc>
 <details open>
@@ -129,7 +129,7 @@ Unreal Kickstart - Rendering
 <a href=#post-processing aria-label="Post Processing">Post Processing</a></li></ul>
 </li>
 <li>
-<a href=#final-frame-frame-n- aria-label="Final Frame (Frame N, )">Final Frame (Frame N, )</a><ul>
+<a href=#final-frame-frame-n-done aria-label="Final Frame (Frame N, done)">Final Frame (Frame N, done)</a><ul>
 <li>
 <a href=#performance aria-label=Performance>Performance</a></li></ul>
 </li></ul>
@@ -663,10 +663,10 @@ supports reflection, 6 of size scale and tint</p>
 </ul>
 </li>
 </ul>
-<h2 id=final-frame-frame-n->Final Frame (Frame N, )<a hidden class=anchor aria-hidden=true href=#final-frame-frame-n->#</a></h2>
+<h2 id=final-frame-frame-n-done>Final Frame (Frame N, done)<a hidden class=anchor aria-hidden=true href=#final-frame-frame-n-done>#</a></h2>
 <h3 id=performance>Performance<a hidden class=anchor aria-hidden=true href=#performance>#</a></h3>
 <blockquote>
-<p>check for world building chepter since its closely related</p>
+<p>check for world building chepter since it&rsquo;s closely related</p>
 </blockquote>
 <ul>
 <li>GPU Profiler</li>
@@ -699,8 +699,7 @@ supports reflection, 6 of size scale and tint</p>
 </ul>
 <h1 id=advice>Advice<a hidden class=anchor aria-hidden=true href=#advice>#</a></h1>
 <ul>
-<li>
-<p>Managing tris and draw calls</p>
+<li>Managing tris and draw calls
 <ul>
 <li>do not forget using statistic panel</li>
 <li>Merge Actors
@@ -720,15 +719,14 @@ supports reflection, 6 of size scale and tint</p>
 </li>
 </ul>
 </li>
-<li>
-<p>Shadow rendering</p>
+<li>Shadow rendering
 <ul>
-<li>Balnce Cascaded Shadow Map / Distant Field</li>
+<li>Balance Cascaded Shadow Map / Distant Field</li>
 <li>Far Shadows
 <ul>
 <li>set number of cascade cases and distance in directional light</li>
 <li>set whether makes far shadow or not in model</li>
-<li>kinda deprecated by distance field</li>
+<li>kinda outdated by distance field</li>
 </ul>
 </li>
 <li>Toggling/Light Range
@@ -738,30 +736,74 @@ supports reflection, 6 of size scale and tint</p>
 </li>
 <li>Polycount/LODs</li>
 <li>Large Meshes/Foliage Shadows</li>
-<li>Toggling Shadows on detail meshes (DF+Regular)</li>
+<li>Toggling Shadows on detail meshes (DF+Regular)
+<ul>
+<li>Distance Field Shadow is useless for small meshes</li>
 </ul>
 </li>
-<li>
-<p>Material cost</p>
+</ul>
 </li>
-<li>
-<p>Translucency</p>
+<li>Material cost
+<ul>
+<li>Noise is expensive</li>
+<li>Instruction counts / Shader complexity</li>
+<li>Balance between permutations/Instruction and Materials/Instances</li>
+<li>Quality Switch</li>
+</ul>
 </li>
-<li>
-<p>Baking lighting</p>
+<li>Translucency
+<ul>
+<li>use Unlit if you can</li>
+<li>Instruction counts important</li>
+<li>if lit - use the volume mode + CVars
+<ul>
+<li>e.g. <code>r.TranslucencyLightingVolumeDim</code></li>
+</ul>
 </li>
-<li>
-<p>Reflections</p>
+<li>Forward + Reflection is very expensive</li>
+<li>Dithered translucency</li>
+</ul>
 </li>
-<li>
-<p>Forward/Mobile</p>
+<li>Baking lighting
+<ul>
+<li>baking light needs all levels loaded</li>
+<li>Lightmass Importance Volume</li>
+<li>Volumetric Lightmaps tips
+<ul>
+<li>cell size in world property</li>
+<li>Volumetric Lightmap Density Volume</li>
+</ul>
 </li>
-<li>
-<p>Scalability Cvars/Shows</p>
+<li>override Lightmap size</li>
+<li>can mass manipulate LM + Statics</li>
+<li>Build time = LM Res + # lighta + # Meshes + Source Radius + Radius</li>
+</ul>
 </li>
-<li>
-<p>try to use RenderDoc</p>
+<li>Reflections
+<ul>
+<li>Base layer with Sphere Reflection Captures</li>
+<li>Placement, tactic, cost and limits</li>
+<li>Screen Space Reflection settings</li>
+<li>Planar is rare, careful with real time</li>
+</ul>
 </li>
+<li>Forward/Mobile
+<ul>
+<li>Other renderers and where to find them</li>
+<li>Previewing</li>
+<li>Material settngs</li>
+</ul>
+</li>
+<li>Scalability Cvars/Shows
+<ul>
+<li>CVar tweaking and experimentation workflow</li>
+<li>Help HTML Export</li>
+<li>Setting defaults</li>
+<li>Performance assessments with CVar toggling and Show/Hide commands</li>
+</ul>
+</li>
+<li>use Light Fallout Exponent for sizing light with less cost</li>
+<li>try to use RenderDoc</li>
 </ul>
 </div>
 <footer class=post-footer>
