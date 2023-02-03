@@ -26,3 +26,4 @@ weight: 1
   - If they don't exist, make symbolic links of `d8.bat` and `d8.jar`.
   - You MUST enable `AndroidDeviceProfileSelector` and `AndroidPermission` plugins.
   - Then execute `[EngineFolder]/Engine/Extras/Android/SetupAndroid.*` while UE4 and Android Studio are off.
+  - UE4 does not support `Android SDK Command-line tools` **v9.0** or more, so make sure to download **v8.0** and set folder name `8.0` to `latest`.
