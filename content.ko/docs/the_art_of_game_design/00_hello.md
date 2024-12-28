@@ -1,5 +1,4 @@
 # 들어가며
-* 게임 디자인과 삶의 경험의 연관성
 
 ## 게임 디자인이란 무엇인가?
 * 게임이 어때야 하는지에 대한 결정 행위와 그 기록
@@ -12,13 +11,16 @@
 ## 멘델레예프를 기다리며
 > The voyage of discovery is not in seeking new landscapes but in having new eyes.  
 > _&horbar; Marcel Proust_
-* 아직 정해진 공식은 없음
+* 아직 좋은 게임에 대한 단순한 공식은 없음
 * 연금술사처럼 다양한 관점에서 검사 -> 렌즈 제공
 * 과학보단 기예, 화학보단 요리
 
 ## 기본에 집중하기
+> We might as well omit to study Nature because she is old.  
+> _&horbar; Thoreau_
 * 비디오 게임은 게임의 한 매체일 뿐, 근본은 불변
-* **전통적 게임의 검증된 근본 가치를 배울 필요 있음**
+* 전통적 게임의 재미는 현대 게임의 재미와 다르지 않음
+* **전통적 게임의 검증된 근본 원리를 배울 필요 있음**
   * 장르는 바뀌어도 기초는 바뀌지 않음
   * 새로운 장르 창조 가능
 
